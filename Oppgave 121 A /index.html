@@ -10,32 +10,40 @@
 <body>
     <input type="number" id="xInput" placeholder="Enter x-coordinate" />
     <input type="number" id="yInput" placeholder="Enter y-coordinate" />
-    <select id="colorSelect">
+    <select id="bgColorSelect">
         <option value="yellow">Yellow</option>
         <option value="red">Red</option>
         <option value="green">Green</option>
         <option value="blue">Blue</option>
         <option value="gray">Gray</option>
     </select>
+    <select id="fgColorSelect">
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="purple">Purple</option>
+    </select>
     <button onclick="addCircleFromInput()">Legg til sirkel</button>
     <br />
     <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
     </svg>
     <script>
-        function addCircle(x, y, color) {
+        function addCircle(x, y, bgColor, fgColor) {
             document.getElementById('mySvg').innerHTML += /*HTML*/`
-          <circle cx="${x}" cy="${y}" r="40" stroke="green" stroke-width="4" fill="${color}" />            
+          <circle cx="${x}" cy="${y}" r="40" stroke="${fgColor}" stroke-width="4" fill="${bgColor}" />            
       `;
         }
 
         function addCircleFromInput() {
             const x = document.getElementById('xInput').value;
             const y = document.getElementById('yInput').value;
-            const color = document.getElementById('colorSelect').value;
-            if (x && y && color) {
-                addCircle(x, y, color);
+            const bgColor = document.getElementById('bgColorSelect').value;
+            const fgColor = document.getElementById('fgColorSelect').value;
+            if (x && y && bgColor && fgColor) {
+                addCircle(x, y, bgColor, fgColor);
             } else {
-                alert('Please enter valid x and y coordinates and select a color');
+                alert('Please enter valid x and y coordinates and select both colors');
             }
         }
     </script>
