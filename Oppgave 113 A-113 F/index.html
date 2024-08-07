@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testside for HTML-elementer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        ul li,
+        ol li {
+            margin: 5px 0;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Overskrifter i forskjellige størrelser</h1>
+    <h2>Dette er en H2 overskrift</h2>
+    <h3>Dette er en H3 overskrift</h3>
+    <h4>Dette er en H4 overskrift</h4>
+    <h5>Dette er en H5 overskrift</h5>
+    <h6>Dette er en H6 overskrift</h6>
+
+    <h1>Avsnitt</h1>
+    <p>
+        Dette er et avsnitt. Avsnitt er laget med <code>&lt;p&gt;</code> taggen og brukes til å gruppere tekst i et
+        dokument.
+        Avsnitt gir naturlige pauser og forbedrer lesbarheten.
+    </p>
+
+    <h1>Nummererte lister og punktlister</h1>
+    <h2>Nummerert liste</h2>
+    <ol>
+        <li>Første element</li>
+        <li>Andre element</li>
+        <li>Tredje element</li>
+    </ol>
+
+    <h2>Punktliste</h2>
+    <ul>
+        <li>Første punkt</li>
+        <li>Andre punkt</li>
+        <li>Tredje punkt</li>
+    </ul>
+
+    <h1>Lenker</h1>
+    <p>
+        Dette er en lenke til <a href="https://www.example.com" target="_blank">Example.com</a>.
+    </p>
+
+    <h1>Sette inn bilder</h1>
+    <img src="https://via.placeholder.com/400" alt="Placeholder Image">
+
+    <h1>Skjema med tekstfelt, radioknapper og checkbokser</h1>
+    <form>
+        <label for="name">Navn:</label>
+        <input type="text" id="name" name="name" placeholder="Skriv inn ditt navn">
+
+        <fieldset>
+            <legend>Kjønn:</legend>
+            <label for="male">
+                <input type="radio" id="male" name="gender" value="male">
+                Mann
+            </label>
+            <label for="female">
+                <input type="radio" id="female" name="gender" value="female">
+                Kvinne
+            </label>
+            <label for="other">
+                <input type="radio" id="other" name="gender" value="other">
+                Annet
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Interesser:</legend>
+            <label for="sports">
+                <input type="checkbox" id="sports" name="interests" value="sports">
+                Sport
+            </label>
+            <label for="music">
+                <input type="checkbox" id="music" name="interests" value="music">
+                Musikk
+            </label>
+            <label for="reading">
+                <input type="checkbox" id="reading" name="interests" value="reading">
+                Lese
+            </label>
+        </fieldset>
+
+        <input type="submit" value="Send">
+    </form>
+</body>
+
+</html>
