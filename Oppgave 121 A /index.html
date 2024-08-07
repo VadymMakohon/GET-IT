@@ -9,23 +9,25 @@
 
 <body>
     <input type="number" id="xInput" placeholder="Enter x-coordinate" />
+    <input type="number" id="yInput" placeholder="Enter y-coordinate" />
     <button onclick="addCircleFromInput()">Legg til sirkel</button>
     <br />
     <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
     </svg>
     <script>
-        function addCircle(x) {
+        function addCircle(x, y) {
             document.getElementById('mySvg').innerHTML += /*HTML*/`
-          <circle cx="${x}" cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
+          <circle cx="${x}" cy="${y}" r="40" stroke="green" stroke-width="4" fill="yellow" />            
       `;
         }
 
         function addCircleFromInput() {
             const x = document.getElementById('xInput').value;
-            if (x) {
-                addCircle(x);
+            const y = document.getElementById('yInput').value;
+            if (x && y) {
+                addCircle(x, y);
             } else {
-                alert('Please enter a valid x-coordinate');
+                alert('Please enter valid x and y coordinates');
             }
         }
     </script>
