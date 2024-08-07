@@ -5,11 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Table Example</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #1f04ed;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <table id="myTable">
-        <!-- Table header -->
+        <!-- Table header will be dynamically added -->
     </table>
 
     <button onclick="addRow('th', 'Dag', 'Time', 'Minutt', 'Temperatur')">Add Header Row</button>
