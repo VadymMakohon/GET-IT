@@ -10,7 +10,13 @@
 <body>
     <input type="number" id="xInput" placeholder="Enter x-coordinate" />
     <input type="number" id="yInput" placeholder="Enter y-coordinate" />
-    <input type="text" id="colorInput" placeholder="Enter background color" />
+    <select id="colorSelect">
+        <option value="yellow">Yellow</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="gray">Gray</option>
+    </select>
     <button onclick="addCircleFromInput()">Legg til sirkel</button>
     <br />
     <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
@@ -25,11 +31,11 @@
         function addCircleFromInput() {
             const x = document.getElementById('xInput').value;
             const y = document.getElementById('yInput').value;
-            const color = document.getElementById('colorInput').value;
+            const color = document.getElementById('colorSelect').value;
             if (x && y && color) {
                 addCircle(x, y, color);
             } else {
-                alert('Please enter valid x and y coordinates and a color');
+                alert('Please enter valid x and y coordinates and select a color');
             }
         }
     </script>
