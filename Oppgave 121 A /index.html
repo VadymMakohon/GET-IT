@@ -10,6 +10,8 @@
 <body>
     <input type="number" id="xInput" placeholder="Enter x-coordinate" />
     <input type="number" id="yInput" placeholder="Enter y-coordinate" />
+    <input type="number" id="widthInput" placeholder="Enter width (for rectangle)" />
+    <input type="number" id="heightInput" placeholder="Enter height (for rectangle)" />
     <select id="bgColorSelect">
         <option value="yellow">Yellow</option>
         <option value="red">Red</option>
@@ -25,6 +27,7 @@
         <option value="purple">Purple</option>
     </select>
     <button onclick="addCircleFromInput()">Legg til sirkel</button>
+    <button onclick="addRectFromInput()">Legg til firkant</button>
     <br />
     <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
     </svg>
@@ -32,6 +35,12 @@
         function addCircle(x, y, bgColor, fgColor) {
             document.getElementById('mySvg').innerHTML += /*HTML*/`
           <circle cx="${x}" cy="${y}" r="40" stroke="${fgColor}" stroke-width="4" fill="${bgColor}" />            
+      `;
+        }
+
+        function addRect(x, y, width, height, bgColor, fgColor) {
+            document.getElementById('mySvg').innerHTML += /*HTML*/`
+          <rect x="${x}" y="${y}" width="${width}" height="${height}" stroke="${fgColor}" stroke-width="4" fill="${bgColor}" />            
       `;
         }
 
@@ -44,6 +53,20 @@
                 addCircle(x, y, bgColor, fgColor);
             } else {
                 alert('Please enter valid x and y coordinates and select both colors');
+            }
+        }
+
+        function addRectFromInput() {
+            const x = document.getElementById('xInput').value;
+            const y = document.getElementById('yInput').value;
+            const width = document.getElementById('widthInput').value;
+            const height = document.getElementById('heightInput').value;
+            const bgColor = document.getElementById('bgColorSelect').value;
+            const fgColor = document.getElementById('fgColorSelect').value;
+            if (x && y && width && height && bgColor && fgColor) {
+                addRect(x, y, width, height, bgColor, fgColor);
+            } else {
+                alert('Please enter valid x, y, width, height and select both colors');
             }
         }
     </script>
