@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <button onclick="addCircle(30)">Legg til sirkel (x=30)</button>
-    <button onclick="addCircle(70)">Legg til sirkel (x=70)</button>
+    <input type="number" id="xInput" placeholder="Enter x-coordinate" />
+    <button onclick="addCircleFromInput()">Legg til sirkel</button>
     <br />
     <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
     </svg>
@@ -18,6 +18,15 @@
             document.getElementById('mySvg').innerHTML += /*HTML*/`
           <circle cx="${x}" cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
       `;
+        }
+
+        function addCircleFromInput() {
+            const x = document.getElementById('xInput').value;
+            if (x) {
+                addCircle(x);
+            } else {
+                alert('Please enter a valid x-coordinate');
+            }
         }
     </script>
 </body>
