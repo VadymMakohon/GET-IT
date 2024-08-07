@@ -33,15 +33,15 @@
     </svg>
     <script>
         function addCircle(x, y, bgColor, fgColor) {
-            document.getElementById('mySvg').innerHTML += /*HTML*/`
-          <circle cx="${x}" cy="${y}" r="40" stroke="${fgColor}" stroke-width="4" fill="${bgColor}" />            
-      `;
+            document.getElementById('mySvg').innerHTML += `
+                <circle cx="${x}" cy="${y}" r="40" stroke="${fgColor}" stroke-width="4" fill="${bgColor}" />            
+            `;
         }
 
         function addRect(x, y, width, height, bgColor, fgColor) {
-            document.getElementById('mySvg').innerHTML += /*HTML*/`
-          <rect x="${x}" y="${y}" width="${width}" height="${height}" stroke="${fgColor}" stroke-width="4" fill="${bgColor}" />            
-      `;
+            document.getElementById('mySvg').innerHTML += `
+                <rect x="${x}" y="${y}" width="${width}" height="${height}" stroke="${fgColor}" stroke-width="4" fill="${bgColor}" />            
+            `;
         }
 
         function addCircleFromInput() {
