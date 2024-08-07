@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vektorgrafikk</title>
+</head>
+
+<body>
+    <button onclick="addCircle()">Legg til sirkel</button>
+    <br />
+    <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
+    </svg>
+    <script>
+        function addCircle() {
+            document.getElementById('mySvg').innerHTML = /*HTML*/`
+          <circle cx="50" cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
+      `;
+        }
+    </script>
+</body>
+
+</html>
