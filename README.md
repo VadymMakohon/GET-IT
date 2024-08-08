@@ -24,13 +24,13 @@ This repository serves as a personal sandbox where I experiment with and practic
 
 ## How to Use This Repository
 1. Clone the Repository: If you'd like to follow along or experiment with the code, clone this repository to your local machine using:
-
-bash
-Copy code
 git clone https://github.com/your-username/GET-IT.git
+
 2. Explore the Folders: Each folder corresponds to different aspects of the web development stack. Dive into them to see code examples, exercises, and projects.
 
 3. Open the Files in a Browser: You can view the HTML and CSS files directly in your web browser, or run the JavaScript files using Node.js or in the browser console.
 
 4. Contribute: If you notice any issues or have suggestions, feel free to open an issue or create a pull request. This is a learning journey, and collaboration is welcome!
 
+#  Contributors
+- [Vadym Makohon](https://github.com/VadymMakohon)
