@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enkelt dokument</title>
+    <title>Vadym</title>
     <style>
         button {
             color: red;
         }
 
-        img.small {
-            width: 150px;
-        }
-
-        img.medium {
+        .medium {
             width: 300px;
         }
 
-        img.large {
+        .large {
             width: 500px;
+        }
+
+        img {
+            width: 150px;
         }
 
         div {
@@ -32,33 +32,50 @@
 </head>
 
 <body>
-    <h1>Flytt på logoen</h1>
+    <h1 id="header">Flytt på logoen!</h1>
 
-    <button class="medium">Trykk her!</button>
-    <button>Trykk her!</button>
-    <button>Trykk her!</button>
+    <div id="buttons">
+        <button class="medium" onclick="vadym1()">Trykk her!</button>
+        <button onclick="vadym2()">Trykk her!</button>
+        <button onclick="vadym3()">Trykk her!</button>
+    </div>
 
     <div>
-        <img class="small" src="logo.png">
+        <img src="logo.png" />
     </div>
-    <div>
-        <img class="medium" src="logo.png">
-    </div>
-    <div>
-        <img class="large" src="logo.png">
-    </div>
-    <div id="Vadym">
-        <img class="large" src="logo.png">
 
+    <div>
+        <img class="medium" src="logo.png" />
     </div>
-    <!-- 
-    <img style="width: 200px" src="logo.png">
-    <img style="width: 300px" src="logo.png">
-    <img style="width: 400px" src="logo.png">
-    -->
+
+    <div id="vadym">
+        <img class="large" src="logo.png" />
+    </div>
+
+    <!-- <img style="width: 200px" src="GET_RGB_logo-01-2.png" />
+    <img style="width: 300px" src="GET_RGB_logo-01-2.png" />
+    <img style="width: 400px" src="GET_RGB_logo-01-2.png" /> -->
+
+
     <script>
-        document.getElementById('Vadym').innerHTML = 'Vadym var her!';
+        // Grunnferdighet 1 = endre på HTML innholdet i en tagg fra JavaScript
+        // Grunnferdighet 2 = pakke inn én eller flere kommandoer inn i en funksjon
+        // Grunnferdighet 3 = koble en knapp til en funksjon
+
+        function vadym1() {
+            document.getElementById('vadym').innerHTML = 'Vadym var her!';
+            vadym2();
+        }
+        function vadym2() {
+            document.getElementById('header').innerHTML = 'Vadym var her!';
+            vadym3();
+        }
+        function vadym3() {
+            document.getElementById('buttons').innerHTML = 'Vadym var her!';
+        }
+
     </script>
+
 </body>
 
 </html>
