@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enkelt dokument</title>
     <style>
+        button {
+            color: red;
+        }
+
         img.small {
             width: 150px;
         }
@@ -17,20 +21,38 @@
         img.large {
             width: 500px;
         }
+
+        div {
+            border: 1px solid green;
+            margin: 10px;
+            padding: 10px;
+            background-color: aquamarine;
+        }
     </style>
 </head>
 
 <body>
     <h1>Flytt på logoen</h1>
-    <img class="small" src="logo.png">
-    <img class="medium" src="logo.png">
-    <img class="large" src="logo.png">
 
+    <button class="medium">Trykk her!</button>
+    <button>Trykk her!</button>
+    <button>Trykk her!</button>
 
-    <!-- <img style="width: 200px" src="logo.png">
+    <div>
+        <img class="small" src="logo.png">
+    </div>
+    <div>
+        <img class="medium" src="logo.png">
+    </div>
+    <div>
+        <img class="large" src="logo.png">
+    </div>
+
+    <!-- 
+    <img style="width: 200px" src="logo.png">
     <img style="width: 300px" src="logo.png">
-    <img style="width: 400px" src="logo.png"> -->
-
+    <img style="width: 400px" src="logo.png">
+    -->
 </body>
 
 </html>
