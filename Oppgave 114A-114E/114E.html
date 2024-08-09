@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 16px;
+        }
+
+        .solid {
+            border: 5px solid red;
+            /* Solid linje, tykkelse: 5px, farge: rød */
+        }
+
+        .dashed {
+            border: 4px dashed blue;
+            /* Dash-linje, tykkelse: 4px, farge: blå */
+        }
+
+        .dotted {
+            border: 3px dotted green;
+            /* Prikket linje, tykkelse: 3px, farge: grønn */
+        }
+
+        .double {
+            border: 6px double purple;
+            /* Dobbel linje, tykkelse: 6px, farge: lilla */
+        }
+
+        .rounded {
+            border: 5px solid black;
+            /* Solid linje, tykkelse: 5px, farge: svart */
+            border-radius: 20px;
+            /* Avrundede hjørner, radie: 20px */
+        }
+
+        .mixed {
+            /* Viste ikke at denne eksistere :) */
+            border: 5px solid transparent;
+            border-top: 5px dotted orange;
+            border-right: 5px dashed pink;
+            border-bottom: 5px solid yellow;
+            border-left: 5px double cyan;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Egenskaper for Rammer</h1>
+
+    <div class="box solid">Solid Border</div>
+    <div class="box dashed">Dashed Border</div>
+    <div class="box dotted">Dotted Border</div>
+    <div class="box double">Double Border</div>
+    <div class="box rounded">Rounded Border</div>
+    <div class="box mixed">Mixed Border</div>
+</body>
+
+</html>
