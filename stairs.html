@@ -8,7 +8,8 @@
     <style>
         #stairs {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
         }
 
         div.step {
@@ -17,30 +18,125 @@
         }
 
         span.person {
-            font-size: 250%;
+            font-size: 240%;
         }
     </style>
 </head>
 
 <body>
     <div id="stairs">
-        <!--First row-->
-        <div></div>
-        <div></div>
-        <div class="step"></div>
+    </div>
 
-        <!--Second row-->
-        <div>
-            <span class="person">😀</span>
-            <div></div>
-            <div class="step"></div>
-            <div class="step"></div>
+    <script>
+        showPersonOnGround();
+        function showPersonOnGround() {
+            document.getElementById('stairs').innerHTML = /*HTML*/`            
+                <!-- Nullte rad -->
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <!-- <span class="person">😄</span> -->
+                </div>
 
-            <!--Third row-->
-            <div class="step"></div>
-            <div class="step"></div>
-            <div class="step"></div>
-        </div>
+                <!-- Første rad -->
+                <div></div>
+                <div></div>
+                <div>
+                    <!-- <span class="person">😄</span> -->
+                </div>
+                <div class="step"></div>
+
+                <!-- Andre rad -->
+                <div></div>
+                <div>
+                    <!-- <span class="person">😄</span> -->
+                </div>
+                <div class="step"></div>
+                <div class="step"></div>
+
+                <!-- Tredje rad -->
+                <div><span class="person">😄</span></div>
+                <div class="step"></div>
+                <div class="step"></div>
+                <div class="step"></div>  
+                
+                <button onclick="showPersonOn1stStep()">next</button>
+            `;
+        }
+
+        function showPersonOn1stStep() {
+            document.getElementById('stairs').innerHTML = /*HTML*/`            
+                <!-- Nullte rad -->
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <!-- <span class="person">😄</span> -->
+                </div>
+
+                <!-- Første rad -->
+                <div></div>
+                <div></div>
+                <div>
+                    <!-- <span class="person">😄</span> -->
+                </div>
+                <div class="step"></div>
+
+                <!-- Andre rad -->
+                <div></div>
+                <div>
+                    <span class="person">😄</span>
+                </div>
+                <div class="step"></div>
+                <div class="step"></div>
+
+                <!-- Tredje rad -->
+                <div></div>
+                <div class="step"></div>
+                <div class="step"></div>
+                <div class="step"></div>   
+                
+                <button onclick="showPersonOn2ndStep()">next</button>
+            `;
+        }
+
+        function showPersonOn2ndStep() {
+            document.getElementById('stairs').innerHTML = /*HTML*/`            
+                <!-- Nullte rad -->
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <!-- <span class="person">😄</span> -->
+                </div>
+
+                <!-- Første rad -->
+                <div></div>
+                <div></div>
+                <div>
+                    <span class="person">😄</span>
+                </div>
+                <div class="step"></div>
+
+                <!-- Andre rad -->
+                <div></div>
+                <div>
+                    
+                </div>
+                <div class="step"></div>
+                <div class="step"></div>
+
+                <!-- Tredje rad -->
+                <div></div>
+                <div class="step"></div>
+                <div class="step"></div>
+                <div class="step"></div>   
+                
+                <button onclick="showPersonOn2ndStep()">next</button>
+            `;
+        }
+    </script>
 </body>
 
 </html>
