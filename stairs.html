@@ -20,6 +20,10 @@
         span.person {
             font-size: 240%;
         }
+
+        .buttons {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -27,114 +31,103 @@
     <div id="stairs">
     </div>
 
+    <div class="buttons">
+        <button id="backButton" onclick="showPersonOnGround()">Back</button>
+        <button id="nextButton" onclick="showPersonOn1stStep()">Next</button>
+    </div>
+
     <script>
         showPersonOnGround();
+
         function showPersonOnGround() {
             document.getElementById('stairs').innerHTML = /*HTML*/`            
-                <!-- Nullte rad -->
+                <!-- Zero row -->
                 <div></div>
                 <div></div>
                 <div></div>
-                <div>
-                    <!-- <span class="person">😄</span> -->
-                </div>
+                <div></div>
 
-                <!-- Første rad -->
+                <!-- First row -->
                 <div></div>
                 <div></div>
-                <div>
-                    <!-- <span class="person">😄</span> -->
-                </div>
+                <div></div>
                 <div class="step"></div>
 
-                <!-- Andre rad -->
+                <!-- Second row -->
                 <div></div>
-                <div>
-                    <!-- <span class="person">😄</span> -->
-                </div>
+                <div></div>
                 <div class="step"></div>
                 <div class="step"></div>
 
-                <!-- Tredje rad -->
+                <!-- Third row -->
                 <div><span class="person">😄</span></div>
                 <div class="step"></div>
                 <div class="step"></div>
-                <div class="step"></div>  
-                
-                <button onclick="showPersonOn1stStep()">next</button>
+                <div class="step"></div>
             `;
+            document.getElementById('backButton').disabled = true;
+            document.getElementById('nextButton').onclick = showPersonOn1stStep;
         }
 
         function showPersonOn1stStep() {
             document.getElementById('stairs').innerHTML = /*HTML*/`            
-                <!-- Nullte rad -->
+                <!-- Zero row -->
                 <div></div>
                 <div></div>
                 <div></div>
-                <div>
-                    <!-- <span class="person">😄</span> -->
-                </div>
+                <div></div>
 
-                <!-- Første rad -->
+                <!-- First row -->
                 <div></div>
                 <div></div>
-                <div>
-                    <!-- <span class="person">😄</span> -->
-                </div>
+                <div></div>
                 <div class="step"></div>
 
-                <!-- Andre rad -->
+                <!-- Second row -->
                 <div></div>
-                <div>
-                    <span class="person">😄</span>
-                </div>
+                <div><span class="person">😄</span></div>
                 <div class="step"></div>
                 <div class="step"></div>
 
-                <!-- Tredje rad -->
+                <!-- Third row -->
                 <div></div>
                 <div class="step"></div>
                 <div class="step"></div>
                 <div class="step"></div>   
-                
-                <button onclick="showPersonOn2ndStep()">next</button>
             `;
+            document.getElementById('backButton').disabled = false;
+            document.getElementById('backButton').onclick = showPersonOnGround;
+            document.getElementById('nextButton').onclick = showPersonOn2ndStep;
         }
 
         function showPersonOn2ndStep() {
             document.getElementById('stairs').innerHTML = /*HTML*/`            
-                <!-- Nullte rad -->
+                <!-- Zero row -->
                 <div></div>
                 <div></div>
                 <div></div>
-                <div>
-                    <!-- <span class="person">😄</span> -->
-                </div>
+                <div></div>
 
-                <!-- Første rad -->
+                <!-- First row -->
                 <div></div>
                 <div></div>
-                <div>
-                    <span class="person">😄</span>
-                </div>
+                <div><span class="person">😄</span></div>
                 <div class="step"></div>
 
-                <!-- Andre rad -->
+                <!-- Second row -->
                 <div></div>
-                <div>
-                    
-                </div>
+                <div></div>
                 <div class="step"></div>
                 <div class="step"></div>
 
-                <!-- Tredje rad -->
+                <!-- Third row -->
                 <div></div>
                 <div class="step"></div>
                 <div class="step"></div>
                 <div class="step"></div>   
-                
-                <button onclick="showPersonOn2ndStep()">next</button>
             `;
+            document.getElementById('backButton').onclick = showPersonOn1stStep;
+            document.getElementById('nextButton').disabled = true;
         }
     </script>
 </body>
