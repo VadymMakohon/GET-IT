@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padding og Margin Eksempel</title>
+    <p><strong>Padding:</strong> Angir avstanden inni elementet, mellom innholdet og elementets kant. Det utvider
+        elementets størrelse
+        fordi det legger til plass innenfor elementets ramme.<br>
+        <strong>Margin:</strong> Angir avstanden utenfor elementet, mellom elementets kant og dets naboer. Det påvirker
+        avstanden til
+        andre elementer, men endrer ikke elementets egen størrelse.
+    </p>
+    <style>
+        .box {
+            background-color: lightblue;
+            border: 2px solid navy;
+        }
+
+        .example1 {
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .example2 {
+            padding: 10px 20px;
+            margin: 15px 30px;
+        }
+
+        .example3 {
+            padding: 5px 10px 15px 20px;
+            margin: 10px 20px 30px 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box example1">Ett tall for padding og margin.</div>
+    <div class="box example2">To tall for padding og margin.</div>
+    <div class="box example3">Fire tall for padding og margin.</div>
+
+</body>
+
+</html>
