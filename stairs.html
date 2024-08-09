@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #stairs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        div.step {
+            outline: 1px solid;
+            height: 60px;
+        }
+
+        span.person {
+            font-size: 250%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="stairs">
+        <!--First row-->
+        <div></div>
+        <div></div>
+        <div class="step"></div>
+
+        <!--Second row-->
+        <div>
+            <span class="person">😀</span>
+            <div></div>
+            <div class="step"></div>
+            <div class="step"></div>
+
+            <!--Third row-->
+            <div class="step"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+        </div>
+</body>
+
+</html>
