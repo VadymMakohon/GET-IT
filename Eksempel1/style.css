@@ -1,0 +1,76 @@
+body {
+    margin-left: 20px;
+}
+
+.card {
+    width: 500px;
+    background-color: lightgray;
+    border: 1px solid darkgray;
+    margin: 10px;
+}
+
+.innerCard{
+    padding: 10px;
+}
+
+.header {
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    padding: 1% 0;
+    border: 1px solid gray;
+    user-select: none;
+}
+
+.green {
+    background-color: #3cba54;
+}
+
+.yellow {
+    background-color: #f4c20d;
+}
+
+.red {
+    background-color: #db3236;
+}
+
+.blue {
+    background-color: #4885ed;
+}
+
+.dark {
+    background-color: #36393f;
+}
+
+p {
+    padding-left: 10px;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 520px);
+    width: auto;
+}
+
+.bodyPart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bodies{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
