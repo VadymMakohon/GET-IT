@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 115 B - Tall og knapper</title>
+    <style>
+        .counter-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .number-display {
+            font-size: 3rem;
+            /* Stor tekst for tallet */
+            margin-right: 20px;
+            /* Avstand mellom tallet og knappene */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button-container button {
+            font-size: 1.5rem;
+            /* Størrelse på knappenes tekst */
+            padding: 10px 20px;
+            margin: 5px 0;
+            /* Litt mellomrom mellom knappene */
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter-container">
+        <div class="number-display">0</div>
+        <div class="button-container">
+            <button>Øk</button>
+            <button>Minsk</button>
+        </div>
+    </div>
+</body>
+
+</html>
