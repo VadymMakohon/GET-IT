@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 115 A - Grid Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Definerer grid layoutet */
+        .container {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "meny hovedinnhold"
+                "footer footer";
+            grid-template-columns: 1fr 3fr;
+            /* Meny er 1 del, hovedinnhold er 3 deler */
+            grid-template-rows: auto 1fr auto;
+            /* Header og footer tilpasser seg innhold, hovedinnhold fyller resten */
+            height: 100vh;
+            /* Full høyde på viewport */
+        }
+
+        /* Stiler for hver seksjon */
+        .header {
+            grid-area: header;
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .meny {
+            grid-area: meny;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        .hovedinnhold {
+            grid-area: hovedinnhold;
+            background-color: lightgreen;
+            padding: 20px;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: lightpink;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="meny">Meny</div>
+        <div class="hovedinnhold">Hovedinnhold</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+
+</html>
