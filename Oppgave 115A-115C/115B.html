@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oppgave 115 B - Tall og knapper</title>
+    <title>Oppgave 115B - tall og Piler</title>
     <style>
         .counter-container {
             display: flex;
@@ -12,13 +12,21 @@
             justify-content: center;
             margin-top: 50px;
             font-family: Arial, sans-serif;
+            background-color: hsl(0, 0%, 90%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+            margin: auto;
+        }
+
+        body {
+            background-color: black;
         }
 
         .number-display {
             font-size: 3rem;
-            /* Stor tekst for tallet */
             margin-right: 20px;
-            /* Avstand mellom tallet og knappene */
         }
 
         .button-container {
@@ -28,22 +36,17 @@
 
         .button-container button {
             font-size: 2rem;
-            /* Størrelse på pilene */
-            padding: 10px 20px;
+            padding: 5px 10px;
             margin: 5px 0;
-            /* Litt mellomrom mellom knappene */
             cursor: pointer;
             border: none;
-            /* Fjerner standard knappkant */
-            background-color: #f0f0f0;
-            /* Lys bakgrunnsfarge */
-            border-radius: 5px;
-            /* Avrundede kanter */
+            background-color: transparent;
+            transition: background-color 300ms;
         }
 
         .button-container button:hover {
-            background-color: #dcdcdc;
-            /* Endrer bakgrunn ved hovering */
+            background-color: hsl(0, 0%, 80%);
+            border-radius: 5px;
         }
     </style>
 </head>
