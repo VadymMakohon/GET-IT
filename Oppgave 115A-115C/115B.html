@@ -27,22 +27,33 @@
         }
 
         .button-container button {
-            font-size: 1.5rem;
-            /* Størrelse på knappenes tekst */
+            font-size: 2rem;
+            /* Størrelse på pilene */
             padding: 10px 20px;
             margin: 5px 0;
             /* Litt mellomrom mellom knappene */
             cursor: pointer;
+            border: none;
+            /* Fjerner standard knappkant */
+            background-color: #f0f0f0;
+            /* Lys bakgrunnsfarge */
+            border-radius: 5px;
+            /* Avrundede kanter */
+        }
+
+        .button-container button:hover {
+            background-color: #dcdcdc;
+            /* Endrer bakgrunn ved hovering */
         }
     </style>
 </head>
 
 <body>
     <div class="counter-container">
-        <div class="number-display">0</div>
+        <div class="number-display">5</div>
         <div class="button-container">
-            <button>Øk</button>
-            <button>Minsk</button>
+            <button>↑</button>
+            <button>↓</button>
         </div>
     </div>
 </body>
