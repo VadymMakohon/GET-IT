@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 115C - Skjema</title>
+    <style>
+        #app {
+            max-width: 400px;
+            margin: 50px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 20px;
+            row-gap: 15px;
+        }
+
+        form label {
+            justify-self: end;
+            align-self: center;
+        }
+
+        form input[type="text"],
+        form input[type="range"],
+        form input[type="number"],
+        form input[type="radio"] {
+            justify-self: start;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .radio-group {
+            grid-column: 2 / 3;
+            justify-self: start;
+        }
+
+        .radio-label {
+            grid-column: 1 / 2;
+            align-self: center;
+            justify-self: end;
+        }
+
+        form input[type="radio"] {
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h3>Mitt skjema</h3>
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname">
+
+            <label for="zero2hundred">En til hundre</label>
+            <input type="range" id="zero2hundred">
+
+            <label for="number">Skriv inn et tall</label>
+            <input type="number" id="number">
+
+            <label class="radio-label">Favorittspråk:</label>
+            <div class="radio-group">
+                <input type="radio" name="fav_language" id="html">
+                <label for="html">HTML</label>
+                <br>
+                <input type="radio" name="fav_language" id="css">
+                <label for="css">CSS</label>
+                <br>
+                <input type="radio" name="fav_language" id="js">
+                <label for="js">JavaScript</label>
+                <br>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
