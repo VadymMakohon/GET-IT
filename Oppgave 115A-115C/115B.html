@@ -8,50 +8,52 @@
     <style>
         body {
             background-color: black;
+            /*Sett the desired background color*/
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
         }
 
+        /* This is the container for the number and buttons */
         .counter-container {
-            display: flex;
-            align-items: center;
-            background-color: hsl(0, 0%, 90%);
+            background-color: lightgray;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
             position: absolute;
+            top: 40%;
+            /* Place the container in the middle of the page */
             left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+            /* Place the container a little bit from the left */
         }
 
+        /* Style for the number display */
         .number-display {
-            font-size: 3rem;
+            font-size: 48px;
             margin-right: 20px;
         }
 
+        /* Container for the up and down buttons */
         .button-container {
             display: flex;
             flex-direction: column;
         }
 
+        /* Style for the buttons */
         .button-container button {
-            font-size: 2rem;
-            padding: 5px 10px;
-            margin: 5px 0;
+            font-size: 24px;
+            padding: 5px;
             cursor: pointer;
-            border: none;
             background-color: transparent;
-            transition: background-color 300ms;
+            border: none;
+            margin: 5px 0;
         }
 
+        /* Change button background on hover */
         .button-container button:hover {
-            background-color: hsl(0, 0%, 80%);
+            background-color: rgb(85, 81, 81);
             border-radius: 5px;
         }
     </style>
