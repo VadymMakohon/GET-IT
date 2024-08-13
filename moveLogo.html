@@ -6,58 +6,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terje</title>
     <style>
-        button {
-            color: red;
+        #buttons {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            grid-template-rows: repeat(3, 1fr);
+            justify-content: start;
         }
 
-        .medium {
-            width: 300px;
+        #buttons>button {
+            font-size: 300%;
+            background-color: lightblue;
         }
 
-        .large {
-            width: 500px;
+        #container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
         }
 
-        img {
-            width: 150px;
-        }
-
-        div {
+        #container>div {
             border: 1px solid green;
             margin: 10px;
             padding: 10px;
-            background-color: aquamarine;
+        }
+
+        img {
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <h1 id="header">Flytt på logoen!</h1>
-
-    <div id="buttons">
-        <button class="medium" onclick="terje1()">Trykk her!</button>
-        <button onclick="terje2()">Trykk her!</button>
-        <button onclick="terje3()">Trykk her!</button>
+    <div id="app">
     </div>
-
-    <div>
-        <img src="GET_RGB_logo-01-2.png" />
-    </div>
-
-    <div>
-        <img class="medium" src="GET_RGB_logo-01-2.png" />
-    </div>
-
-    <div id="terje">
-        <img class="large" src="GET_RGB_logo-01-2.png" />
-    </div>
-
-    <!-- <img style="width: 200px" src="GET_RGB_logo-01-2.png" />
-    <img style="width: 300px" src="GET_RGB_logo-01-2.png" />
-    <img style="width: 400px" src="GET_RGB_logo-01-2.png" /> -->
-
 
     <script>
+        showLogoLowerLeft();
+        function showLogoUpperLeft() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div>
+                        <img src="GET_RGB_logo-01-2.png" />
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div id="buttons">
+                    <div></div>
+                    <button disabled>▲</button>
+                    <div></div>
+                    <button disabled>◀</button>
+                    <div></div>
+                    <button onclick="showLogoUpperRight()">▶</button>
+                    <div></div>
+                    <button onclick="showLogoLowerLeft()">▼</button>
+                </div>            
+            `;
+        }
+
+        function showLogoUpperRight() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div></div>
+                    <div><img src="GET_RGB_logo-01-2.png" /></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div id="buttons">
+                    <div></div>
+                    <button disabled>▲</button>
+                    <div></div>
+                    <button onclick="showLogoUpperLeft()">◀</button>
+                    <div></div>
+                    <button disabled>▶</button>
+                    <div></div>
+                    <button onclick="showLogoLowerRight()">▼</button>
+                </div>            
+            `;
+        }
+
+
+        function showLogoLowerRight() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div><img src="GET_RGB_logo-01-2.png" /></div>
+                </div>
+
+                <div id="buttons">
+                    <div></div>
+                    <button onclick="showLogoUpperRight()">▲</button>
+                    <div></div>
+                    <button onclick="showLogoLowerLeft()">◀</button>
+                    <div></div>
+                    <button disabled>▶</button>
+                    <div></div>
+                    <button disabled>▼</button>
+                </div>            
+            `;
+        }
+
+
+        function showLogoLowerLeft() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div></div>
+                    <div></div>
+                    <div><img src="GET_RGB_logo-01-2.png" /></div>
+                    <div></div>
+                </div>
+
+                <div id="buttons">
+                    <div></div>
+                    <button onclick="showLogoUpperLeft()">▲</button>
+                    <div></div>
+                    <button disabled>◀</button>
+                    <div></div>
+                    <button onclick="showLogoLowerRight()">▶</button>
+                    <div></div>
+                    <button disabled>▼</button>
+                </div>            
+            `;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Grunnferdighet 1 = endre på HTML innholdet i en tagg fra JavaScript
         // Grunnferdighet 2 = pakke inn én eller flere kommandoer inn i en funksjon
         // Grunnferdighet 3 = koble en knapp til en funksjon
