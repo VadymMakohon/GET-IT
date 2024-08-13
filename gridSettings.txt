@@ -1,0 +1,9 @@
+1: display: grid: Aktiverer grid-layout på container-elementet, noe som gjør dets barn til grid-items.
+
+2: grid-template-columns og grid-template-rows: Definerer kolonne- og radstrukturen i gridet. Verdiene kan være faste (px, em, etc.), proporsjonale (fr), eller automatiske (auto). Eksempel: grid-template-columns: repeat(3, 1fr); lager tre like brede kolonner.
+
+3: grid-gap (eller gap): Setter avstanden mellom grid-items. Dette kan spesifiseres for både rader og kolonner, f.eks. grid-gap: 10px 20px; hvor 10px er avstanden mellom rader og 20px mellom kolonner.
+
+4: justify-items og align-items: Styrer hvordan grid-items er plassert i hver celle. justify-items bestemmer horisontal justering, mens align-items bestemmer vertikal justering. Vanlige verdier er start, center, end, og stretch.
+
+5: justify-content og align-content: Bestemmer hvordan hele gridet plasseres inne i containeren hvis gridet ikke fyller hele containeren. Dette kan brukes til å sentrere gridet eller spre det ut.
