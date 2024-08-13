@@ -1,13 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Terje</title>
+    <style>
+        button {
+            color: red;
+        }
+
+        .medium {
+            width: 300px;
+        }
+
+        .large {
+            width: 500px;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        div {
+            border: 1px solid green;
+            margin: 10px;
+            padding: 10px;
+            background-color: aquamarine;
+        }
+    </style>
 </head>
 
 <body>
+    <h1 id="header">Flytt på logoen!</h1>
+
+    <div id="buttons">
+        <button class="medium" onclick="terje1()">Trykk her!</button>
+        <button onclick="terje2()">Trykk her!</button>
+        <button onclick="terje3()">Trykk her!</button>
+    </div>
+
+    <div>
+        <img src="GET_RGB_logo-01-2.png" />
+    </div>
+
+    <div>
+        <img class="medium" src="GET_RGB_logo-01-2.png" />
+    </div>
+
+    <div id="terje">
+        <img class="large" src="GET_RGB_logo-01-2.png" />
+    </div>
+
+    <!-- <img style="width: 200px" src="GET_RGB_logo-01-2.png" />
+    <img style="width: 300px" src="GET_RGB_logo-01-2.png" />
+    <img style="width: 400px" src="GET_RGB_logo-01-2.png" /> -->
+
+
+    <script>
+        // Grunnferdighet 1 = endre på HTML innholdet i en tagg fra JavaScript
+        // Grunnferdighet 2 = pakke inn én eller flere kommandoer inn i en funksjon
+        // Grunnferdighet 3 = koble en knapp til en funksjon
+
+        function terje1() {
+            document.getElementById('terje').innerHTML = 'Terje var her!';
+            terje2();
+        }
+        function terje2() {
+            document.getElementById('header').innerHTML = 'Terje var her!';
+            terje3();
+        }
+        function terje3() {
+            document.getElementById('buttons').innerHTML = 'Terje var her!';
+        }
+
+    </script>
 
 </body>
 
