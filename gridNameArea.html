@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout Eksempel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+                'cellA cellA cellB'
+                'cellC cellD cellB'
+            ;
+            height: 100vh;
+        }
+
+        .container>div {
+            background-color: lightblue;
+            border: 2px solid blue;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div style="grid-area: cellA;">Det</div>
+        <div style="grid-area: cellB;">var en</div>
+        <div style="grid-area: cellC;">gang en konge,</div>
+        <div style="grid-area: cellD;">og den <br />kongen hadde</div>
+    </div>
+
+</body>
+
+</html>
