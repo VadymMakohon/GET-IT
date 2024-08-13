@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox Layout eksempel</title>
+    <title>Flexbox Layout Eksempel</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            overflow: hidden;
         }
 
         .container {
             display: flex;
+            flex-direction: row;
             flex-wrap: wrap;
+            /* align-items: stretch; */
+            align-content: space-evenly;
             height: 100vh;
         }
 
@@ -27,14 +29,22 @@
 </head>
 
 <body>
+
     <div class="container">
         <div>Det</div>
-        <div>var en gang</div>
-        <div>en konge,</div>
-        <div>og den <br>kongen hadde</div>
-        <div>var en gang</div>
-        <div>var en gang</div>
+        <div>var en</div>
+        <div>gang en konge,</div>
+        <div>og den <br />kongen hadde</div>
+        <div>hørt snakk <br />om et <br />skip som <br />gikk like</div>
+        <div>fort til lands som</div>
+        <div>til vanns.</div>
+        <div>Så ville han også ha slikt et,</div>
+        <div>og til den som kunne bygge det, lovte han ut kongsdattera og halve kongeriket, </div>
+        <div>og det lyste han ut på kirkebakken ved alle kirkesogn over hele landet.</div>
+        <div>Det var mange som prøvde, kan du skjønne, for halve riket kunne være godt å ha, mente de vel, og
+            kongsdattera kunne være bra å få i tillegg. Men ille gikk det med de fleste.</div>
     </div>
+
 </body>
 
 </html>
