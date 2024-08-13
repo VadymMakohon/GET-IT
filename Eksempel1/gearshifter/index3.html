@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            border: 10px solid black;
+            padding: 30px;
+            border-radius: 50%;
+            width: 500px;
+            background-color: black;
+            font-size: 300%;
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            grid-template-columns: repeat(6, 50px);
+            grid-template-rows: repeat(6, 50px);
+            grid-template-areas:
+                "area1 area1 area3 area3 area5 area5"
+                "area1 area1 area3 area3 area5 area5"
+                "empty1 empty2 empty3 empty4 empty5 empty6"
+                "empty7 empty8 empty9 empty10 empty11 empty12"
+                "area2 area2 area4 area4 areaR areaR"
+                "area2 area2 area4 area4 areaR areaR"
+            ;
+        }
+
+        button {
+            font-size: 100%;
+            background-color: #555555;
+            color: white;
+        }
+
+        .container>div
+
+        /* alternativt .square + lass="square" på hvert element */
+            {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .selected {
+            color: yellow;
+        }
+
+        .left {
+            border-left: 1px solid white;
+        }
+
+        .right {
+            border-right: 1px solid white;
+        }
+
+        .top {
+            border-top: 1px solid white;
+        }
+
+        .bottom {
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="gear">
+    </div>
+
+    <script>
+        showNeutral();
+        function showNeutral() {
+            document.getElementById('gear').innerHTML = /*HTML*/`            
+                <div style="grid-area: area1;"><button onclick="show1()">1</button></div>
+                <div style="grid-area: area3;">3</div>
+                <div style="grid-area: area5;">5</div>
+            `;
+            showLines();
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area2;">2</div>
+                <div style="grid-area: area4;">4</div>
+                <div style="grid-area: areaR;"><button>R</button></div>            
+            `;
+        }
+
+
+
+        function show1() {
+            document.getElementById('gear').innerHTML = /*HTML*/`            
+                <div style="grid-area: area1;" class="selected"><i>1</i></div>
+                <div style="grid-area: area3;">3</div>
+                <div style="grid-area: area5;">5</div>
+                `;
+            showLines();
+            document.getElementById('gear').innerHTML += /*HTML*/`  
+                <div style="grid-area: area2;"><button onclick="show2()">2</button></div>
+                <div style="grid-area: area4;">4</div>
+                <div style="grid-area: areaR;">R</div>            
+            `;
+        }
+
+        function show2() {
+            document.getElementById('gear').innerHTML = /*HTML*/`            
+                <div style="grid-area: area1;"><button onclick="show1()">1</button></div>
+                <div style="grid-area: area3;"><button onclick="show3()">3</button></div>                <div style="grid-area: area3;">3</div>
+                <div style="grid-area: area5;">5</div>
+            `;
+            showLines();
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area2;"><i>2</i></div>
+                <div style="grid-area: area4;">4</div>
+                <div style="grid-area: areaR;">R</div>            
+            `;
+        }
+
+        function showLines() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: empty1;" class="right"></div>
+                <div style="grid-area: empty2;" class="bottom"></div>
+                <div style="grid-area: empty3;" class="bottom right"></div>
+                <div style="grid-area: empty4;" class="bottom"></div>
+                <div style="grid-area: empty5;" class="bottom right"></div>
+                <div style="grid-area: empty6;"></div>
+                <div style="grid-area: empty7;" class="right"></div>
+                <div style="grid-area: empty8;"></div>
+                <div style="grid-area: empty9;" class="right"></div>
+                <div style="grid-area: empty10;"></div>
+                <div style="grid-area: empty11;" class="right"></div>
+                <div style="grid-area: empty12;"></div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
