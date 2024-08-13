@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout eksempel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .containar {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100vh;
+        }
+
+        .containar>div {
+            background-color: lightblue;
+            border: 2px solid blue;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>Det</div>
+        <div>var en gang</div>
+        <div>en konge,</div>
+        <div>og den <br>kongen hadde</div>
+        <div>var en gang</div>
+        <div>var en gang</div>
+    </div>
+</body>
+
+</html>
