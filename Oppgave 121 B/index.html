@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oppgave 121B - Tabell</title>
+    <title>Oppgave 121B</title>
+
     <style>
         table {
             border-collapse: collapse;
@@ -28,9 +29,12 @@
             color: white;
         }
     </style>
+
+
 </head>
 
 <body>
+
     <div id="page">
 
     </div>
@@ -41,38 +45,39 @@
     <input id="temp" type="text" value="7" />
     <button onclick="oneMoreTableByInput()">Enter ny tabell kolonne me dine tall</button>
 
+
     <script>
 
         read();
         function read() {
             document.getElementById('page').innerHTML = /*HTML*/`
             <table id="myTable">
-        <tr>
-            <th>Dag</th>
-            <th>Time</th>
-            <th>Minutt</th>
-            <th>Temperatur</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>10</td>
-            <td>0</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>10</td>
-            <td>15</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>10</td>
-            <td>30</td>
-            <td>7</td>
-        </tr>
-    </table>
-    `;
+                <tr>
+                    <th>Dag</th>
+                    <th>Time</th>
+                    <th>Minutt</th>
+                    <th>Temperatur</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>15</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>30</td>
+                    <td>7</td>
+                </tr>
+            </table>
+            `;
         }
 
         function oneMoreTable(dag = "1", time = "12", minutt = "19", temperatur = "6") {
@@ -95,7 +100,6 @@
         }
 
     </script>
-
 
 </body>
 
