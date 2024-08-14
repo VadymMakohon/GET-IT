@@ -31,7 +31,22 @@
 </head>
 
 <body>
-    <table id="myTable">
+    <div id="page">
+
+    </div>
+    <button onclick="oneMoreTable()">Enter ny tabell kolonne</button><br />
+    <input id="dag" type="text" value="7" />
+    <input id="time" type="text" value="7" />
+    <input id="minutt" type="text" value="7" />
+    <input id="temp" type="text" value="7" />
+    <button onclick="oneMoreTableByInput()">Enter ny tabell kolonne me dine tall</button>
+
+    <script>
+
+        read();
+        function read() {
+            document.getElementById('page').innerHTML = /*HTML*/`
+            <table id="myTable">
         <tr>
             <th>Dag</th>
             <th>Time</th>
@@ -57,6 +72,31 @@
             <td>7</td>
         </tr>
     </table>
+    `;
+        }
+
+        function oneMoreTable(dag = "1", time = "12", minutt = "19", temperatur = "6") {
+            document.getElementById('myTable').innerHTML += /*HTML*/`
+                <tr>
+                    <td>${dag}</td>
+                    <td>${time}</td>
+                    <td>${minutt}</td>
+                    <td>${temperatur}</td>
+                </tr>
+            `;
+        }
+        function oneMoreTableByInput() {
+            let tableDag = document.getElementById('dag').value;
+            let tableTime = document.getElementById('time').value;
+            let tableMinutt = document.getElementById('minutt').value;
+            let tableTemp = document.getElementById('temp').value;
+
+            oneMoreTable(tableDag, tableTime, tableMinutt, tableTemp)
+        }
+
+    </script>
+
+
 </body>
 
 </html>

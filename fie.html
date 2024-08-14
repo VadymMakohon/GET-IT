@@ -1,0 +1,235 @@
+Vadym-777
+vadym7770181
+Online
+
+Terje — 08/08/2024 8:37 AM
+Plan for undervisningen i Emne 1:
+Uke 1 Torsdag 8.8: Intro til hele pensum + Intro HTML, CSS og tre grunnferdigheter i JavaScript
+Tirsdag 13.8: Layout med CSS + flere eksempler på JavaScript
+Uke 2 Torsdag 15.8: Intro variabler, operatorer og parametre
+Tirsdag 20.8: Returverdi, if, sammenligning og logisk verdi
+Uke 3 Torsdag 22.8: Mer om if, logiske operatorer og komponenter
+Tirsdag 27.8: Introduksjon til MVC
+Uke 4 Torsdag 29.8: Skjemaer i MVC
+- Tre måter å variere HTML på
+Innebygd funksjonalitet
+Tirsdag 3.9: Innebygd funksjonalitet - tall
+Løkker
+null undefined
+Uke 5 Torsdag 5.9: Innebygd funksjonalitet - tekst og datoer, eksempler:
+- tallpuslespill
+- kalender
+Tirsdag 10.9: Lister
+Uke 6 Torsdag 12.9: Enhetstesting
+Tirsdag 17.9: Objekter
+Uke 7 Torsdag 19.9: Lister av objekter
+Tirsdag 24.9: Emne 2-app
+
+Terje — 08/08/2024 10:27 AM
+Torsdag 8.8 Intro til hele pensum + Intro HTML, CSS og tre grunnferdigheter i JavaScript
+Opptak: https://photos.app.goo.gl/9fZFUFkUg3AyTWFX6
+Terje — 08/08/2024 11:31 AM
+Kode: https://github.com/GetAcademy/MoveGetLogo
+Terje — 08/09/2024 1:43 PM
+Fredag 9.8 Fredagsøkt med litt HTML, CSS og JavaScript - samt litt om å forenkle oppgaven
+Video: https://photos.app.goo.gl/uqVfEJfPJ5eNXjeA6
+Kode: https://github.com/GetAcademy/Fredag1
+Terje — 08/12/2024 10:56 AM
+Mandag 12.8 Gjennnomgang av oppgave 115c
+Video: https://photos.app.goo.gl/XUGDLBxLMwGekajF8
+Kode: https://github.com/GetAcademy/Emne1Exercises
+Terje — Yesterday at 10:30 AM
+Tirsdag 13.8 Layout og JS
+Video: https://photos.app.goo.gl/VtqZGbFnYy3uziRg7
+Kode: https://github.com/GetAcademy/CssLayoutAndJavaScriptBasicSkills
+Per Ivar Kleivan — Yesterday at 3:16 PM
+https://vscode.dev/github/MrKleivan/Kleivan/blob/main/oppgave121A.html#L121
+Visual Studio Code for the Web
+Build with Visual Studio Code, anywhere, anytime, entirely in your browser.
+Visual Studio Code for the Web
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 123A</title>
+    Expand
+    message.txt
+    6 KB
+    ﻿
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Oppgave 123A</title>
+
+        <style>
+            body {
+                width: 100%;
+                height: 100vh;
+                margin: auto;
+                align-items: center;
+                align-content: center;
+            }
+
+            #selection {
+                display: grid;
+                width: 60%;
+                height: auto;
+                margin: auto;
+            }
+
+            #svg {
+                width: 60%;
+                height: auto;
+                margin: auto;
+            }
+
+            .flexy {
+                display: flex;
+            }
+        </style>
+
+    </head>
+
+<body>
+    <div id="selection">
+        <div class="flexy">
+
+            <button onclick="addSquere()">Legg til firkant</button>
+            <button onclick="addCircle()">Legg til sirkel</button>
+            <button onclick="addCircleFormInput()">Plaser sirkel</button>
+            <label for="circleInputX">X akse</label>
+            <input id="circleInputX" type="number" name="xaxe" value="100" />
+            <label for="circleInputY">Y akse</label>
+            <input id="circleInputY" type="number" name="yaxe" value="100" />
+        </div>
+        <div class="flexy">
+            <button onclick="clearAll()">Start pÃ¥ nytt</button>
+        </div>
+        <div class="flexy">
+            <button onclick="addBackground()">Velg bakgrunsfarge</button>
+            <label for="">Velg bakgrunnsfarge</label>
+            <input id="background" type="text" value="blue" />
+        </div>
+        <div class="flexy">
+            <form>
+                <select id="selectBackground">
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="yellow">yellow</option>
+                    <option value="brown">brown</option>
+                </select>
+            </form>
+            <button onclick="sbfl()">Velg bakgrunn fra liste</button>
+        </div>
+        <div class="flexy">
+            <button onclick="addBackgroundSvg()">Velg bakgrunsfarge</button>
+            <label for="">Velg bakgrunnsfarge</label>
+            <input id="backgroundSvg" type="text" value="blue" />
+            <label for="">Velg bakgrunnsfarge</label>
+            <input id="borderSvg" type="text" value="red" />
+        </div>
+        <div class="flexy">
+            <form>
+                <select id="selectBackgroundSVG">
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="yellow">yellow</option>
+                    <option value="brown">brown</option>
+                </select>
+            </form>
+            <button onclick="sbflSvg()">Velg bakgrunn fra liste</button>
+        </div>
+        <div class="flexy">
+            <form>
+                <select id="selectBackgroundSVGS">
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="yellow">yellow</option>
+                    <option value="brown">brown</option>
+                </select>
+            </form>
+        </div>
+    </div>
+    <div id="svg">
+        <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
+        </svg>
+    </div>
+    <script>
+
+
+        function addCircle(xParameter = "100", yParameter = "200", svgStroke = "red", svgFill = "blue") {
+            document.getElementById('mySvg').innerHTML += /*HTML*/`
+          <circle cx="${xParameter}" cy="${yParameter}" r="40" stroke="${svgStroke}" stroke-width="4" fill="${svgFill}" />            
+      `;
+        }
+
+        function addSquere(xParameter = "100", yParameter = "200", svgStroke = "red", svgFill = "blue") {
+            document.getElementById('mySvg').innerHTML += /*HTML*/`
+          <rect x="${xParameter, 200}" y="${yParameter, 50}" stroke="${svgStroke}" width="80" height="40" r="20" stroke-width="4" fill="${svgFill}" />            
+      `;
+        }
+
+        function addCircleFormInput() {
+            clearAll()
+            let circleInputX = document.getElementById('circleInputX').value;
+            let circleInputY = document.getElementById('circleInputX').value;
+
+            addCircle(circleInputX, circleInputY);
+        }
+
+        function clearAll() {
+            document.getElementById('mySvg').innerHTML = [];
+
+        }
+
+        function addBackground() {
+            let addNewbackground = document.getElementById('background').value;
+            let din = document.getElementById('mySvg');
+            din.style.backgroundColor = addNewbackground;
+        }
+
+        function sbfl() {
+            let numberValu = document.getElementById('selectBackground');
+            let i = numberValu.selectedIndex;
+            let sBfL = document.getElementById('selectBackground').options[i].text;
+
+            let din = document.getElementById('mySvg');
+            din.style.backgroundColor = sBfL;
+        }
+        function addBackgroundSvg() {
+            let svgStrokeColor = document.getElementById('backgroundSvg').value;
+            let svgFillColor = document.getElementById('borderSvg').value;
+
+            addCircle(xParameter = "100", yParameter = "200", svgStrokeColor, svgFillColor);
+            addSquere(xParameter = "100", yParameter = "200", svgStrokeColor, svgFillColor);
+        }
+        function sbflSvg() {
+            let colorValo = document.getElementById('selectBackgroundSVG');
+            let eko = colorValo.selectedIndex;
+            let sBfLSvg = document.getElementById('selectBackgroundSVG').options[eko].text;
+
+            let colorValoS = document.getElementById('selectBackgroundSVGS');
+            let ekoi = colorValoS.selectedIndex;
+            let sBfLSvgS = document.getElementById('selectBackgroundSVGS').options[ekoi].text;
+
+            svgStroke = sBfLSvgS;
+            svgFill = sBfLSvg;
+            addCircle(xParameter = "200", yParameter = "300", svgStroke, svgFill);
+            addSquere(xParameter = "200", yParameter = "300", svgStroke, svgFill);
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
