@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+    <!-- 
+        Eksempel 2 - legge til ord 
+        - variere også tagg
+        - telle ord - lokale vs globale variabler
+        - tilordning 
+            - "vanlig"       a = a + 10       a = a - 10
+            - endring        a += 10          a -= 10
+            - endre med én   a++              a--
+    -->
+    <script>
+        let count = 0;
+        add('green', 400, 'Det');
+        add('red', 240, 'var');
+        add('blue', 600, 'en');
+        add('rgb(200, 200, 42)', 500, 'gang');
+
+        function add(color, size, word, tagName) {
+            //count = count + 1;
+            //count += 1;
+            count++;
+            let existingHtml = document.getElementById('app').innerHTML;
+            let newHtml = /*HTML*/`
+                <span style="color: ${color}; font-size: ${size}%;">
+                    ${word}
+                    ${count}
+                </span>
+            `;
+            document.getElementById('app').innerHTML = existingHtml + newHtml;
+        }
+
+    </script>
+</body>
+
+</html>

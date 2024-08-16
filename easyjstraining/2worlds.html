@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <span style="color: green; font-size: 400%;">Det</span>
+        <span style="color: red; font-size: 240%;">var</span>
+        <span style="color: blue; font-size: 600%;">en</span>
+        <span style="color: rgb(200, 200, 42); font-size: 500%;">gang</span> -->
+    </div>
+    <script>
+        add('green', 400, 'Det');
+        add('red', 240, 'var');
+        add('blue', 600, 'en');
+        add('rgb(200, 200, 42)', 500, 'gang');
+        // addGray();
+        // addBlack();
+
+        function add(color, size, word) {
+            document.getElementById('app').innerHTML += /*HTML*/`
+                <span style="color: ${color}; font-size: ${size}%;">${word}</span>
+            `;
+        }
+
+
+        // function addGray(){
+        //     document.getElementById('app').innerHTML += /*HTML*/`
+        //         <span style="color: gray; font-size: 200%;">at</span>
+        //     `;
+        // }
+
+        // function addBlack(){
+        //     document.getElementById('app').innerHTML += /*HTML*/`
+        //         <span style="color: black; font-size: 350%;">det</span>
+        //     `;
+        // }
+    </script>
+</body>
+
+</html>
