@@ -12,12 +12,21 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #0ee2cd;
         }
 
         .strekmann {
             width: 200px;
             height: 300px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 7px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 12px;
+            background-color: blanchedalmond;
         }
     </style>
 </head>
@@ -40,12 +49,14 @@
         </svg>
     </div>
     <div class="controls">
-        <button onclick="moveRightArm()">Høyre arm</button>
-        <button onclick="moveLeftArm()">Venstre arm</button>
+        <div class="controls">
+            <button onclick="rightArmUpLeftUp()">Høyre arm opp, Venstre arm opp</button>
+            <button onclick="rightArmDownLeftDown()">Høyre arm ned, Venstre arm ned</button>
+        </div>
     </div>
 
     <script>
-        function moveRightArm() {
+        function rightArmUpLeftUp() {
             document.getElementById('strekmann').innerHTML = `
             <svg class="strekmann" viewBox="0 0 200 300">
             <!-- Hodet -->
@@ -55,7 +66,7 @@
             <!-- Venstre arm -->
             <line x1="100" y1="120" x2="50" y2="90" stroke="black" stroke-width="3" />
             <!-- Høyre arm -->
-            <line x1="100" y1="120" x2="150" y2="150" stroke="black" stroke-width="3" />
+            <line x1="100" y1="120" x2="150" y2="90" stroke="black" stroke-width="3" />
             <!-- Venstre ben -->
             <line x1="100" y1="200" x2="50" y2="270" stroke="black" stroke-width="3" />
             <!-- Høyre ben -->
@@ -64,7 +75,7 @@
     `;
         }
 
-        function moveLeftArm() {
+        function rightArmDownLeftDown() {
             document.getElementById('strekmann').innerHTML = `
             <svg class="strekmann" viewBox="0 0 200 300">
             <!-- Hodet -->
@@ -74,7 +85,7 @@
             <!-- Venstre arm -->
             <line x1="100" y1="120" x2="50" y2="150" stroke="black" stroke-width="3" />
             <!-- Høyre arm -->
-            <line x1="100" y1="120" x2="150" y2="90" stroke="black" stroke-width="3" />
+            <line x1="100" y1="120" x2="150" y2="150" stroke="black" stroke-width="3" />
             <!-- Venstre ben -->
             <line x1="100" y1="200" x2="50" y2="270" stroke="black" stroke-width="3" />
             <!-- Høyre ben -->
