@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date" id="myDate" />
+
+    Per har betalt:<input type="number" id="per"><br />
+    Pål har betalt:<input type="number" id="pål"><br />
+    Espen har betalt:<input type="number" id="espen"><br />
+    <button onclick="calculate()">Beregne</button>
+    <hr />
+    <div id="app"></div>
+    <script>
+        function calculate() {
+            let amountPaidPer = document.getElementById('per').valueAsNumber;
+            let amountPaidPål = document.getElementById('pål').valueAsNumber;
+            let amountPaidEspen = document.getElementById('espen').valueAsNumber;
+            let totalAmountPaid = amountPaidPer + amountPaidPål + amountPaidEspen;
+            let costPerPerson = totalAmountPaid / 3;
+            let owesPer = costPerPerson - amountPaidPer;
+            let owesPål = costPerPerson - amountPaidPål;
+            let owesEspen = costPerPerson - amountPaidEspen;
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+            Per har betalt: ${amountPaidPer}<br/>
+            Pål har betalt: ${amountPaidPål}<br/>
+            Espen har betalt: ${amountPaidEspen}<br/>
+            Sum betalt: ${totalAmountPaid}<br/>
+            Kostnad per person: ${costPerPerson}<br/>
+            Per skylder: ${owesPer}<br/>
+            Pål skylder: ${owesPål}<br/>
+            Espen skylder: ${owesEspen}<br/>                
+        `;
+        }
+
+        /*
+        let amountPaidPer = 3000; // både deklarere og tilordne
+        // let amountPaidPer; // deklarere
+        // amountPaidPer = 3000; // tilordne
+
+        document.getElementById('app').innerHTML = amountPaidPer; // lese verdi
+        */
+        /*
+         3 ting vi gjør med variabler:
+          1: deklarere  
+          2: tilordne = legge verdi inn i en variabel
+          3: bruke verdien, dvs. hente ut fra variabelen.
+        */
+
+    </script>
+</body>
+
+</html>
