@@ -10,7 +10,6 @@
             width: 3rem;
             height: 10rem;
             display: flex;
-            align-items: center;
             flex-direction: column;
             background-color: black;
             padding: 1rem;
@@ -27,13 +26,25 @@
 </head>
 
 <body>
-    <div class="trafficLight">
+    <div class="trafficLight" onclick="changeLight()">
         <div class="light" style="background-color: red;"></div>
         <div class="light" style="background-color: yellow;"></div>
         <div class="light" style="background-color: green;"></div>
     </div>
     <script>
         function changeRedLight() {
+            document.getElementsByClassName('trafficLight').innerHTML = `
+
+            `;
+        }
+
+        function changeYellowLight() {
+            document.getElementsByClassName('trafficLight').innerHTML = `
+
+            `;
+        }
+
+        function changeGreenLight() {
             document.getElementsByClassName('trafficLight').innerHTML = `
 
             `;
