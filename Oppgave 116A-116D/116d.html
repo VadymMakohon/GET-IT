@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traficlight</title>
+    <title>Trafficlight</title>
     <style>
-        div.trafficLight {
+        body {
+            background-color: powderblue;
+        }
+
+        #trafficLight {
             width: 3rem;
             height: 10rem;
             display: flex;
@@ -17,38 +21,64 @@
         }
 
         div.light {
-            background-color: red;
+            background-color: grey;
             border-radius: 50%;
             width: 3rem;
             height: 3rem;
+        }
+
+        .light.red {
+            background-color: red;
+        }
+
+        .light.yellow {
+            background-color: yellow;
+        }
+
+        .light.green {
+            background-color: green;
         }
     </style>
 </head>
 
 <body>
-    <div class="trafficLight" onclick="changeLight()">
+    <div id="trafficLight" onclick="changeLight()">
         <div class="light" style="background-color: red;"></div>
         <div class="light" style="background-color: yellow;"></div>
         <div class="light" style="background-color: green;"></div>
     </div>
     <script>
-        function changeRedLight() {
-            document.getElementsByClassName('trafficLight').innerHTML = `
-
+        redLight()
+        function redLight() {
+            document.body.innerHTML = /*HTML*/`
+        <div id="trafficLight" onclick="redAndYellowLight()">
+        <div class="red light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        </div>
             `;
         }
 
-        function changeYellowLight() {
-            document.getElementsByClassName('trafficLight').innerHTML = `
-
+        function redAndYellowLight() {
+            document.body.innerHTML = /*HTML*/`
+        <div id="trafficLight" onclick="greenLight()" >
+        <div class="red light"></div>
+        <div class="yellow light"></div>
+        <div class="light"></div>
+        </div >
             `;
         }
 
-        function changeGreenLight() {
-            document.getElementsByClassName('trafficLight').innerHTML = `
-
+        function greenLight() {
+            document.body.innerHTML = /*HTML*/`
+        <div id="trafficLight" onclick="yellowLight()" >
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="green light"></div>
+        </div >
             `;
         }
+
     </script>
 </body>
 
