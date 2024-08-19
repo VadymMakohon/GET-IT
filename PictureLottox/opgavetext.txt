@@ -1,0 +1,16 @@
+# Emne 1 - teamoppgave 1
+Dere skal lage kun første skritt på en liten bilde-lotto-app. 
+Ta utgangspunkt i denne koden: https://github.com/getacademy/PictureLottox 
+Med kun pensum fra uke/modul 1, skal dere kunne få til følgende:
+Alle ruter skal være lukket (grå) fra start
+- Hvis man trykker på en rute, kommer bildet til syne
+- Hvis man trykker på en rute til etter det, er det to muligheter:
+- Hvis man har trykket på et likt bilde, skal det også vises
+- Ellers skal man gå tilbake til å vise alle rutene lukket
+Til dette trenger dere kun grunnferdighetene:
+- Endre HTML til en tagg ut fra id
+- Pakke en eller flere endringer inn i en JavaScript-funksjon
+- Kalle en JavaScript-funksjon fra onclick på en button
+
+!!! Målet er å dra i gang samarbeid i teamet og læring - det handler ikke om prestasjon
+og å løse oppgaven raskest mulig!!!
