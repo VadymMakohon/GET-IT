@@ -2,6 +2,9 @@
 <html lang="no">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spillbrett</title>
     <style>
         #board {
             display: grid;
@@ -45,37 +48,51 @@
 
 <body>
 
-    <div id="board">
-        <div class="cell cell-3">6</div>
-        <div class="cell cell-1">7</div>
-        <div class="cell cell-2">8</div>
-        <div class="cell cell-3">9</div>
-        <div class="cell cell-1">10</div>
+    <div id="board"></div>
+    <script>
+        function addCell(cssClasses, content) {
+            const cell = document.createElement('div');
+            cell.className = `cell ${cssClasses}`;
+            cell.innerHTML = content;
+            document.getElementById('board').appendChild(cell);
+        }
 
-        <div class="cell cell-2">5</div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-        <div class="cell cell-2">11</div>
+        function showBoard() {
+            addCell('cell-3', '6');
+            addCell('cell-1', '7');
+            addCell('cell-2', '8');
+            addCell('cell-3', '9');
+            addCell('cell-1', '10');
 
-        <div class="cell cell-1">4</div>
-        <div class="cell cell-3">3</div>
-        <div class=""></div>
-        <div class="cell cell-1">13</div>
-        <div class="cell cell-3">12</div>
+            addCell('cell-2', '5');
+            addCell('', '');
+            addCell('', '');
+            addCell('', '');
+            addCell('cell-2', '11');
 
-        <div class=""></div>
-        <div class="cell cell-2">2</div>
-        <div class=""></div>
-        <div class="cell cell-2">14</div>
-        <div class=""></div>
+            addCell('cell-1', '4');
+            addCell('cell-3', '3');
+            addCell('', '');
+            addCell('cell-1', '13');
+            addCell('cell-3', '12');
 
-        <div class="cell start">Start</div>
-        <div class="cell cell-1">1</div>
-        <div class=""></div>
-        <div class="cell cell-3">15</div>
-        <div class="cell finish">Mål</div>
-    </div>
+            addCell('', '');
+            addCell('cell-2', '2');
+            addCell('', '');
+            addCell('cell-2', '14');
+            addCell('', '');
+
+            addCell('start', 'Start');
+            addCell('cell-1', '1');
+            addCell('', '');
+            addCell('cell-3', '15');
+            addCell('finish', 'Mål');
+        }
+
+        // Initialize the board
+        showBoard(); 
+    </script>
+
 </body>
 
 </html>
