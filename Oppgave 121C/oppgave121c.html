@@ -5,26 +5,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave 121C</title>
+
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            align-content: center;
+            background-color: rgb(159, 122, 233);
+        }
+
+        #page {
+            position: relative;
+            width: 60%;
+            height: 35%;
+            margin: auto;
+            border-radius: 50px;
+            background-color: rgb(217, 255, 0);
+            box-shadow: 2px 2px 15px 4px rgb(18, 152, 72);
+        }
+
+        #topButtons {
+            width: 100%;
+            height: 12%;
+            align-content: center;
+        }
+
+        #topButtons>button {
+            width: 15%;
+            height: 50%;
+            margin-left: 2%;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            background-color: rgb(31, 182, 43);
+        }
+
+        #content {
+            display: grid;
+            grid-template-columns: 100px 150px 100px 100px;
+            grid-template-rows: 50px 50px 50px 50px;
+            align-items: center;
+            width: 98%;
+            height: 85%;
+            margin: auto;
+            border-radius: 20px 20px 50px 50px;
+            background: radial-gradient(rgb(0, 140, 255), rgb(6, 222, 222));
+            box-shadow: 2px 2px 15px 4px rgb(17, 222, 79);
+        }
+    </style>
+
 </head>
 
 <body>
 
     <div id="page">
+        <div id="topButtons">
+            <button onclick="tableName()">Table</button>
+            <button onclick="submitChoice()">Submit</button>
+        </div>
+        <div id="content">
 
+        </div>
     </div>
+
+
 
     <script>
 
-        editTableLayout()
-        function editTableLayout() {
-            document.getElementById('page').innerHTML = /*HTML*/`
+
+        function tableName() {
+            document.getElementById('content').innerHTML += /*HTML*/`
+            <label for="fname">First name:</label>
+            <input type="text" id="fname">
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname">
+            `;
+            tableNumber();
+            tableCheckbox();
+            tableRadio();
+        }
+        function tableNumber() {
+            document.getElementById('content').innerHTML += /*HTML*/`
+            <label for="zero2hundred">One to a hundred:</label>
+            <input type="range" min="1" max="100" step="1" id="zero2hundred">
+            <label for="number">Write a number:</label>
+            <input type="number" id="number">
+            `;
+        }
+        function tableCheckbox() {
+            document.getElementById('content').innerHTML += /*HTML*/`
+            <input type="checkbox" id="vehicle1">
+            <label for="vehicle1"> I have a car</label>
+            <input type="checkbox" id="vehicle2">
+            <label for="vehicle2"> I have a snowmobile</label>
+            <input type="checkbox" id="vehicle3">
+            <label for="vehicle3"> I have a plain</label>
+            `;
+        }
+        function tableRadio() {
+            document.getElementById('content').innerHTML += /*HTML*/`
+            <input type="radio" id="html" name="fav_language">
+            <label for="html">HTML</label>
+            <input type="radio" id="css" name="fav_language">
+            <label for="css">CSS</label>
+            <input type="radio" id="javascript" name="fav_language">
+            <label for="javascript">JavaScript</label>
+            `;
+        }
+
+        function editTableLayout(label, input) {
+            document.getElementById('content').innerHTML = /*HTML*/`
             <label for="fname">First name:</label><br/>
             <input type="text" id="fname"><br/>
             <label for="lname">Last name:</label><br/>
             <input type="text" id="lname"><br/>
             <label for="zero2hundred">En til hundre:</label><br/>
             <input type="range" min="1" max="100" step="1" id="zero2hundred"><br/>
-            <label for="number">Skriv inn et tall:</label><br/>
+            <label for="number">Write a number:</label><br/>
             <input type="number" id="number"><br/>
             <input type="radio" id="html" name="fav_language">
             <label for="html">HTML</label><br/>
@@ -33,12 +133,12 @@
             <input type="radio" id="javascript" name="fav_language">
             <label for="javascript">JavaScript</label><br/>
             <input type="checkbox" id="vehicle1">
-            <label for="vehicle1"> I have a bike</label><br/>
+            <label for="vehicle1"> I have a car</label><br/>
             <input type="checkbox" id="vehicle2">
-            <label for="vehicle2"> I have a car</label><br/>
+            <label for="vehicle2"> I have a snowmobile</label><br/>
             <input type="checkbox" id="vehicle3">
-            <label for="vehicle3"> I have a boat</label><br/>
-            `;
+            <label for="vehicle3"> I have a plain</label><br/>
+                        `;
         }
 
     </script>
