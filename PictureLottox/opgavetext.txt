@@ -2,7 +2,7 @@
 Dere skal lage kun første skritt på en liten bilde-lotto-app. 
 Ta utgangspunkt i denne koden: https://github.com/getacademy/PictureLottox 
 Med kun pensum fra uke/modul 1, skal dere kunne få til følgende:
-Alle ruter skal være lukket (grå) fra start
+- Alle ruter skal være lukket (grå) fra start
 - Hvis man trykker på en rute, kommer bildet til syne
 - Hvis man trykker på en rute til etter det, er det to muligheter:
 - Hvis man har trykket på et likt bilde, skal det også vises
