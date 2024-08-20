@@ -11,82 +11,37 @@
     </div>
 
     <script>
-        drawBpard();
-        function drawBpard() {
-            document.getElementById('board').innerHTML = /*HTML*/`
+        drawBoard();
 
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
+        function drawBoard() {
+            drawRow();
+            drawRow();
+            drawRow();
+            drawRow();
+        }
 
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
+        function drawRow() {
+            document.getElementById('board').innerHTML += /*HTML*/`
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+                `;
 
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-    <div class="darkSquare"></div>
-    <div class="lightSquare"></div>
-        `;
+            document.getElementById('board').innerHTML += /*HTML*/`   
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                <div class="darkSquare"></div>
+                <div class="lightSquare"></div>
+                `;
         }
     </script>
 </body>
