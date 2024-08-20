@@ -1,0 +1,13 @@
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 100px);
+    grid-template-rows: repeat(8, 100px);
+}
+
+.lighSquare {
+    background-color: rgb(240, 217, 181);
+}
+
+.darkSquare {
+    background-color: rgb(181, 136, 99);
+}
