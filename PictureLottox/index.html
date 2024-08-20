@@ -8,8 +8,8 @@
     <style>
         #board {
             display: grid;
-            grid-template-columns: repeat(4, 200px);
-            grid-template-rows: repeat(4, 200px);
+            grid-template-columns: repeat(2, 200px);
+            grid-template-rows: repeat(2, 200px);
         }
 
         #board>div {
@@ -21,19 +21,152 @@
             cursor: pointer;
         }
 
-        .hidden img {
-            visibility: hidden;
-        }
-
         img {
             width: 100%;
         }
     </style>
+
 </head>
 
 <body>
-    <div id="board">
-        <div><img src="img/dog.jpg" /></div>
+    <div id="board"></div>
+
+    <script>
+        drawPictures();
+
+        function drawPictures() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div onclick="showDogOne()"></div>
+            <div onclick="showFrogOne()" ></div>
+            <div onclick="" ></div>
+            <div onclick="" ></div>
+           `;
+        }
+
+        function showFrogOne() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div onclick="drawPictures()" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div onclick="showFrogOneAndTwo()" ></div>
+            <div onclick="drawPictures()" > </div>
+            
+           `;
+        }
+
+        function showFrogOneAndTwo() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div onclick="showFrogsAndDogOne()" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div onclick="showFrogsAndDogTwo()" ></div>
+           `;
+        }
+
+        function showFrogsAndDogTwo() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div onclick="showAll()" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div><img src="img/dog.jpg"/> </div>
+           `;
+        }
+
+        function showFrogsAndDogOne() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div><img src="img/dog.jpg"/> </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div onclick="showAll()" ></div>
+           `;
+        }
+
+
+        function showDogOne() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div><img src="img/dog.jpg"/> </div>
+            <div onclick="drawPictures()" > </div>
+            <div onclick="drawPictures()" > </div>
+            <div onclick="showDogOneAndTwo()" > </div>
+           `;
+        }
+
+        function showDogOneAndTwo() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div><img src="img/dog.jpg"/></div>
+            <div onclick="showDogsAndFrogOne()" > </div>
+            <div onclick="showDogsAndFrogTwo()" > </div>
+            <div><img src="img/dog.jpg"/> </div>
+           `;
+        }
+
+        function showDogsAndFrogOne() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div><img src="img/dog.jpg"/></div>
+            <div><img src="img/frog.jpg" > </div>
+            <div onclick="showAll()" > </div>
+            <div><img src="img/dog.jpg"/> </div>
+           `;
+        }
+
+        function showDogsAndFrogTwo() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div><img src="img/dog.jpg"/></div>
+            <div onclick="showAll()" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div><img src="img/dog.jpg"/> </div>
+           `;
+        }
+
+        function showAll() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div><img src="img/dog.jpg"/></div>
+            <div><img src="img/frog.jpg" > </div>
+            <div><img src="img/frog.jpg" > </div>
+            <div><img src="img/dog.jpg"/> </div>
+           `;
+        }
+
+
+        // function showPictureDogOne() {
+        //     document.getElementById("board").innerHTML = /*HTML*/`
+        //     <div><img src="img/dog.jpg"/></div>
+        //     <div onclick ="drawPictures()"></div>
+        //     <div onclick ="drawPictures()"></div>
+        //     <div></div>
+        //    `;
+        // }
+
+        // function showPictureFrogOne() {
+        //     document.getElementById("board").innerHTML = /*HTML*/`
+        //     <div onclick ="drawPictures()"></div>
+        //     <div><img src="img/frog.jpg"/></div>
+        //     <div></div>
+        //     <div onclick ="drawPictures()"></div>
+        //    `;
+        // }
+
+        // function showPictureDogTwo() {
+        //     document.getElementById("board").innerHTML = /*HTML*/`
+        //     <div></div>
+        //     <div></div>
+        //     <div><img src="img/dog.jpg"/></div>
+        //     <div></div>
+        //    `;
+        // }
+
+        // function showPictureFrogTwo() {
+        //     document.getElementById("board").innerHTML = /*HTML*/`
+        //     <div></div>
+        //     <div></div>
+        //     <div></div>
+        //     <div><img src="img/frog.jpg"></div>
+        //    `;
+        // }
+
+    </script>
+
+</body>
+<!-- <div><img src="img/dog.jpg" /></div>
         <div><img src="img/frog.jpg" /></div>
         <div><img src="img/horse.jpg" /></div>
         <div><img src="img/chicken.jpg" /></div>
@@ -48,12 +181,6 @@
         <div><img src="img/cat.gif" /></div>
         <div><img src="img/elephant.jpg" /></div>
         <div><img src="img/horse.jpg" /></div>
-        <div></div>
-    </div>
-    <script>
-
-    </script>
-
-</body>
+        <div></div> -->
 
 </html>

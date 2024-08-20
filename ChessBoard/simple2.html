@@ -14,13 +14,18 @@
         drawBoard();
 
         function drawBoard() {
-            drawRow();
-            drawRow();
-            drawRow();
-            drawRow();
+            drawDoubleRow();
+            drawDoubleRow();
+            drawDoubleRow();
+            drawDoubleRow();
         }
 
-        function drawRow() {
+        function drawDoubleRow() {
+            drawRowStartingWithLight();
+            drawRowStartingWithDark();
+        }
+
+        function drawRowStartingWithLight() {
             document.getElementById('board').innerHTML += /*HTML*/`
                 <div class="lightSquare"></div>
                 <div class="darkSquare"></div>
@@ -31,9 +36,11 @@
                 <div class="lightSquare"></div>
                 <div class="darkSquare"></div>
                 `;
+        }
 
-            document.getElementById('board').innerHTML += /*HTML*/`   
-                <div class="darkSquare"></div>
+        function drawRowStartingWithDark() {
+            document.getElementById('board').innerHTML += /*HTML*/`
+                <div class="darkSquare"></div>    
                 <div class="lightSquare"></div>
                 <div class="darkSquare"></div>
                 <div class="lightSquare"></div>
