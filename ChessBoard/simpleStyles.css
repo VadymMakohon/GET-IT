@@ -4,7 +4,7 @@
     grid-template-rows: repeat(8, 100px);
 }
 
-.lighSquare {
+.lightSquare {
     background-color: rgb(240, 217, 181);
 }
 
