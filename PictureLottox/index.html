@@ -34,22 +34,34 @@
     <script>
         drawPictures();
 
+        function createDiv(onclick) {
+            return/*HTML*/` 
+            <div onclick="${onclick}"></div>
+            `;
+        }
+
+        function createDivImage(imageName) {
+            console.log(imageName);
+            return/*HTML*/` 
+            <div><img src="${imageName}"></div>
+            `;
+        }
+
         function drawPictures() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div onclick="showDogOne()"></div>
-            <div onclick="showFrogOne()" ></div>
-            <div onclick="" ></div>
-            <div onclick="" ></div>
-           `;
+            ${createDiv("showDogOne()")}
+            ${createDiv("showFrogOne()")}
+            ${createDiv("showFrogTwo()")}
+            ${createDiv("showDogTwo()")}
+            `;
         }
 
         function showFrogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div onclick="drawPictures()" > </div>
+            ${createDiv("drawPictures()")}
             <div><img src="img/frog.jpg" > </div>
             <div onclick="showFrogOneAndTwo()" ></div>
             <div onclick="drawPictures()" > </div>
-            
            `;
         }
 
@@ -80,6 +92,14 @@
            `;
         }
 
+        function showFrogTwo() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div onclick="drawPictures()" ></div>
+            <div onclick="showFrogOneAndTwo()" ></div>
+            <div><img src="img/frog.jpg" > </div>
+            <div onclick="drawPictures()" > </div>
+           `;
+        }
 
         function showDogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
@@ -101,10 +121,10 @@
 
         function showDogsAndFrogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div><img src="img/dog.jpg"/></div>
+            <div><img src="img/dog.jpg" > </div>
             <div><img src="img/frog.jpg" > </div>
             <div onclick="showAll()" > </div>
-            <div><img src="img/dog.jpg"/> </div>
+            <div><img src="img/dog.jpg" > </div>
            `;
         }
 
@@ -117,6 +137,15 @@
            `;
         }
 
+        function showDogTwo() {
+            document.getElementById("board").innerHTML = /*HTML*/`
+            <div onclick="showDogOneAndTwo()" ></div>
+            <div onclick="drawPictures()" > </div>
+            <div onclick="drawPictures()" > </div>
+            <div><img src="img/dog.jpg"/> </div>
+           `;
+        }
+
         function showAll() {
             document.getElementById("board").innerHTML = /*HTML*/`
             <div><img src="img/dog.jpg"/></div>
@@ -125,43 +154,6 @@
             <div><img src="img/dog.jpg"/> </div>
            `;
         }
-
-
-        // function showPictureDogOne() {
-        //     document.getElementById("board").innerHTML = /*HTML*/`
-        //     <div><img src="img/dog.jpg"/></div>
-        //     <div onclick ="drawPictures()"></div>
-        //     <div onclick ="drawPictures()"></div>
-        //     <div></div>
-        //    `;
-        // }
-
-        // function showPictureFrogOne() {
-        //     document.getElementById("board").innerHTML = /*HTML*/`
-        //     <div onclick ="drawPictures()"></div>
-        //     <div><img src="img/frog.jpg"/></div>
-        //     <div></div>
-        //     <div onclick ="drawPictures()"></div>
-        //    `;
-        // }
-
-        // function showPictureDogTwo() {
-        //     document.getElementById("board").innerHTML = /*HTML*/`
-        //     <div></div>
-        //     <div></div>
-        //     <div><img src="img/dog.jpg"/></div>
-        //     <div></div>
-        //    `;
-        // }
-
-        // function showPictureFrogTwo() {
-        //     document.getElementById("board").innerHTML = /*HTML*/`
-        //     <div></div>
-        //     <div></div>
-        //     <div></div>
-        //     <div><img src="img/frog.jpg"></div>
-        //    `;
-        // }
 
     </script>
 
