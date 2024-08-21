@@ -59,7 +59,7 @@
         function showFrogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
             ${createDiv("drawPictures()")}
-            <div><img src="img/frog.jpg" > </div>
+            ${createDivImage("img/frog.jpg")}
             ${createDiv("showFrogOneAndTwo()")}
             ${createDiv("drawPictures()")}
             `;
@@ -68,8 +68,8 @@
         function showFrogOneAndTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
             ${createDiv("showFrogsAndDogOne()")}
-            <div><img src="img/frog.jpg" > </div>
-            <div><img src="img/frog.jpg" > </div>
+            ${createDivImage("img/frog.jpg")}
+            ${createDivImage("img/frog.jpg")}
             ${createDiv("showFrogsAndDogTwo()")}
            `;
         }
@@ -77,17 +77,17 @@
         function showFrogsAndDogTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
             ${createDiv("showAll()")}
-            <div><img src="img/frog.jpg" > </div>
-            <div><img src="img/frog.jpg" > </div>
-            <div><img src="img/dog.jpg"/> </div>
+            ${createDivImage("img/frog.jpg")}
+            ${createDivImage("img/frog.jpg")}
+            ${createDivImage("img/dog.jpg")}
            `;
         }
 
         function showFrogsAndDogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div><img src="img/dog.jpg"/> </div>
-            <div><img src="img/frog.jpg" > </div>
-            <div><img src="img/frog.jpg" > </div>
+            ${createDivImage("img/dog.jpg")}
+            ${createDivImage("img/frog.jpg")}
+            ${createDivImage("img/frog.jpg")}
             ${createDiv("showAll()")}
            `;
         }
@@ -96,14 +96,14 @@
             document.getElementById("board").innerHTML = /*HTML*/`
             ${createDiv("drawPictures()")}
             ${createDiv("showFrogOneAndTwo()")}
-            <div><img src="img/frog.jpg" > </div>
+            ${createDivImage("img/frog.jpg")}
             ${createDiv("drawPictures()")}
            `;
         }
 
         function showDogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div><img src="img/dog.jpg"/> </div>
+            ${createDivImage("img/dog.jpg")}
             ${createDiv("drawPictures()")}
             ${createDiv("drawPictures()")}
             ${createDiv("showDogOneAndTwo()")}
@@ -112,28 +112,28 @@
 
         function showDogOneAndTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div><img src="img/dog.jpg"/></div>
+            ${createDivImage("img/dog.jpg")}
             ${createDiv("showDogsAndFrogOne()")}
             ${createDiv("showDogsAndFrogTwo()")}
-            <div><img src="img/dog.jpg"/> </div>
+            ${createDivImage("img/dog.jpg")}
            `;
         }
 
         function showDogsAndFrogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div><img src="img/dog.jpg" > </div>
-            <div><img src="img/frog.jpg" > </div>
+            ${createDivImage("img/dog.jpg")}
+            ${createDivImage("img/frog.jpg")}
             ${createDiv("showAll()")}
-            <div><img src="img/dog.jpg" > </div>
+            ${createDivImage("img/dog.jpg")}
            `;
         }
 
         function showDogsAndFrogTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div><img src="img/dog.jpg"/></div>
+            ${createDivImage("img/dog.jpg")}
             ${createDiv("showAll()")}
-            <div><img src="img/frog.jpg" > </div>
-            <div><img src="img/dog.jpg"/> </div>
+            ${createDivImage("img/frog.jpg")}
+            ${createDivImage("img/dog.jpg")}
            `;
         }
 
@@ -142,16 +142,16 @@
             ${createDiv("showDogOneAndTwo()")}
             ${createDiv("drawPictures()")}
             ${createDiv("drawPictures()")}
-            <div><img src="img/dog.jpg"/> </div>
+            ${createDivImage("img/dog.jpg")}
            `;
         }
 
         function showAll() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div><img src="img/dog.jpg"/></div>
-            <div><img src="img/frog.jpg" > </div>
-            <div><img src="img/frog.jpg" > </div>
-            <div><img src="img/dog.jpg"/> </div>
+            ${createDivImage("img/dog.jpg")}
+            ${createDivImage("img/frog.jpg")}
+            ${createDivImage("img/frog.jpg")}
+            ${createDivImage("img/dog.jpg")}
            `;
         }
 
