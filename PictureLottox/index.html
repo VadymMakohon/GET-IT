@@ -60,23 +60,23 @@
             document.getElementById("board").innerHTML = /*HTML*/`
             ${createDiv("drawPictures()")}
             <div><img src="img/frog.jpg" > </div>
-            <div onclick="showFrogOneAndTwo()" ></div>
-            <div onclick="drawPictures()" > </div>
-           `;
+            ${createDiv("showFrogOneAndTwo()")}
+            ${createDiv("drawPictures()")}
+            `;
         }
 
         function showFrogOneAndTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div onclick="showFrogsAndDogOne()" > </div>
+            ${createDiv("showFrogsAndDogOne()")}
             <div><img src="img/frog.jpg" > </div>
             <div><img src="img/frog.jpg" > </div>
-            <div onclick="showFrogsAndDogTwo()" ></div>
+            ${createDiv("showFrogsAndDogTwo()")}
            `;
         }
 
         function showFrogsAndDogTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div onclick="showAll()" > </div>
+            ${createDiv("showAll()")}
             <div><img src="img/frog.jpg" > </div>
             <div><img src="img/frog.jpg" > </div>
             <div><img src="img/dog.jpg"/> </div>
@@ -88,24 +88,24 @@
             <div><img src="img/dog.jpg"/> </div>
             <div><img src="img/frog.jpg" > </div>
             <div><img src="img/frog.jpg" > </div>
-            <div onclick="showAll()" ></div>
+            ${createDiv("showAll()")}
            `;
         }
 
         function showFrogTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
-            <div onclick="drawPictures()" ></div>
+            ${createDiv("drawPictures()")}
             <div onclick="showFrogOneAndTwo()" ></div>
             <div><img src="img/frog.jpg" > </div>
-            <div onclick="drawPictures()" > </div>
+            ${createDiv("drawPictures()")}
            `;
         }
 
         function showDogOne() {
             document.getElementById("board").innerHTML = /*HTML*/`
             <div><img src="img/dog.jpg"/> </div>
-            <div onclick="drawPictures()" > </div>
-            <div onclick="drawPictures()" > </div>
+            ${createDiv("drawPictures()")}
+            ${createDiv("drawPictures()")}
             <div onclick="showDogOneAndTwo()" > </div>
            `;
         }
@@ -123,7 +123,7 @@
             document.getElementById("board").innerHTML = /*HTML*/`
             <div><img src="img/dog.jpg" > </div>
             <div><img src="img/frog.jpg" > </div>
-            <div onclick="showAll()" > </div>
+            ${createDiv("showAll()")}
             <div><img src="img/dog.jpg" > </div>
            `;
         }
@@ -131,7 +131,7 @@
         function showDogsAndFrogTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
             <div><img src="img/dog.jpg"/></div>
-            <div onclick="showAll()" > </div>
+            ${createDiv("showAll()")}
             <div><img src="img/frog.jpg" > </div>
             <div><img src="img/dog.jpg"/> </div>
            `;
@@ -140,8 +140,8 @@
         function showDogTwo() {
             document.getElementById("board").innerHTML = /*HTML*/`
             <div onclick="showDogOneAndTwo()" ></div>
-            <div onclick="drawPictures()" > </div>
-            <div onclick="drawPictures()" > </div>
+            ${createDiv("drawPictures()")}
+            ${createDiv("drawPictures()")}
             <div><img src="img/dog.jpg"/> </div>
            `;
         }
