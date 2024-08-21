@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Puzzle Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .puzzle-container {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #333;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .piece {
+      width: 48px;
+      height: 48px;
+      margin: 1px;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .piece:hover {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Puzzle Game</h1>
+  <div class="puzzle-container" id="puzzle">
+    <div class="piece" onclick="movePiece(this, '1')">1</div>
+    <div class="piece" onclick="movePiece(this, '2')">2</div>
+    <div class="piece" onclick="movePiece(this, '3')">3</div>
+    <div class="piece" onclick="movePiece(this, '4')">4</div>
+    <div class="piece" onclick="movePiece(this, '5')">5</div>
+    <div class="piece" onclick="movePiece(this, '6')">6</div>
+    <div class="piece" onclick="movePiece(this, '7')">7</div>
+    <div class="piece" onclick="movePiece(this, '8')">8</div>
+    <div class="piece" onclick="movePiece(this, '9')"></div>
+  </div>
+
+  <script>
+    function movePiece(piece, number) {
+      var emptyPiece = document.querySelector('.puzzle-container .piece:empty');
+      if (canMove(piece, emptyPiece)) {
+        piece.textContent = '';
+        emptyPiece.textContent = number;
+      }
+    }
+
+    function canMove(piece, emptyPiece) {
+      var pieceIndex = Array.from(piece.parentNode.children).indexOf(piece);
+      var emptyIndex = Array.from(emptyPiece.parentNode.children).indexOf(emptyPiece);
+      var pieceRow = Math.floor(pieceIndex / 3);
+      var pieceCol = pieceIndex % 3;
+      var emptyRow = Math.floor(emptyIndex / 3);
+      var emptyCol = emptyIndex % 3;
+
+      return (Math.abs(pieceRow - emptyRow) === 1 && pieceCol === emptyCol) ||
+        (Math.abs(pieceCol - emptyCol) === 1 && pieceRow === emptyRow);
+    }
+  </script>
+</body>
+
+</html>
