@@ -27,20 +27,20 @@
 
         function drawRowStartingWithLight() {
             document.getElementById('board').innerHTML += /*HTML*/`
-                <div class="lightSquare"></div>
-                <div class="darkSquare"></div>
-                <div class="lightSquare"></div>
-                <div class="darkSquare"></div>
-                <div class="lightSquare"></div>
-                <div class="darkSquare"></div>
-                <div class="lightSquare"></div>
+            <div class="darkSquare"></div>
+                `;
+            drawRowCore();
+        }
+
+        function drawRowStartingWithLight() {
+            drawRowCore();
+            document.getElementById('board').innerHTML += /*HTML*/`
                 <div class="darkSquare"></div>
                 `;
         }
 
-        function drawRowStartingWithDark() {
+        function drawRowCore() {
             document.getElementById('board').innerHTML += /*HTML*/`
-                <div class="darkSquare"></div>    
                 <div class="lightSquare"></div>
                 <div class="darkSquare"></div>
                 <div class="lightSquare"></div>
@@ -50,6 +50,7 @@
                 <div class="lightSquare"></div>
                 `;
         }
+
     </script>
 </body>
 
