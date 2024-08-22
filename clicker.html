@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Poeng: <span id="points">0</span><br>
+    <button onclick="addPoints()">Klikk her</button>
+    <button onclick="upgrade()">Klikk oppgaver</button>
+
+    <script>
+        let points = 0;
+        let upgrades = 1;
+
+        function addPoints() {
+            points += upgrades;
+            document.getElementById('points').innerHTML = points;
+        }
+
+        function upgrade() {
+            if (points > 10) {
+                upgrades++;
+                points -= 10;
+                document.getElementById('points').innerHTML = points;
+            }
+        }
+    </script>
+</body>
+
+</html>
