@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="txt" type="text" />
+    <button onclick="show()">Vis tekst</button>
+    <div id="info"></div>
+
+    <script>
+        function show() {
+            let text = document.getElementById('txt').value;
+            document.getElementById('info').innerHTML = /*HTML*/`            
+                Teksten er ${text || '<i>blank</i>'}            
+            `;
+        }
+    </script>
+</body>
+
+</html>
