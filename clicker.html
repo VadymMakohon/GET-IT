@@ -22,7 +22,7 @@
         }
 
         function upgrade() {
-            if (points > 10) {
+            if (points >= 10) {
                 upgrades++;
                 points -= 10;
                 document.getElementById('points').innerHTML = points;
