@@ -19,6 +19,8 @@
 <body>
     <button onclick="styleAsGrid(4, 6, '50px')">Style 1</button>
     <button onclick="styleAsGrid(12, 2, '50px')">Style2</button>
+    <button onclick="styleAsGrid(3, 8, '50px')">Style3</button>
+    <button onclick="styleAsGrid(5, 3, '1fr')">Style4</button>
     <div id="myDiv">
         <div>1</div>
         <div>2</div>
@@ -54,8 +56,8 @@
         function styleAsGrid(columnCount, rowCount, size) {
             const style = document.getElementById('myDiv').style;
             style.display = 'grid';
-            style.gridTemplateColumns = `repeat(columnCount, size)`;
-            style.gridTemplateRows = `repeat(rowCount, size)`;
+            style.gridTemplateColumns = `repeat(${columnCount}, ${size})`;
+            style.gridTemplateRows = `repeat(${rowCount}, ${size})`;
         }
 
         // function styleAsGrid1() {
