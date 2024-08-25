@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swedish Flag</title>
+
+    <style>
+        #flag {
+            display: grid;
+            grid-template-columns: repeat(22, 20px);
+            grid-template-rows: repeat(16, 20px);
+        }
+
+        .blue {
+            background-color: #005B99;
+        }
+
+        .yellow {
+            background-color: #FECB00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="flag">
+        <!-- Blue background -->
+        <div class="blue" style="grid-column: 1 / span 22; grid-row: 1 / span 16;"></div>
+
+        <!-- Vertical yellow stripe -->
+        <div class="yellow" style="grid-column: 8 / span 4; grid-row: 1 / span 16;"></div>
+
+        <!-- Horizontal yellow stripe -->
+        <div class="yellow" style="grid-column: 1 / span 22; grid-row: 6 / span 4;"></div>
+    </div>
+</body>
+
+</html>
