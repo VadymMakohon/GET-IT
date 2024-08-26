@@ -1,0 +1,30 @@
+# Oppgaven
+Studer koden og prøv å forstå mest mulig av hva som foregår. CSS er ikke viktig, men på board brukes position: absolute for å kunne legge brikkene delvis oppå hverandre, og dette har vi ikke brukt i kurset før. (Det er noe man bør unngå å bruke.) Brikkene har jeg stjålet herfra: codepen.io/ProfessorSamoff/pen/ByJoaE Jeg har ikke studert i detalj hvordan de er bygget, og det trenger ikke dere gjøre heller.
+ 
+Så skal vi i gang å endre på dette. Dere må på ingen måte forstå alt som foregår for å gjøre disse oppgavene. Sånn er det i bedrift også; du går inn og gjør endring på en liten del av koden uten å forstå alt rundt. Hvert team må vurdere hvor mye eller lite av denne oppgaven dere vil gjøre. Alle bør gjøre litt, men det kan være at de siste oppgavene er riktige å hoppe over for noen team.
+ 
+Hvis man trykker på den første brikken nederst til venstre på siden, kalles funksjonen addNormalPuzzlePieceToBoard(). (Ev. høyreklikk på denne brikken i nettleseren og velg inspiser. Da vil du se HTML-koden som ligger bak.) Lag funksjonen addNormalPuzzlePieceToBoard(), slik at brikken legges til på brettet. Kommenter ut linjene som begynner med addPuzzlePiece('board'... - de var bare ment for å vise eksempler på hvordan man kan legge til ulike brikker i ulike posisjoner på brettet. Men eksperimenter med dem for å forstå hvordan de ulike verdiene man kan sende inn som argument påvirker sluttresultatet
+For at skjøtene mellom brikkene skal virke, må vi tegne opp dette fra øverst til høyre, så mot venstre - og så starte på neste linje helt til høyre.  
+Utvid funksjonen slik at første gang den kalles legges det til en brikke med 24 som argument for både leftPosition og 0 for topPosition.
+  Og at for hver gang den kalles så brukes det 6 mindre enn forrige gang for leftPosition. (Første gang 24, så 18, så 12, så 6 og så 0.)
+Utvid funksjonen slik at hvis man har kalt funksjonen fem ganger så bruker den igjen 24 for leftPosition og bruker 6 mer enn forrige gang for topPosition.
+ 
+Sørg for at det annenhver gang blir farge 1 og annenhver gang farge 2.
+ 
+Lag ferdig knapperaden slik at det er knapper for alle disse alternativene:
+Normal brikke
+Slett toppkant - ellers normal
+Slett høyrekant - ellers normal
+Slett bunnkant - ellers normal
+Slett venstrekant - ellers normal
+Slett hjørne i topp og mot venstre - ellers normal
+Slett hjørne i topp og mot høyre - ellers normal
+Slett hjørne i bunn og mot venstre - ellers normal
+Slett hjørne i bunn og mot høyre - ellers normal
+Sørg for at alle knappene virker og legger til riktig type brikke.
+ 
+Implementer følgende regler:
+På første rad kan man bare legge til brikker som har slett topp
+På siste rad kan man bare legge til brikker som har slett bunn
+I første kolonne kan man bare legge til brikker som har slett venstrekant
+I siste kolonne kan man bare legge til brikker som har slett høyrekant
