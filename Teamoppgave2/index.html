@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Puzzle</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -21,14 +21,19 @@
         // addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
         // addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
 
-        let nextRow = 8;
+        let nextRow = 0;
         let nextColumn = 24;
         let nextColor = 1;
 
-        addPuzzlePiece('buttons', true, true, true, true, 'addNormalPuzzlePieceToBoard()', 1);
-        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
+        addPuzzlePiece('buttons', true, true, true, true, 'addPuzzlePieceToBoard(true, true,true,true)', 1);
+        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceToBoard(false, true,true,true)', 1);
+        addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceToBoard(true, false, true,true)', 1);
+        addPuzzlePiece('buttons', true, true, true, false, 'addPuzzlePieceToBoard(true, true, true, false)', 1);
+        addPuzzlePiece('buttons', true, true, false, true, 'addPuzzlePieceToBoard(true, true, false, true)', 1);
+        addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceToBoard(false, true, true, false)', 1);
         addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true)', 1);
-        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true)', 1);
+        addPuzzlePiece('buttons', true, true, false, false, 'addPuzzlePieceToBoard(true, true, false, false)', 1);
+        addPuzzlePiece('buttons', true, false, false, true, 'addPuzzlePieceToBoard(true, false, false, true)', 1);
 
         function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
             let style = '';
@@ -46,8 +51,13 @@
             `;
         }
 
-        function addPuzzlePieceToBoard(top, right, buttom, left) {
-            addPuzzlePiece('board', top, right, buttom, left, '', nextColor, nextColumn, nextRow);
+        function addPuzzlePieceToBoard(top, right, bottom, left) {
+            if (isTopRow() && canNotBePlacedAtTop(top)) return;
+            if (isBottomRow() && canNotBePlacedAtBottom(bottom)) return;
+            if (isFirstColumn() && canNotBePlacedFirstColumn(right)) return;
+            if (isLastColumn() && canNotBePlacedLastColumn(left)) return;
+
+            addPuzzlePiece('board', top, right, bottom, left, '', nextColor, nextColumn, nextRow)
             if (nextColumn == 0) {
                 nextColumn = 24;
                 nextRow += 6;
@@ -55,6 +65,38 @@
                 nextColumn -= 6;
             }
             if (nextColor == 1) { nextColor = 2 } else { nextColor = 1 }
+        }
+
+        function canNotBePlacedAtTop(top) {
+            return top == true
+        }
+
+        function canNotBePlacedAtBottom(bottom) {
+            return bottom == true
+        }
+
+        function canNotBePlacedFirstColumn(right) {
+            return right == true
+        }
+
+        function canNotBePlacedLastColumn(left) {
+            return left == true
+        }
+
+        function isTopRow() {
+            return nextRow == 0
+        }
+
+        function isFirstColumn() {
+            return nextColumn == 24
+        }
+
+        function isLastColumn() {
+            return nextColumn == 0
+        }
+
+        function isBottomRow() {
+            return nextRow == 24
         }
 
         document.getElementById('exerciseText').innerHTML = /*HTML*/`            
