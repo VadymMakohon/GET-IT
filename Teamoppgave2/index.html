@@ -16,14 +16,20 @@
         <div id="buttons" style="background-color: lightblue;grid-area: buttons;"></div>
     </div>
     <script>
-        addPuzzlePiece('board', false, false, true, true, '', 1, 24, 0);
-        addPuzzlePiece('board', false, true, true, true, '', 2, 18, 0);
-        addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
-        addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
+        // addPuzzlePiece('board', false, false, true, true, '', 1, 24, 0);
+        // addPuzzlePiece('board', false, true, true, true, '', 2, 18, 0);
+        // addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
+        // addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
+
+        let nextRow = 8;
+        let nextColumn = 24;
+        let nextColor = 1;
 
         addPuzzlePiece('buttons', true, true, true, true, 'addNormalPuzzlePieceToBoard()', 1);
         addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceWithoutTopToBoard()', 2);
-        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceWithoutRightAndTopToBoard()', 1);
+        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true)', 1);
+        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true)', 1);
+
         function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
             let style = '';
             if (leftPosition !== undefined) {
@@ -38,6 +44,17 @@
                     ${hasLeft ? `<span class="l"></span>` : ''}
                 </div>            
             `;
+        }
+
+        function addPuzzlePieceToBoard(top, right, buttom, left) {
+            addPuzzlePiece('board', top, right, buttom, left, '', nextColor, nextColumn, nextRow);
+            if (nextColumn == 0) {
+                nextColumn = 24;
+                nextRow += 6;
+            } else {
+                nextColumn -= 6;
+            }
+            if (nextColor == 1) { nextColor = 2 } else { nextColor = 1 }
         }
 
         document.getElementById('exerciseText').innerHTML = /*HTML*/`            
