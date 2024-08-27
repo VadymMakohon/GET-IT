@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 90vw;
+            height: 90vw;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // model   
+        let greenLevel = 0;
+        let blueLevel = 0;
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div style="background-color: rgb(255, ${greenLevel}, ${blueLevel});" class="main"></div>
+                <button onclick="moreGreen()">Mer grønt</button> ${greenLevel}<br/>
+                <button onclick="moreBlue()">Mer blått</button> ${blueLevel}<br/>
+            `;
+        }
+
+        // controller
+        function moreGreen() {
+            greenLevel += 25;
+            updateView();
+        }
+
+        function moreBlue() {
+            blueLevel += 25;
+            updateView();
+        }
+    </script>
+</body>
+
+</html>
