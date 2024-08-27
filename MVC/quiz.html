@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model 
+        let questionIndex = 0;
+        let points = 0;
+
+        // view
+        updateView();
+        function updateView() {
+            let question;
+            if (questionIndex == 0) question = "hva er 2+2?";
+            else if (questionIndex == 1) question = "hva er hovedstaden i Sverige?";
+            else if (questionIndex == 2) question = "hva er verdens største land?";
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>${question}</h1>
+                Poeng: ${points}<br/>
+                <input type="text">
+                <button onclick="next()">next</button>
+            `;
+        }
+
+        // controller
+        function next() {
+            questionIndex++;
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
