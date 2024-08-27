@@ -21,19 +21,19 @@
         // addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
         // addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
 
-        let addColumn = 24;
-        let addRow = 0;
+        let addColumn = 24;   // 24 colonen helt til høyre; 18 colonen # 2 fra høyre...colonen 0 helt til venstre.
+        let addRow = 0;       // 0 top råden, 6-andre raden, 12-tredje raden; 24-bunn raden.
         let addColor = 1;
 
-        addPuzzlePiece('buttons', true, true, true, true, 'addPuzzlePieceToBoard()', 1);
-        addPuzzlePiece('buttons', false, true, true, true, '', 2);
-        addPuzzlePiece('buttons', true, false, true, true, '', 1);
-        addPuzzlePiece('buttons', true, true, false, true, '', 2);
-        addPuzzlePiece('buttons', true, true, true, false, '', 1);
-        addPuzzlePiece('buttons', false, true, true, false, '', 2);
-        addPuzzlePiece('buttons', false, false, true, true, '', 1);
-        addPuzzlePiece('buttons', true, true, false, false, '', 2);
-        addPuzzlePiece('buttons', true, false, false, true, '', 1);
+        addPuzzlePiece('buttons', true, true, true, true, 'addPuzzlePieceToBoard(true, true, true, true,)', 1);
+        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceToBoard(false, true, true, true,)', 2);
+        addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceToBoard(true, false, true, true,)', 1);
+        addPuzzlePiece('buttons', true, true, false, true, 'addPuzzlePieceToBoard(true, true, false, true,)', 2);
+        addPuzzlePiece('buttons', true, true, true, false, 'addPuzzlePieceToBoard(true, true, true, false,)', 1);
+        addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceToBoard(false, true, true, false,)', 2);
+        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true,)', 1);
+        addPuzzlePiece('buttons', true, true, false, false, 'addPuzzlePieceToBoard(true, true, false, false,)', 2);
+        addPuzzlePiece('buttons', true, false, false, true, 'addPuzzlePieceToBoard(true, false, false, true,)', 1);
 
         function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
             let style = '';
@@ -53,7 +53,23 @@
 
 
         function addPuzzlePieceToBoard(hasTop, hasRight, hasBottom, hasLeft) {
-            addPuzzlePiece('board', true, true, true, true, '', addColor, addColumn, addRow);
+            if (hasTop == true && addRow == 0) {
+                return;
+            }
+
+            if (hasBottom == true && addRow == 24) {
+                return;
+            }
+
+            if (hasLeft == true && addColumn == 0) {
+                return;
+            }
+
+            if (hasRight == true && addColumn == 24) {
+                return;
+            }
+
+            addPuzzlePiece('board', hasTop, hasRight, hasBottom, hasLeft, '', addColor, addColumn, addRow);
             if (addColumn == 0) {
                 addColumn = 24;
                 addRow += 6;
