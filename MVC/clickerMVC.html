@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // model
+        let upgrades = 1;
+        let points = 0;
+
+        // view
+        updateView();
+        function updateView() {
+            let upgradeButtonHtml = '';
+            if (points >= 10) {
+                upgradeButtonHtml = '<button onclick="upgrade()">Oppgradering</button>';
+            }
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1 id="number">${points}</h1>
+                <button onclick="oneClick()">Klikk</button>
+                ${upgradeButtonHtml}                
+            `;
+        }
+
+        // controller
+        function oneClick() {
+            points += upgrades;
+            updateView();
+            // let h1tag = document.getElementById('number');
+            // let points = parseInt(h1tag.innerHTML);
+            // points += upgrades;
+            // h1tag.innerHTML = points;
+        }
+
+        function upgrade() {
+            if (points >= 10) {
+                points -= 10;
+                upgrades++;
+                updateView();
+            }
+
+            // let h1tag = document.getElementById('number');
+            // let points = parseInt(h1tag.innerHTML);
+            // if (points >= 10) {
+            //     points -= 10;
+            //     h1tag.innerHTML = points;
+            //     upgrades++;
+            // }
+        }
+    </script>
+</body>
+
+</html>

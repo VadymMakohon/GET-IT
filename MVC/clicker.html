@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
@@ -14,14 +14,6 @@
 
     <script>
         let upgrades = 1;
-        let points = 0;
-
-        upgradeView();
-        function updateView() {
-            document.getElementById('app').innerHTML = /*HTML*/`
-            
-            `;
-        }
 
         function oneClick() {
             let h1tag = document.getElementById('number');
@@ -31,15 +23,14 @@
         }
 
         function upgrade() {
-            let h1tag = document.getElementById('number')
+            let h1tag = document.getElementById('number');
             let points = parseInt(h1tag.innerHTML);
             if (points >= 10) {
-                points -= 10
-                points += upgrades;
-
-                //legge nytt tall tilbake
+                points -= 10;
                 h1tag.innerHTML = points;
+                upgrades++;
             }
+        }
     </script>
 </body>
 
