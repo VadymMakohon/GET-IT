@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainDiv {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainDiv" style="background-color: rgb(255, 0, 0);"></div>
+    <button onclick="moreGreen()">Mer grønt</button>
+
+    <script>
+        let mainDiv = document.getElementById('mainDiv');
+
+        function moreGreen() {
+            // hente ut nåværende verdier
+            let backgroundColor = mainDiv.style.backgroundColor;
+            let firstCommaIndex = backgroundColor.indexOf(',');
+            let secondCommaIndex = backgroundColor.indexOf(',', firstCommaIndex + 1);
+            let part1 = backgroundColor.substring(0, firstCommaIndex + 1);
+            let green = backgroundColor.substring(firstCommaIndex + 1, secondCommaIndex);
+            let part2 = backgroundColor.substring(secondCommaIndex);
+
+            // øke grønt
+            green = parseInt(green) + 25;
+
+            // legge tilbake
+            console.log(part1 + green + part2)
+            mainDiv.style.backgroundColor = part1 + green + part2;
+        }
+    </script>
+</body>
+
+</html>
