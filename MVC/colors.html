@@ -18,9 +18,8 @@
     <button onclick="moreGreen()">Mer grønt</button>
 
     <script>
-        let mainDiv = document.getElementById('mainDiv');
-
         function moreGreen() {
+            let mainDiv = document.getElementById('mainDiv');
             // hente ut nåværende verdier
             let backgroundColor = mainDiv.style.backgroundColor;
             let firstCommaIndex = backgroundColor.indexOf(',');
@@ -33,7 +32,6 @@
             green = parseInt(green) + 25;
 
             // legge tilbake
-            console.log(part1 + green + part2)
             mainDiv.style.backgroundColor = part1 + green + part2;
         }
     </script>
