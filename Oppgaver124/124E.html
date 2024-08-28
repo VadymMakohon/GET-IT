@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppagave 124E</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        createDiv('Hei', 'blue', 'white');
+        function createDiv(text, foregroundColor, backgroundColor) {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div style="width:100px;height:100px;color:${foregroundColor};background-color:${backgroundColor};">${text}
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
