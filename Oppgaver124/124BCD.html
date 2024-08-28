@@ -19,21 +19,36 @@
 <body>
     <div>
         <label for="celsius">Temperatur i Celsius:</label>
-        <input type="number" id="celsius" placeholder="Skriv inn temperatur">
+        <input type="number" id="Celsius" placeholder="Skriv inn temperatur">
         <button onclick="converterToFarenheit()">Konverter til Farenheit</button>
     </div>
 
-    <div id="farenheit">Ny temperatur</div>
-    <div id="store"></div>
+    <div>
+        <label for="farenheit">Temperatur i Farenheit:</label>
+        <input type="number" id="Farenheit" placeholder="Skriv inn temperatur">
+        <button onclick="converterToCelsius()">Konverter til Celsius</button>
+    </div>
+
+    <div id="farenheit">Ny temperatur vises her</div>
+    <div id="celsius">Ny temperatur vises her</div>
 
     <script>
         function converterToFarenheit() {
-            let temperatur = celsius;
+            let temperatur = document.getElementById('Celsius').value;
             let farenheit = temperatur * 9 / 5 + 32;
             document.getElementById('farenheit').innerHTML = /*HTML*/`
             ${farenheit}
             `;
         }
+
+        function converterToCelsius() {
+            let temperatur = document.getElementById('Farenheit').value;
+            let celsius = (temperatur - 32) * 5 / 9;
+            document.getElementById('celsius').innerHTML = /*HTML*/`
+            ${celsius}
+            `;
+        }
+
     </script>
 </body>
 
