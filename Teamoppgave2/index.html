@@ -56,6 +56,7 @@
             if (isBottomRow() && canNotBePlacedAtBottom(bottom)) return;
             if (isFirstColumn() && canNotBePlacedFirstColumn(right)) return;
             if (isLastColumn() && canNotBePlacedLastColumn(left)) return;
+            if (row > 24) return;
 
             addPuzzlePiece('board', top, right, bottom, left, '', nextColor, nextColumn, nextRow)
             if (nextColumn == 0) {
