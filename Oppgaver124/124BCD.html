@@ -24,35 +24,31 @@
     <div>
         <label for="celsius">Temperatur i Celsius:</label>
         <input type="number" id="Celsius" placeholder="Skriv inn temperatur">
-        <button onclick="converterToFarenheit()">Konverter til Farenheit</button>
+        <button onclick="convertTemperature('Celsius')">Konverter til Fahrenheit</button>
     </div>
 
     <div>
-        <label for="farenheit">Temperatur i Farenheit:</label>
-        <input type="number" id="Farenheit" placeholder="Skriv inn temperatur">
-        <button onclick="converterToCelsius()">Konverter til Celsius</button>
+        <label for="fahrenheit">Temperatur i Fahrenheit:</label>
+        <input type="number" id="Fahrenheit" placeholder="Skriv inn temperatur">
+        <button onclick="convertTemperature('Fahrenheit')">Konverter til Celsius</button>
     </div>
 
-    <div id="farenheit">Ny temperatur vises her</div>
-    <div id="celsius">Ny temperatur vises her</div>
+    <div id="fahrenheitResult">Ny temperatur vises her</div>
+    <div id="celsiusResult">Ny temperatur vises her</div>
 
     <script>
-        function converterToFarenheit() {
-            let temperatur = document.getElementById('Celsius').value;
-            let farenheit = temperatur * 9 / 5 + 32;
-            document.getElementById('farenheit').innerHTML = /*HTML*/`
-            ${farenheit}
-            `;
+        function convertTemperature(scale) {
+            let result;
+            if (scale === 'Celsius') {
+                let temperature = document.getElementById('Celsius').value;
+                result = temperature * 9 / 5 + 32;
+                document.getElementById('fahrenheitResult').innerHTML = `Resultat: ${result}°F`;
+            } else if (scale === 'Fahrenheit') {
+                let temperature = document.getElementById('Fahrenheit').value;
+                result = (temperature - 32) * 5 / 9;
+                document.getElementById('celsiusResult').innerHTML = `Resultat: ${result}°C`;
+            }
         }
-
-        function converterToCelsius() {
-            let temperatur = document.getElementById('Farenheit').value;
-            let celsius = (temperatur - 32) * 5 / 9;
-            document.getElementById('celsius').innerHTML = /*HTML*/`
-            ${celsius}
-            `;
-        }
-
     </script>
 </body>
 
