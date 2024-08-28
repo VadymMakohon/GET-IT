@@ -52,7 +52,7 @@
         }
 
         function addPuzzlePieceToBoard(top, right, bottom, left) {
-            if (isTopRow() && canNotBePlacedAtTop(top)) return;
+            if (isTopRow() && canNotBePlacedAtTop(top)) return; // kan også skrives som if (row == 0 && hastop) return;
             if (isBottomRow() && canNotBePlacedAtBottom(bottom)) return;
             if (isFirstColumn() && canNotBePlacedFirstColumn(right)) return;
             if (isLastColumn() && canNotBePlacedLastColumn(left)) return;
