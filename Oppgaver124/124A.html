@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 124A</title>
+    <style>
+        div.butikkVare {
+            width: 100px;
+            height: auto;
+            font-size: large;
+            border: 1px solid grey;
+        }
+
+        body {
+            background-color: rgb(127, 223, 255);
+        }
+
+        table {
+
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            width: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="store">
+
+    </div>
+
+
+    <script>
+        createStoreAmount();
+        function createStoreAmount() {
+            document.getElementById('store').innerHTML += /*HTML*/`
+                ${createTable()}
+                ${createList('Datamus', 50, 7)}
+                ${createList('Tastatur', 100, 4)}
+                ${createList('Headsett', 500, 3)}
+                <hr/>
+                ${createShoppingList('utstyr', 'Item', 'text')}
+                ${createShoppingList('amount', 'Amount', 'number')}
+                <button onclick="addToShoppingChart()">Legg til handlevogn</button>
+        `;
+        }
+        function createTable() {
+            return  /*HTML*/`
+                <table>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                            <th>Total price</th>
+                        </tr>  
+                    </table>
+            `;
+        }
+        function createList(item, price, amount) {
+            return /*HTML*/`
+                <table>
+                    <tr>
+                        <td>${item}</td>
+                        <td>${price}</td>
+                        <td>${amount}</td>
+                        <td>${price * amount}</td>
+                    </tr> 
+                </table>
+            `;
+        }
+
+        function createShoppingList(id, text, typeType) {
+            return /*HTML*/`
+                <label for="${id}" >${text}</label>
+                <input id="${id}" type="${typeType}">
+            `;
+        }
+
+        function addToShoppingChart() {
+            let items = item;
+            let amounte = price;
+
+            return  /*HTML*/`
+              ${createList(items, 500, amounte)}
+            `;
+        }
+
+    </script>
+
+</body>
+
+</html>
