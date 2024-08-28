@@ -68,6 +68,7 @@
             if (hasRight == true && addColumn == 24) {
                 return;
             }
+            if (row > 24) return;
 
             addPuzzlePiece('board', hasTop, hasRight, hasBottom, hasLeft, '', addColor, addColumn, addRow);
             if (addColumn == 0) {
