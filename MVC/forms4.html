@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let aName;
+        let number;
+        let fontFamily;
+        let fontSize;
+        let isDarkMode = false;
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Hei ${aName ?? 'på deg!'}</h1>
+
+                Navn:<br/>
+                <input 
+                    type="text" 
+                    oninput="aName=this.value" 
+                    value="${aName ?? ''}" 
+                    /><br/>
+                Tall: <br/>
+                <input 
+                    type="range" 
+                    min="1"
+                    max="100"
+                    step="1"
+                    oninput="number=this.valueAsNumber" 
+                    value="${number ?? ''}" 
+                    />${number ?? ''}
+                <br/>
+                
+                <input 
+                    type="checkbox"
+                    oninput="isDarkMode=this.checked" 
+                    ${isDarkMode ? 'checked' : ''}
+                    />
+                Dark mode 
+                <br/>
+                <b>Font-størrelse</b><br/>
+                50% 
+                <input 
+                    type="radio" 
+                    name="fontSize"
+                    oninput="fontSize='50%'"
+                    ${fontSize == '50%' ? 'checked' : ''}
+                    /></br>
+                Normal
+                <input 
+                    type="radio" 
+                    name="fontSize"
+                    oninput="fontSize='100%'"
+                    ${fontSize == '100%' ? 'checked' : ''}
+                    /></br>
+                200%
+                <input 
+                    type="radio" 
+                    name="fontSize"
+                    oninput="fontSize='200%'"
+                    ${fontSize == '200%' ? 'checked' : ''}
+                    /></br>
+
+
+                Du har valgt tallet: ${number ?? ''}<br/>
+
+
+                <button onclick="register()">Registrer</button>
+
+                <button onclick="selectFont('helvetica')">Font A</button>
+                <button onclick="selectFont('courier')">Font B</button>
+            `;
+            let bodyStyle = document.body.style;
+            bodyStyle.fontFamily = fontFamily ?? 'serif';
+            if (isDarkMode) {
+                bodyStyle.backgroundColor = 'black';
+                bodyStyle.color = 'white';
+            } else {
+                bodyStyle.backgroundColor = 'white';
+                bodyStyle.color = 'black';
+            }
+            bodyStyle.fontSize = fontSize;
+        }
+
+        // controller
+        function register() {
+            updateView();
+        }
+
+        function selectFont(newFontFamily) {
+            fontFamily = newFontFamily;
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
