@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,
+        button {
+            font-size: 300%;
+        }
+    </style>
+</head>
+
+<body onload="init()">
+    <div id="app"></div>
+
+    <script>
+        // model
+        let secretNumber;
+
+        // view
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <button onclick="guess()">Gjett</button>
+                <button onclick="init()">Start på nytt</button>
+            `;
+        }
+
+        // controller
+        function init() {
+            const minValue = 1;
+            const maxValue = 100;
+            secretNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+            updateView();
+        }
+    </script>
+</body>
+
+</html>
