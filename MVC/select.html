@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myGrid {
+            display: grid;
+            grid-template-columns: 12rem auto;
+        }
+
+        .myGrid>div,
+        select {
+            font-size: 3vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="myGrid">
+            <div>Forgrunnsfarge:</div>
+            <div>
+                <select onchange="foreColor=this.value">
+                    <option selected=""></option>
+                    <option value="black">Svart</option>
+                    <option value="pink">Rød</option>
+                    <option value="lightgreen">Grønn</option>
+                    <option value="lightblue">Blå</option>
+                </select>
+            </div>
+            <div>Bakgrunnsfarge:</div>
+            <div>
+                <select onchange="backColor=this.value">
+                    <option selected=""></option>
+                    <option value="black">Svart</option>
+                    <option value="red">Rød</option>
+                    <option value="green">Grønn</option>
+                    <option value="blue">Blå</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="updateView()">Oppdater</button>
+    </div>
+    <script>
+        // model
+
+        // view
+        //updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`                
+            `;
+        }
+
+
+        // controller
+
+    </script>
+</body>
+
+</html>

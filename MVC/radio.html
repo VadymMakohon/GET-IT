@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        let color = 'white';
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Bla bla</h1>
+                <p>
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                </p>
+                Du har valgt <tt>${color}</tt> som bakgrunnsfarge.
+
+                <br/>
+                <input 
+                    type="radio" 
+                    name="backcolor" 
+                    onchange="color = 'lightblue'; updateView();" 
+                    ${color == 'lightblue' ? 'checked' : ''}
+                /> Lyseblå<br/>
+
+                <input 
+                    type="radio" 
+                    name="backcolor"
+                    onchange="color = 'pink'; updateView();" 
+                    ${color == 'pink' ? 'checked' : ''}
+                /> Lyserød<br/>
+
+                <input 
+                    type="radio" 
+                    name="backcolor" 
+                    onchange="color = 'lightgreen'; updateView();" 
+                    ${color == 'lightgreen' ? 'checked' : ''}
+                /> Lysegrønn<br/>
+            `;
+
+            document.body.style.backgroundColor = color;
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>
