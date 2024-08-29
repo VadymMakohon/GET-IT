@@ -52,10 +52,10 @@
         }
 
         function addPuzzlePieceToBoard(top, right, bottom, left) {
-            if (isTopRow() && canNotBePlacedAtTop(top)) return; // kan også skrives som if (row == 0 && hastop) return;
-            if (isBottomRow() && canNotBePlacedAtBottom(bottom)) return;
-            if (isFirstColumn() && canNotBePlacedFirstColumn(right)) return;
-            if (isLastColumn() && canNotBePlacedLastColumn(left)) return;
+            if (isTopRow() && canBePlacedAtTop(hasTop)) return; // kan også skrives som if (row == 0 && hastop) return;
+            if (isBottomRow() && canBePlacedAtBottom(hasBottom)) return;
+            if (isFirstColumn() && canBePlacedFirstColumn(hasRight)) return;
+            if (isLastColumn() && canBePlacedLastColumn(hasLeft)) return;
             if (row > 24) return;
 
             addPuzzlePiece('board', top, right, bottom, left, '', nextColor, nextColumn, nextRow)
@@ -68,20 +68,20 @@
             if (nextColor == 1) { nextColor = 2 } else { nextColor = 1 }
         }
 
-        function canNotBePlacedAtTop(top) {
-            return top == true
+        function canBePlacedAtTop(top) {
+            return top == false
         }
 
-        function canNotBePlacedAtBottom(bottom) {
-            return bottom == true
+        function canBePlacedAtBottom(bottom) {
+            return bottom == false
         }
 
-        function canNotBePlacedFirstColumn(right) {
-            return right == true
+        function canBePlacedFirstColumn(right) {
+            return right == false
         }
 
-        function canNotBePlacedLastColumn(left) {
-            return left == true
+        function canBePlacedLastColumn(left) {
+            return left == false
         }
 
         function isTopRow() {
