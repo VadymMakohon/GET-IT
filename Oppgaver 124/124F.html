@@ -8,11 +8,38 @@
 </head>
 
 <body>
-    <div id="app"></div>
-    <script>
-        createGrid(columnCount, rowCount, innerHtml);
-        function createGrid() {
 
+    <div id="app"></div>
+
+    <script>
+
+
+        createHtml();
+        function createHtml() {
+            document.getElementById('app').innerHTML +=
+                createGrid(3, 2);
+        }
+
+        function createGrid(columCount, rowCount) {
+
+            return /*HTML*/`
+                <div id="gridDiv" style="display:grid;grid-template-columns:repeat(${columCount}, auto);grid-template-rows:repeat(${rowCount}, auto);border:1px solid black;">
+                ${createDiv('Kol1 Rad1')
+                + createDiv('Kol2 Rad1')
+                + createDiv('Kol3 Rad1')
+                + createDiv('Kol1 Rad2')
+                + createDiv('Kol2 Rad2')
+                + createDiv('Kol3 Rad2')
+                }
+                </div>
+            `;
+
+
+        }
+
+        function createDiv(innerHtml) {
+            return /*HTML*/ `
+                <div style="border:1px solid grey;background-color: yellow;">${innerHtml}</div>`;
         }
 
     </script>
