@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+.alert {
+    width: 21rem;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative; /* Sørg for at .close kan plasseres relativt til dette elementet */
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 10px;
+    width: 2rem;
+    text-align: center;
+    font-size: 32px;     
+}
+
+.message-text p {
+    margin: 0;
+}
+
+.close {
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute; /* Plassering absolutt */
+    top: 5px; /* Plassering fra toppen */
+    right: 10px; /* Plassering fra høyre */
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+}
