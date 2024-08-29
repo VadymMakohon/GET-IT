@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="appWithMessage.css">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div class="alert success">
+                <div class="alert-content">
+                    <span class="icon">✔</span>
+                    <div class="message-text">
+                        <strong>SUCCESS!</strong>
+                        <p>Place your success message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="alert warning">
+                <div class="alert-content">
+                    <span class="icon">⚠</span>
+                    <div class="message-text">
+                        <strong>WARNING!</strong>
+                        <p>Place your warning message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="alert error">
+                <div class="alert-content">
+                    <span class="icon">✖</span>
+                    <div class="message-text">
+                        <strong>ERROR!</strong>
+                        <p>Place your error message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="alert info">
+                <div class="alert-content">
+                    <span class="icon">ℹ</span>
+                    <div class="message-text">
+                        <strong>INFO!</strong>
+                        <p>Place your info message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // model
+        let message = 'Vadym';
+
+        // view
+        updateView();
+        function updateView() {
+            let messageBoxHtml = '';
+            if (message != null) {
+                messageBoxHtml = /*HTML*/`
+                    <div>
+                        <div class="alert success">
+                            <div class="alert-content">
+                                <span class="icon">✔</span>
+                                <div class="message-text">
+                                    <strong>SUCCESS!</strong> 
+                                    <p>${message}</p>
+                                </div>
+                            </div>
+                            <span class="close">&times;</span>
+                        </div>
+                    </div>
+                `;
+            }
+            document.getElementById('app').innerHTML = /*HTML*/`
+                    <h1>Min App</h1>
+                    ${messageBoxHtml}
+                    <button>Vis suksess</button>
+                    <button>Vis advarsel</button>
+                    <button>Vis feil</button>
+                    <button>Vis info</button>
+                `;
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>

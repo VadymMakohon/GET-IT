@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="appWithMessage.css">
+</head>
+
+<body>
+    <div id="app">
+    </div>
+    <script>
+        // model
+        let message = null;
+        let messageType = 'info';
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Min App</h1>
+                ${createMessageBoxHtml()}
+                <button>Vis suksess</button>
+                <button>Vis advarsel</button>
+                <button>Vis feil</button>
+                <button>Vis info</button>
+            `;
+        }
+
+        function createMessageBoxHtml() {
+            if (message == null) return '';
+            let icon;
+            let header;
+            if (messageType == 'success') {
+                icon = '✔';
+                header = 'SUKSESS';
+            } else if (messageType == 'warning') {
+                icon = '⚠';
+                header = 'ADVARSEL';
+            } else if (messageType == 'error') {
+                icon = '✖';
+                header = 'FEIL';
+            } else if (messageType == 'info') {
+                icon = 'ℹ';
+                header = 'INFO';
+            }
+
+            return /*HTML*/`
+                <div>
+                    <div class="alert ${messageType}">
+                        <div class="alert-content">
+                            <span class="icon">${icon}</span>
+                            <div class="message-text">
+                                <strong>${header}!</strong> 
+                                <p>${message}</p>
+                            </div>
+                        </div>
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>
