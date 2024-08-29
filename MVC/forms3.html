@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let aName;
+        let number;
+        let font;
+        let isDarkMode = false;
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Hei ${aName ?? 'på deg!'}</h1>
+
+                Navn:<br/>
+                <input 
+                    type="text" 
+                    oninput="aName=this.value" 
+                    value="${aName ?? ''}" 
+                    /><br/>
+                Tall: <br/>
+                <input 
+                    type="number" 
+                    oninput="number=this.valueAsNumber" 
+                    value="${number ?? ''}" 
+                    /><br/>
+                
+                <input 
+                    type="checkbox"
+                    oninput="isDarkMode=this.checked" 
+                    ${isDarkMode ? 'checked' : ''}
+                    />
+                Dark mode 
+                <br/>
+
+                Du har valgt tallet: ${number ?? ''}<br/>
+
+
+                <button onclick="register()">Registrer</button>
+
+                <button onclick="selectFont('helvetica')">Font A</button>
+                <button onclick="selectFont('courier')">Font B</button>
+            `;
+            let bodyStyle = document.body.style;
+            bodyStyle.fontFamily = font ?? 'serif';
+            if (isDarkMode) {
+                bodyStyle.backgroundColor = 'black';
+                bodyStyle.color = 'white';
+            } else {
+                bodyStyle.backgroundColor = 'white';
+                bodyStyle.color = 'black';
+            }
+        }
+
+        // controller
+        function register() {
+            updateView();
+        }
+
+        function selectFont(fontFamily) {
+            font = fontFamily;
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
