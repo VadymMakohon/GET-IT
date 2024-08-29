@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let aName;
+        let font;
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Hei ${aName ?? 'på deg!'}</h1>
+
+                Navn:<br/>
+                <input 
+                    type="text" 
+                    oninput="aName=this.value" 
+                    value="${aName ?? ''}" 
+                    /><br/>
+                Tall: <br/>
+                <button onclick="register()">Registrer</button>
+
+                <button onclick="selectFont('helvetica')">Font A</button>
+                <button onclick="selectFont('courier')">Font B</button>
+            `;
+            document.body.style.fontFamily = font ?? 'serif';
+        }
+
+        // controller
+        function register() {
+            updateView();
+        }
+
+        function selectFont(fontFamily) {
+            font = fontFamily;
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
