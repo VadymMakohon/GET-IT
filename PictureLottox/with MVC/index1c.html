@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(2, 48vw);
+            grid-template-rows: repeat(2, 48vw);
+        }
+
+        #app>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            background-color: darkgray;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // model
+        let isSquareOpen0 = false;
+        let isSquareOpen1 = false;
+        let isSquareOpen2 = false;
+        let isSquareOpen3 = false;
+        let animal0 = 'dog';
+        let animal1 = 'tiger';
+        let animal2 = 'tiger';
+        let animal3 = 'dog';
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div>${createContentHtml(isSquareOpen0, animal0)}</div>
+                <div>${createContentHtml(isSquareOpen1, animal1)}</div>
+                <div>${createContentHtml(isSquareOpen2, animal2)}</div>
+                <div>${createContentHtml(isSquareOpen3, animal3)}</div>
+            `;
+        }
+
+        function createContentHtml(isOpen, animal) {
+            if (isOpen) {
+                return `<img src="img/${animal}.jpg"/>`;
+            } else {
+                return '';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
