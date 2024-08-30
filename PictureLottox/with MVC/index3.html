@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(2, 48vw);
+            grid-template-rows: repeat(2, 48vw);
+        }
+
+        #app>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            background-color: darkgray;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // model
+        let isSquareOpen0 = false;
+        let isSquareOpen1 = false;
+        let isSquareOpen2 = false;
+        let isSquareOpen3 = false;
+        let animal0 = 'dog';
+        let animal1 = 'tiger';
+        let animal2 = 'tiger';
+        let animal3 = 'dog';
+        let lastSelectedAnimal = null;
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div onclick="openSquare(0)">${createContentHtml(isSquareOpen0, animal0)}</div>
+                <div onclick="openSquare(1)">${createContentHtml(isSquareOpen1, animal1)}</div>
+                <div onclick="openSquare(2)">${createContentHtml(isSquareOpen2, animal2)}</div>
+                <div onclick="openSquare(3)">${createContentHtml(isSquareOpen3, animal3)}</div>
+            `;
+        }
+
+        function createContentHtml(isOpen, animal) {
+            if (isOpen) {
+                return `<img src="img/${animal}.jpg"/>`;
+            } else {
+                return '';
+            }
+        }
+
+        // controller
+        function openSquare(squareIndex) {
+            if (squareIndex == 0) {
+                isSquareOpen0 = true;
+                lastSelectedAnimal = animal0;
+            } else if (squareIndex == 1) {
+                isSquareOpen1 = true;
+                lastSelectedAnimal = animal1;
+            } else if (squareIndex == 2) {
+                isSquareOpen2 = true;
+                lastSelectedAnimal = animal2;
+            } else if (squareIndex == 3) {
+                isSquareOpen3 = true;
+                lastSelectedAnimal = animal3;
+            }
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
