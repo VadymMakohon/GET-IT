@@ -5,9 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave 124G</title>
+    <style>
+        #app {
+            display: flex;
+        }
+
+        .selector {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .number {
+            font-size: 300%;
+            margin: 0 10px;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 
 <body>
+
+    <div id="app"></div>
+
+    <script>
+        let date = {
+            Day: 1,
+            Month: 1,
+            Year: 2024
+        };
+
+        const limits = {
+            Day: [1, 31],
+            Month: [1, 12],
+            Year: [1950, 2050]
+        };
+
+        function addContentToApp() {
+            document.getElementById('app').innerHTML = `
+                ${createNumberSelector('Day')}
+                ${createNumberSelector('Month')}
+                ${createNumberSelector('Year')}
+            `;
+        }
+
+        function createNumberSelector(id) {
+            const [min, max] = limits[id];
+            const number = date[id];
+            return `
+                <div class="selector">
+                    ${id}
+                    <div class="number">${number}</div>
+                    <div class="controls">
+                        <button onclick="changeValue('${id}', 1)" ${number === max ? 'disabled' : ''}>▲</button>
+                        <button onclick="changeValue('${id}', -1)" ${number === min ? 'disabled' : ''}>▼</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function changeValue(id, delta) {
+            date[id] += delta;
+            addContentToApp();
+        }
+
+        addContentToApp();
+    </script>
 
 </body>
 
