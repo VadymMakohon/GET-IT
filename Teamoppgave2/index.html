@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Puzzle</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -21,18 +21,21 @@
         // addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
         // addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
 
-        let nextRow = 0;
-        let nextColumn = 24;
-        let nextColor = 1;
+        // Top row is represented by the value 0, second has value 6 and so on, bottom row has value 24
+        let row = 0;
+        // Right column has value 24, second has 18 and so on, left column has value 0 
+        let column = 24;
+        // Value 1 means light blue and value 2 means dark blue
+        let color = 1;
 
         addPuzzlePiece('buttons', true, true, true, true, 'addPuzzlePieceToBoard(true, true,true,true)', 1);
-        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceToBoard(false, true,true,true)', 1);
+        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceToBoard(false, true,true,true)', 2);
         addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceToBoard(true, false, true,true)', 1);
-        addPuzzlePiece('buttons', true, true, true, false, 'addPuzzlePieceToBoard(true, true, true, false)', 1);
+        addPuzzlePiece('buttons', true, true, true, false, 'addPuzzlePieceToBoard(true, true, true, false)', 2);
         addPuzzlePiece('buttons', true, true, false, true, 'addPuzzlePieceToBoard(true, true, false, true)', 1);
-        addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceToBoard(false, true, true, false)', 1);
+        addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceToBoard(false, true, true, false)', 2);
         addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true)', 1);
-        addPuzzlePiece('buttons', true, true, false, false, 'addPuzzlePieceToBoard(true, true, false, false)', 1);
+        addPuzzlePiece('buttons', true, true, false, false, 'addPuzzlePieceToBoard(true, true, false, false)', 2);
         addPuzzlePiece('buttons', true, false, false, true, 'addPuzzlePieceToBoard(true, false, false, true)', 1);
 
         function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
@@ -51,53 +54,59 @@
             `;
         }
 
-        function addPuzzlePieceToBoard(top, right, bottom, left) {
-            if (isTopRow() && canBePlacedAtTop(hasTop)) return; // kan også skrives som if (row == 0 && hastop) return;
-            if (isBottomRow() && canBePlacedAtBottom(hasBottom)) return;
-            if (isFirstColumn() && canBePlacedFirstColumn(hasRight)) return;
-            if (isLastColumn() && canBePlacedLastColumn(hasLeft)) return;
+
+        function addPuzzlePieceToBoard(hasTop, hasRight, hasBottom, hasLeft) {
+            if (isTopRow() && !canBePlacedAtTop(hasTop)) return; // Kan også skrives som if (row == 0 && hasTop) return;
+            if (isBottomRow() && !canBePlacedAtBottom(hasBottom)) return;
+            if (isFirstColumn() && !canBePlacedFirstColumn(hasRight)) return;
+            if (isLastColumn() && !canBePlacedLastColumn(hasLeft)) return;
             if (row > 24) return;
 
-            addPuzzlePiece('board', top, right, bottom, left, '', nextColor, nextColumn, nextRow)
-            if (nextColumn == 0) {
-                nextColumn = 24;
-                nextRow += 6;
+            addPuzzlePiece('board', hasTop, hasRight, hasBottom, hasLeft, '', color, column, row);
+
+            if (isLastColumn()) {
+                column = 24;
+                row += 6;
             } else {
-                nextColumn -= 6;
+                column -= 6;
             }
-            if (nextColor == 1) { nextColor = 2 } else { nextColor = 1 }
+            if (color == 1) { color = 2 } else { color = 1 }
         }
 
         function canBePlacedAtTop(top) {
-            return top == false
+            if (top == true) return false;
+            return true
         }
 
         function canBePlacedAtBottom(bottom) {
-            return bottom == false
+            if (bottom == true) return false;
+            return true
         }
 
         function canBePlacedFirstColumn(right) {
-            return right == false
+            if (right == true) return false;
+            return true
         }
 
         function canBePlacedLastColumn(left) {
-            return left == false
+            if (left == true) return false;
+            return true
         }
 
         function isTopRow() {
-            return nextRow == 0
+            return row == 0
         }
 
         function isFirstColumn() {
-            return nextColumn == 24
+            return column == 24
         }
 
         function isLastColumn() {
-            return nextColumn == 0
+            return column == 0
         }
 
         function isBottomRow() {
-            return nextRow == 24
+            return row == 24
         }
 
         document.getElementById('exerciseText').innerHTML = /*HTML*/`            

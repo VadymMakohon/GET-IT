@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -16,24 +16,23 @@
         <div id="buttons" style="background-color: lightblue;grid-area: buttons;"></div>
     </div>
     <script>
-        // addPuzzlePiece('board', false, false, true, true, '', 1, 24, 0);
-        // addPuzzlePiece('board', false, true, true, true, '', 2, 18, 0);
-        // addPuzzlePiece('board', false, true, true, true, '', 1, 12, 0);
-        // addPuzzlePiece('board', true, false, true, true, '', 2, 24, 6);
 
-        let addColumn = 24;   // 24 colonen helt til høyre; 18 colonen # 2 fra høyre...colonen 0 helt til venstre.
-        let addRow = 0;       // 0 top råden, 6-andre raden, 12-tredje raden; 24-bunn raden.
-        let addColor = 1;
+        // Top row is represented by the value 0, second has value 6 and so on, bottom row has value 24
+        let row = 0;
+        // Right column has value 24, second has 18 and so on, left column has value 0 
+        let column = 24;
+        // Value 1 means light blue and value 2 means dark blue
+        let color = 1;
 
-        addPuzzlePiece('buttons', true, true, true, true, 'addPuzzlePieceToBoard(true, true, true, true,)', 1);
-        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceToBoard(false, true, true, true,)', 2);
-        addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceToBoard(true, false, true, true,)', 1);
-        addPuzzlePiece('buttons', true, true, false, true, 'addPuzzlePieceToBoard(true, true, false, true,)', 2);
-        addPuzzlePiece('buttons', true, true, true, false, 'addPuzzlePieceToBoard(true, true, true, false,)', 1);
-        addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceToBoard(false, true, true, false,)', 2);
-        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true,)', 1);
-        addPuzzlePiece('buttons', true, true, false, false, 'addPuzzlePieceToBoard(true, true, false, false,)', 2);
-        addPuzzlePiece('buttons', true, false, false, true, 'addPuzzlePieceToBoard(true, false, false, true,)', 1);
+        addPuzzlePiece('buttons', true, true, true, true, 'addPuzzlePieceToBoard(true, true,true,true)', 1);
+        addPuzzlePiece('buttons', false, true, true, true, 'addPuzzlePieceToBoard(false, true,true,true)', 2);
+        addPuzzlePiece('buttons', true, false, true, true, 'addPuzzlePieceToBoard(true, false, true,true)', 1);
+        addPuzzlePiece('buttons', true, true, true, false, 'addPuzzlePieceToBoard(true, true, true, false)', 2);
+        addPuzzlePiece('buttons', true, true, false, true, 'addPuzzlePieceToBoard(true, true, false, true)', 1);
+        addPuzzlePiece('buttons', false, true, true, false, 'addPuzzlePieceToBoard(false, true, true, false)', 2);
+        addPuzzlePiece('buttons', false, false, true, true, 'addPuzzlePieceToBoard(false, false, true, true)', 1);
+        addPuzzlePiece('buttons', true, true, false, false, 'addPuzzlePieceToBoard(true, true, false, false)', 2);
+        addPuzzlePiece('buttons', true, false, false, true, 'addPuzzlePieceToBoard(true, false, false, true)', 1);
 
         function addPuzzlePiece(toId, hasTop, hasRight, hasBottom, hasLeft, onclick, color, leftPosition, topPosition) {
             let style = '';
@@ -53,32 +52,33 @@
 
 
         function addPuzzlePieceToBoard(hasTop, hasRight, hasBottom, hasLeft) {
-            if (hasTop == true && addRow == 0) {
-                return;
-            }
+            if (!allowedToPlacePiece(hasTop, hasRight, hasBottom, hasLeft)) return;
 
-            if (hasBottom == true && addRow == 24) {
-                return;
-            }
+            addPuzzlePiece('board', hasTop, hasRight, hasBottom, hasLeft, '', color, column, row);
 
-            if (hasLeft == true && addColumn == 0) {
-                return;
-            }
-
-            if (hasRight == true && addColumn == 24) {
-                return;
-            }
-            if (row > 24) return;
-
-            addPuzzlePiece('board', hasTop, hasRight, hasBottom, hasLeft, '', addColor, addColumn, addRow);
-            if (addColumn == 0) {
-                addColumn = 24;
-                addRow += 6;
-            } else {
-                addColumn -= 6;
-            }
-            if (addColor == 1) { addColor = 2 } else { addColor = 1 }
+            incrementColumnRowColor()
         }
+
+        function allowedToPlacePiece(hasTop, hasRight, hasBottom, hasLeft) {
+            if (row == 0 && hasTop) return false;
+            if (row == 24 && hasBottom) return false;
+            if (column == 24 && hasRight) return false;
+            if (column == 0 && hasLeft) return false;
+            if (row > 24) return false;
+            return true;
+        }
+
+        function incrementColumnRowColor() {
+            if (column == 0) {
+                column = 24;
+                row += 6;
+            } else {
+                column -= 6;
+            }
+
+            color = (color % 2) + 1;
+        }
+
 
         document.getElementById('exerciseText').innerHTML = /*HTML*/`            
                 <h2>Oppgaver</h2>
