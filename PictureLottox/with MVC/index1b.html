@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(2, 48vw);
+            grid-template-rows: repeat(2, 48vw);
+        }
+
+        #app>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            background-color: darkgray;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // model
+        let isSquareOpen0 = false;
+        let isSquareOpen1 = false;
+        let isSquareOpen2 = false;
+        let isSquareOpen3 = false;
+        let animal0 = 'dog';
+        let animal1 = 'tiger';
+        let animal2 = 'tiger';
+        let animal3 = 'dog';
+
+        // view
+        updateView();
+        function updateView() {
+            let content0 = '';
+            if (isSquareOpen0) {
+                content0 = `<img src="img/${animal0}.jpg"/>`;
+            }
+            let content1 = '';
+            if (isSquareOpen1) {
+                content1 = `<img src="img/${animal1}.jpg"/>`;
+            }
+            let content2 = '';
+            if (isSquareOpen2) {
+                content2 = `<img src="img/${animal2}.jpg"/>`;
+            }
+            let content3 = '';
+            if (isSquareOpen3) {
+                content3 = `<img src="img/${animal3}.jpg"/>`;
+            }
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div>${content0}</div>
+                <div>${content1}</div>
+                <div>${content2}</div>
+                <div>${content3}</div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
