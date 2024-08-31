@@ -8,7 +8,27 @@
 </head>
 
 <body>
+    <div id="app"></div>
 
+    <script>
+        let MyDaynumber = 1;
+        let MyMonthNumber = 1;
+        let MyYearNumber = 2024;
+
+
+
+
+        addContentToApp();
+        function addContentToApp() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${createNumberSelector('Day', 1, 31)}
+                ${createNumberSelector('Month', 1, 12)}
+                ${createNumberSelector('Year', 1900, 2100)}
+            `;
+        }
+
+
+    </script
 </body>
 
 </html>
