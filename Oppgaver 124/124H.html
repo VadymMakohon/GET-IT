@@ -15,20 +15,26 @@
         let MyMonthNumber = 1;
         let MyYearNumber = 2024;
 
+        function createNumberSelector(label, min, max) {
+            let selector = `<label>${label}: <select>`;
+            for (let i = min; i <= max; i++) {
+                selector += `<option value="${i}">${i}</option>`;
+            }
+            selector += `</select></label>`;
+            return selector;
+        }
 
-
-
-        addContentToApp();
         function addContentToApp() {
-            document.getElementById('app').innerHTML = /*HTML*/`
+            document.getElementById('app').innerHTML = `
                 ${createNumberSelector('Day', 1, 31)}
                 ${createNumberSelector('Month', 1, 12)}
                 ${createNumberSelector('Year', 1900, 2100)}
             `;
         }
 
-
-    </script
+        // Kall funksjonen for å legge til innhold når siden lastes
+        addContentToApp();
+    </script>
 </body>
 
 </html>
