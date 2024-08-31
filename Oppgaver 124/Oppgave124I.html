@@ -27,6 +27,25 @@
             selector += `</select></label>`;
             return selector;
         }
+
+        function addContentToApp() {
+            document.getElementById('app').innerHTML = `
+                ${createNumberSelector(MyDayNumber, 1, 31, 'Day')}
+                ${createNumberSelector(MyMonthNumber, 1, 12, 'Month')}
+                ${createNumberSelector(MyYearNumber, 2000, 2023, 'Year')}
+            `;
+        }
+
+        function showSelectedDate() {
+            const day = document.getElementById('DayMain').value;
+            const month = document.getElementById('MonthMain').value;
+            const year = document.getElementById('YearMain').value;
+            const formattedDate = `${day}.${month}.${year}`;
+            document.getElementById('selectedDate').textContent = formattedDate;
+        }
+
+        // Kall funksjonen for å legge til innhold når siden lastes
+        addContentToApp();
     </script>
 
 </body>
