@@ -8,6 +8,26 @@
 </head>
 
 <body>
+    <div id="app"></div>
+
+    <button onclick="showSelectedDate()">Vis valgt dato</button>
+    <p id="selectedDate"></p>
+
+    <script>
+        let MyDayNumber = 1;
+        let MyMonthNumber = 1;
+        let MyYearNumber = 2024;
+
+        function createNumberSelector(defaultValue, min, max, label) {
+            let selector = `<label>${label}: <select id="${label}Main">`;
+            for (let i = min; i <= max; i++) {
+                const selected = i == defaultValue ? ' selected' : '';
+                selector += `<option value="${i}"${selected}>${i}</option>`;
+            }
+            selector += `</select></label>`;
+            return selector;
+        }
+    </script>
 
 </body>
 
