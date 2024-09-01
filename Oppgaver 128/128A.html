@@ -4,10 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Oppgave 128A</title>
 </head>
 
 <body>
+
+    <div id="app">
+
+    </div>
+
+
+    <script>
+
+        let myBonus = 1;
+        let myPoints = 0;
+        gameApp();
+        function gameApp() {
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div><h2>Du har ${myPoints} poeng</h2></div>
+                <div><h2>Din bonus er ${myBonus}</h2></div>
+                <div>
+                    <button onclick="addPoints()">pluss ${myBonus}</button>
+                    <button onclick="takePoints()">Oppgradering</button>
+                </div>
+            `;
+        }
+
+        function addPoints() {
+            myPoints = myPoints + myBonus;
+            gameApp();
+        }
+        function takePoints() {
+            if (myPoints >= 10) {
+                myPoints = myPoints - 10;
+                myBonus++
+            }
+            gameApp();
+        }
+
+    </script>
 
 </body>
 
