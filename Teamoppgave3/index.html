@@ -149,8 +149,17 @@
             updateView();
         }
 
-        function createButtons() {
-            return `<button onclick="moveMediumDisk(${toTowerIndex})" disabled>${placement}venstre tårn</button>`;
+        function createButtons(toTowerIndex, placement, diskSize) {
+            let isDisabled = false;
+            if (diskSize === 'Small') {
+                if (smallDiskTowerIndex === toTowerIndex) {
+                    isDisabled = true;
+                }
+            }
+            if (isDisabled) {
+                return `<button disabled>${placement}venstre tårn</button>`;
+            }
+            return `<button onclick="moveSmallDisk(${toTowerIndex})">${placement}venstre tårn</button>`;
         }
 
         document.body.innerHTML += `
