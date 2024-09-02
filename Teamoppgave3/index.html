@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .game-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .tower-container {
+            position: relative;
+        }
+
+        .tower {
+            width: 100px;
+            height: 120px;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            border-bottom: 8px solid darkred;
+        }
+
+        .tower-container::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 120px;
+            z-index: -10;
+            background-color: darkred;
+        }
+
+        .disk {
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            border: 4px solid gray;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        // model
+        //   hvor er diskene, 0 = venstre tårn, 1 = midten, 2 = høyre
+        //   alle starter til venstre
+        let smallDiskTowerIndex = 0;
+        let mediumDiskTowerIndex = 0;
+        let largeDiskTowerIndex = 0;
+
+        // view 
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div class="game-container">
+                    <div class="tower-container">
+                        <div class="tower">
+                            <div class="disk" style="width: 70px"></div>                            
+                        </div>
+                    </div>
+                    <div class="tower-container">
+                        <div class="tower">
+                            <div class="disk" style="width: 50px"></div>
+                         </div>
+                    </div>
+                    <div class="tower-container">
+                        <div class="tower">
+                            <div class="disk" style="width: 30px"></div>                            
+                        </div>
+                    </div>
+                </div>
+                Flytt liten disk til 
+                <button onclick="moveSmallDisk(0)">venstre tårn</button>
+                <button onclick="moveSmallDisk(1)">midtre tårn</button>
+                <button onclick="moveSmallDisk(2)">høyre tårn</button>
+                <br/>
+                Flytt medium disk
+                <button onclick="moveMediumDisk(0)">venstre tårn</button>
+                <button onclick="moveMediumDisk(1)">midtre tårn</button>
+                <button onclick="moveMediumDisk(2)">høyre tårn</button>
+                <br/>
+                Flytt stor disk
+                <button onclick="moveLargeDisk(0)">venstre tårn</button>
+                <button onclick="moveLargeDisk(1)">midtre tårn</button>
+                <button onclick="moveLargeDisk(2)">høyre tårn</button>
+                <br/>
+            `;
+        }
+
+        // controller
+        function moveSmallDisk(toTowerIndex) {
+
+            updateView();
+        }
+
+        function moveMediumDisk(toTowerIndex) {
+
+            updateView();
+        }
+
+        function moveLargeDisk(toTowerIndex) {
+
+            updateView();
+        }
+
+        document.body.innerHTML += `
+            <h4>Oppgaver</h4>
+            Disse oppgavene er ment å løses med kun funksjoner, variabler, operatorer, if-setninger og MVC. Man trenger
+            ikke bruke løkker eller lister.
+            <ol>
+                <li>
+                    Studer spillet her: <a href="https://www.mathsisfun.com/games/towerofhanoi.html">mathsisfun.com/games/towerofhanoi.html</a>
+                    og sørg for at dere forstår reglene. 
+                </li>
+                <li>
+                    Sørg for at <tt>updateView()</tt> tegner opp diskene ut fra innholdet av variablene i modellen.
+                    Merk at pga <tt>display: flex</tt> og <tt>flex-direction: column-reverse</tt> må dere legge til 
+                    diskene i motsatt rekkefølge av ellers. Den siste taggen inne i hvert tårn kommer øverst
+                </li>
+                <li>
+                    Implementer aller enkleste versjon av controller-funksjonene, nemlig å flytte hver disk uten å sjekke om det er lov
+                    eller ikke. Sjekk at det virker før dere går videre. 
+                </li>
+                <li>
+                    Implementer så reglene. Du kan ikke flytte en disk til et tårn om det alt ligger en disk der som er mindre.                
+                </li>
+                <li>
+                    Skjul alltid knappene som flytter en disk dit den allerede er. Skjul også knappene som er ulovlige å utføre.
+                </li>
+                <li>
+                    Vis en melding på skjermen hvis spillet er løst, det vil si at alle diskene er på høyre tårn. Vis i det
+                    tilfellet en knapp for å starte spillet på nytt. 
+                </li>
+            </ol>
+        `;
+    </script>
+</body>
+
+</html>
