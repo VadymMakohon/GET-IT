@@ -128,18 +128,23 @@
             return html;
         }
 
-
         function moveSmallDisk(toTowerIndex) {
             smallDiskTowerIndex = toTowerIndex
             updateView();
         }
 
         function moveMediumDisk(toTowerIndex) {
+            if (smallDiskTowerIndex === toTowerIndex) {
+                return
+            }
             mediumDiskTowerIndex = toTowerIndex
             updateView();
         }
 
         function moveLargeDisk(toTowerIndex) {
+            if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex) {
+                return
+            }
             largeDiskTowerIndex = toTowerIndex
             updateView();
         }
