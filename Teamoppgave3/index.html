@@ -101,6 +101,39 @@
         }
 
         // controller
+
+        function gameContainerDiv() {
+            return `
+                <div class="game-container">
+                    <div class="tower-container">
+                        <div class="tower">
+                            <div class="disk" style="width: 75px"></div>                            
+                        </div>
+                    </div>
+                    <div class="tower-container">
+                        <div class="tower">
+                            <div class="disk" style="width: 55px"></div>
+                         </div>
+                    </div>
+                    <div class="tower-container">
+                        <div class="tower">
+                            <div class="disk" style="width: 37px"></div>                            
+                        </div>
+                    </div>
+                </div> `;
+        }
+
+        function createDiskAtTower(index) {
+            let html = '';
+            if (largeDiskTowerIndex == index) {
+                html += `<div class="disk" style="width: 75px"></div>`
+            } else if (mediumDiskTowerIndex == index) {
+                html = + `<div class="disk" style="width: 55px"></div>`
+            } else if (smallDiskTowerIndex == index) {
+                html = + `<div class="disk" style="width: 37px"></div>`
+            }
+        }
+
         function moveSmallDisk(toTowerIndex) {
 
             updateView();
