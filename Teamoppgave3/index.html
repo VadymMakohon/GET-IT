@@ -149,6 +149,10 @@
             updateView();
         }
 
+        function createButtons() {
+            return `<button onclick="moveMediumDisk(${toTowerIndex})" disabled>${placement}venstre tårn</button>`;
+        }
+
         document.body.innerHTML += `
                 <h4>Oppgaver</h4>
                 Disse oppgavene er ment å løses med kun funksjoner, variabler, operatorer, if-setninger og MVC. Man trenger
