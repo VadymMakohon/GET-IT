@@ -5,51 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave 128D</title>
-
 </head>
 
 <body>
+    <h1>Stein-Saks-Papir</h1>
     <div id="app"></div>
-    <script>
+    <div id="score"></div>
 
-        let RandomNumber = getRandomNumber(1, 3);
-        let aNumber = 0;
-        let dataNumber = 0;
-        let userNumber = 0;
+    <script>
+        let userScore = 0;
+        let computerScore = 0;
 
         startGame();
+
         function startGame() {
             document.getElementById('app').innerHTML = /*HTML*/`
-           <button onclick="choiceStain()">stein</button>
-           <button onclick="choiceSaks()">saks</button>
-           <button onclick="choicePapir()">papir</button>
-           <div id ="Result"></div>
-           `;
+                <button onclick="playGame('stein')">Stein</button>
+                <button onclick="playGame('saks')">Saks</button>
+                <button onclick="playGame('papir')">Papir</button>
+                <div id="Result"></div>
+            `;
+            updateScore();
         }
 
-        function getRandomNumber(min, max) {    // funksjon som brukes i oppgaven
+        function getRandomNumber(min, max) {    // Funksjon som genererer et tilfeldig tall
             return min + Math.floor(Math.random() * (max - min + 1));
         }
 
-        function getResult(result) {
-
-        }
-
-        function choiceStain() {
+        function getComputerChoice() {
             let number = getRandomNumber(1, 3);
-            if (number == 1) {
-                document.getElementById('app').innerHTML = /*HTML*/`
-            <div>uavgjørt ${ressult}
-            
-
-          } else if (number == 2) {
-          
-            }
-          }
-          
-
+            if (number === 1) return 'stein';
+            if (number === 2) return 'saks';
+            return 'papir';
         }
 
+        function playGame(userChoice) {
+            let computerChoice = getComputerChoice();
+            let result = '';
+
+            if (userChoice === computerChoice) {
+                result = 'Uavgjort!';
+            } else if (
+                (userChoice === 'stein' && computerChoice === 'saks') ||
+                (userChoice === 'saks' && computerChoice === 'papir') ||
+                (userChoice === 'papir' && computerChoice === 'stein')
+            ) {
+                result = `Du vant! ${userChoice} slår ${computerChoice}.`;
+                userScore++;
+            } else {
+                result = `Du tapte! ${computerChoice} slår ${userChoice}.`;
+                computerScore++;
+            }
+
+            document.getElementById('Result').innerHTML = `<p>${result}</p>`;
+            updateScore();
+        }
+
+        function updateScore() {
+            document.getElementById('score').innerHTML = `
+                <p>Din poengsum: ${userScore}</p>
+                <p>Datamaskinens poengsum: ${computerScore}</p>
+            `;
+        }
     </script>
 
 </body>
