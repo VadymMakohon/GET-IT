@@ -45,7 +45,6 @@
             background-color: blue;
             border: 4px solid gray;
             margin-bottom: 5px;
-            border-radius: 50%;
         }
     </style>
 </head>
@@ -57,10 +56,11 @@
         // model
         //   hvor er diskene, 0 = venstre tårn, 1 = midten, 2 = høyre
         //   alle starter til venstre
-        let smallDiskTowerIndex = 0;
+        let smallDiskTowerIndex = 1;
         let mediumDiskTowerIndex = 2;
         let largeDiskTowerIndex = 2;
         let isGameFinished = false;
+
 
         // view
         updateView();
@@ -70,21 +70,22 @@
 
             gameContainerDiv();
             document.getElementById("app").innerHTML = /*HTML*/ `
+                    <h1>${isGameFinished ? `You Win <button onclick="reload()">New Game</button>` : 'Tower of Hanoi'}</h1>
                     ${gameContainerDiv()}
                     Flytt liten disk til 
-                    <button onclick="moveSmallDisk(0)">venstre tårn</button>
-                    <button onclick="moveSmallDisk(1)">midtre tårn</button>
-                    <button onclick="moveSmallDisk(2)">høyre tårn</button>
+                     ${createButtons(0, 'venstre tårn', 'Small')}
+                     ${createButtons(1, 'midtre tårn', 'Small')}
+                     ${createButtons(2, 'høyre tårn', 'Small')}
                     <br/>
                     Flytt medium disk
-                    <button onclick="moveMediumDisk(0)">venstre tårn</button>
-                    <button onclick="moveMediumDisk(1)">midtre tårn</button>
-                    <button onclick="moveMediumDisk(2)">høyre tårn</button>
+                    ${createButtons(0, 'venstre tårn', 'Medium')}
+                    ${createButtons(1, 'midtre tårn', 'Medium')}
+                    ${createButtons(2, 'høyre tårn', 'Medium')}
                     <br/>
                     Flytt stor disk
-                    <button onclick="moveLargeDisk(0)">venstre tårn</button>
-                    <button onclick="moveLargeDisk(1)">midtre tårn</button>
-                    <button onclick="moveLargeDisk(2)">høyre tårn</button>
+                    ${createButtons(0, 'venstre tårn', 'Large')}
+                    ${createButtons(1, 'midtre tårn', 'Large')}
+                    ${createButtons(2, 'høyre tårn', 'Large')}
                     <br/>                
                 `;
         }
@@ -109,6 +110,7 @@
                             </div>
                         </div>
                     </div>`
+
         }
 
         function createDiskAtTower(index) {
@@ -129,8 +131,10 @@
             return html;
         }
 
+
         function moveSmallDisk(toTowerIndex) {
             smallDiskTowerIndex = toTowerIndex
+            winCondition()
             updateView();
         }
 
@@ -143,32 +147,45 @@
         }
 
         function moveLargeDisk(toTowerIndex) {
-            if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || smallDiskTowerIndex) {
+            if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex) {
                 return
             }
             largeDiskTowerIndex = toTowerIndex
             updateView();
         }
 
-        function createButtons(toTowerIndex, placement, diskSize,) {
+        function createButtons(toTowerIndex, placement, diskSize) {
             let isDisabled = false;
             if (diskSize === 'Small') {
                 if (smallDiskTowerIndex === toTowerIndex) {
-                    isDisabled = true;
+                    isDisabled = true
+                }
+            }
+            if (diskSize === 'Medium') {
+                if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === smallDiskTowerIndex) {
+                    isDisabled = true
+                }
+            }
+            if (diskSize === 'Large') {
+                if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === smallDiskTowerIndex || largeDiskTowerIndex === mediumDiskTowerIndex) {
+                    isDisabled = true
                 }
             }
             if (isDisabled) {
-                return `<button disabled>${placement}venstre tårn</button>`;
+                return `<button disabled>${placement}</button>`
             }
-            return `<button onclick="moveSmallDisk(${toTowerIndex})">${placement}venstre tårn</button>`;
+            return `<button onclick="move${diskSize}Disk(${toTowerIndex})">${placement}</button>`
         }
 
         function winCondition() {
             if (smallDiskTowerIndex === 2 && mediumDiskTowerIndex === 2 && largeDiskTowerIndex === 2) {
-                let result = confirm('Congratulation! You won')
+                isGameFinished = true
             }
         }
 
+        function reload() {
+            location.reload()
+        }
 
         document.body.innerHTML += `
                 <h4>Oppgaver</h4>
