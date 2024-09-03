@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            cursor: pointer;
+            user-select: none;
+            font-size: 300%;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        let isDarkMode;
+
+        // view
+        updateView();
+        function updateView() {
+            let checboxHtml;
+
+            if (isDarkMode) {
+                checboxHtml = /*HTML*/`
+                    <span onclick="isDarkMode = false; updateView();" style="width: 20px; border: 10px solid black"></span>
+                `;
+            } else {
+                checboxHtml = /*HTML*/`
+                    <span onclick="isDarkMode = true; updateView();">( )</span>                                   
+                `;
+            }
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Bla bla</h1>
+                <p>
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                </p>
+                ${checboxHtml} Dark mode
+                    <br/>
+            `;
+            let color1 = '#121212';
+            let color2 = 'white';
+
+            document.body.style.backgroundColor = isDarkMode ? color1 : color2;
+            document.body.style.color = isDarkMode ? color2 : color1;
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>

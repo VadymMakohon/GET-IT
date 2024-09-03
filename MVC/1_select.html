@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myGrid {
+            display: grid;
+            grid-template-columns: 12rem auto;
+        }
+
+        .myGrid>div,
+        select {
+            font-size: 3vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let foreColor = null;
+        let backColor = null;
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`                
+                <div class="myGrid">
+                    <div>Forgrunnsfarge:</div>
+                    <div>
+                        <select onchange="foreColor=this.value">
+                            <option ${foreColor == null ? 'selected' : ''}></option>
+                            <option value="black" ${foreColor == 'black' ? 'selected' : ''}>Svart</option>
+                            <option value="pink" ${foreColor == 'pink' ? 'selected' : ''}>Rød</option>
+                            <option value="lightgreen" ${foreColor == 'lightgreen' ? 'selected' : ''}>Grønn</option>
+                            <option value="lightblue" ${foreColor == 'lightblue' ? 'selected' : ''}>Blå</option>
+                        </select>
+                    </div>
+                    <div>Bakgrunnsfarge:</div>
+                    <div>
+                        <select onchange="backColor=this.value">
+                            <option ${backColor == null ? 'selected' : ''}></option>
+                            <option value="black" ${backColor == 'black' ? 'selected' : ''}>Svart</option>
+                            <option value="red" ${backColor == 'red' ? 'selected' : ''}>Rød</option>
+                            <option value="green" ${backColor == 'green' ? 'selected' : ''}>Grønn</option>
+                            <option value="blue" ${backColor == 'blue' ? 'selected' : ''}>Blå</option>
+                        </select>
+                    </div>
+                </div>
+                <button onclick="updateView()">Oppdater</button>
+            `;
+            if (foreColor != null) document.body.style.color = foreColor;
+            if (backColor != null) document.body.style.backgroundColor = backColor;
+        }
+
+
+        // controller
+
+    </script>
+</body>
+
+</html>
