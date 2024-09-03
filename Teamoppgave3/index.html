@@ -57,9 +57,10 @@
         // model
         //   hvor er diskene, 0 = venstre tårn, 1 = midten, 2 = høyre
         //   alle starter til venstre
-        let smallDiskTowerIndex = 2;
-        let mediumDiskTowerIndex = 1;
-        let largeDiskTowerIndex = 0;
+        let smallDiskTowerIndex = 0;
+        let mediumDiskTowerIndex = 2;
+        let largeDiskTowerIndex = 2;
+        let isGameFinished = false;
 
         // view
         updateView();
@@ -142,14 +143,14 @@
         }
 
         function moveLargeDisk(toTowerIndex) {
-            if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex) {
+            if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || smallDiskTowerIndex) {
                 return
             }
             largeDiskTowerIndex = toTowerIndex
             updateView();
         }
 
-        function createButtons(toTowerIndex, placement, diskSize) {
+        function createButtons(toTowerIndex, placement, diskSize,) {
             let isDisabled = false;
             if (diskSize === 'Small') {
                 if (smallDiskTowerIndex === toTowerIndex) {
@@ -161,6 +162,13 @@
             }
             return `<button onclick="moveSmallDisk(${toTowerIndex})">${placement}venstre tårn</button>`;
         }
+
+        function winCondition() {
+            if (smallDiskTowerIndex === 2 && mediumDiskTowerIndex === 2 && largeDiskTowerIndex === 2) {
+                let result = confirm('Congratulation! You won')
+            }
+        }
+
 
         document.body.innerHTML += `
                 <h4>Oppgaver</h4>
