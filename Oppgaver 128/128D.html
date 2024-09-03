@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 128D</title>
+
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+
+        let RandomNumber = getRandomNumber(1, 3);
+        let aNumber = 0;
+        let dataNumber = 0;
+        let userNumber = 0;
+
+        startGame();
+        function startGame() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+           <button onclick="choiceStain()">stein</button>
+           <button onclick="choiceSaks()">saks</button>
+           <button onclick="choicePapir()">papir</button>
+           <div id ="Result"></div>
+           `;
+        }
+
+        function getRandomNumber(min, max) {    // funksjon som brukes i oppgaven
+            return min + Math.floor(Math.random() * (max - min + 1));
+        }
+
+        function getResult(result) {
+
+        }
+
+        function choiceStain() {
+            let number = getRandomNumber(1, 3);
+            if (number == 1) {
+                document.getElementById('app').innerHTML = /*HTML*/`
+            <div>uavgjørt ${ressult}
+            )
+
+          } else if (number == 2) {
+          
+            }
+          }
+          
+
+        }
+
+    </script>
+
+</body>
+
+</html>
