@@ -16,6 +16,7 @@
     <script>
 
         let secretnumber = getRandomNumber(1, 100); //global variabel for et hemmelig tall
+        let tryes = 0; // variabel som teller antall forsøk.
 
         startGame();
         function startGame() {
@@ -23,6 +24,7 @@
            <input type="number" id="aNumber" />
            <button onclick="checkResult()">Gjett</button>
            <div id ="Result"></div>
+           <div id="numberTryes"></div>
            `;
         }
 
@@ -32,18 +34,21 @@
 
         function checkResult() {
             let aNumber = document.getElementById('aNumber').valueAsNumber;
+            tryes += 1;
+            document.getElementById('numberTryes').innerHTML = /*HTML*/`
+                <h2>viser ${tryes}</h2> `;
 
             if (secretnumber === aNumber) {
                 document.getElementById('Result').innerHTML = /*HTML*/`
-                <p>riktig gjett</p>
+                    <p>riktig gjett</p>
                 `;
             } else if (secretnumber > aNumber) {
                 document.getElementById('Result').innerHTML = /*HTML*/`
-                <p>Feil gjett, tallet for lavt</p>
+                        <p>Feil gjett, tallet for lavt</p >
                 `;
             } else {
                 document.getElementById('Result').innerHTML = /*HTML*/`
-                <p>Feil gjett, tallet for høyt</p>
+                            <p> Feil gjett, tallet for høyt</p>
                 `;
             }
         }
