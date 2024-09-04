@@ -4,10 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Oppgave 128H</title>
+    <style>
+        #container {
+            font-family: "Arial", sans-serif;
+            max-width: 500px;
+            border-radius: 15px;
+            border: 1px solid black;
+            padding: 15px;
+            background-color: rgb(51, 51, 176);
+            overflow: hidden;
+        }
+
+        #display {
+            width: 90%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            background-color: rgb(20, 19, 54);
+            color: aliceblue;
+            font-size: 2em;
+        }
+
+        #keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 25px;
+        }
+
+        button {
+            height: 3em;
+            width: 3em;
+            border-radius: 40px;
+            border: none;
+            color: aliceblue;
+            background-color: rgb(20, 19, 54);
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(69, 84, 148);
+        }
+    </style>
 </head>
 
 <body>
+
+    <div id="container">
+        <input id="display" readonly>
+        <div id="keys">
+            <button onclick="addToDisplay('+')">+</button>
+            <button onclick="addToDisplay('7')">7</button>
+            <button onclick="addToDisplay('8')">8</button>
+            <button onclick="addToDisplay('9')">9</button>
+            <button onclick="addToDisplay('-')">-</button>
+            <button onclick="addToDisplay('4')">4</button>
+            <button onclick="addToDisplay('5')">5</button>
+            <button onclick="addToDisplay('6')">6</button>
+            <button onclick="addToDisplay('*')">*</button>
+            <button onclick="addToDisplay('1')">1</button>
+            <button onclick="addToDisplay('2')">2</button>
+            <button onclick="addToDisplay('3')">3</button>
+            <button onclick="addToDisplay('/')">/</button>
+            <button onclick="addToDisplay('0')">0</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()">C</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display')
+
+        function addToDisplay(number) {
+            display.value += number
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculate() {
+            display.value = eval(display.value);
+        }
+
+
+    </script>
 
 </body>
 
