@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave128 F</title>
+    <style>
+        #app {
+            display: grid;
+            width: 200px;
+            grid-template-columns: repeat(2, 100px);
+            grid-template-rows: repeat(2, 100px);
+            border: 1px solid lightgray;
+        }
+
+        #app>div {
+            border: 1px solid grey;
+        }
+
+        #normal {
+            background-color: grey;
+
+
+        }
+
+        #yellowRout {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <button onclick="createBoard()">Start</button>
+    </div>
+    <div id="app1"></div>
+
+
+    <script>
+        let newTimeTime = new Date().getTime();
+        let timeTime = new Date().getTime();
+        let clickclick = 0;
+
+        function getRandomNumber(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1));
+        }
+
+        function createBoard() {
+            document.getElementById('app').innerHTML = /*HTML*/ `
+            ${createGame()}
+            `;
+
+            getTimeD();
+
+        }
+
+        function createGame() {
+            let selectedIndex = getRandomNumber(1, 4);
+            clickclick++;
+            newTimeTime = new Date().getTime();
+            if (selectedIndex === 1) {
+                return /*HTML*/`
+                <div id="yellowRout" onclick="createBoard()"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                `;
+            }
+            if (selectedIndex === 2) {
+                return /*HTML*/`
+                <div></div>
+                <div id="yellowRout" onclick="createBoard()"></div>
+                <div></div>
+                <div></div>
+                `;
+            }
+            if (selectedIndex === 3) {
+                return /*HTML*/`
+                <div></div>
+                <div></div>
+                <div id="yellowRout" onclick="createBoard()"></div>
+                <div></div>
+                `;
+
+            }
+            if (selectedIndex === 4) {
+                return /*HTML*/`
+                <div></div>
+                <div></div>
+                <div></div>
+                <div id="yellowRout" onclick="createBoard()"></div>
+                `;
+            }
+            createBoard();
+        }
+
+        function getTimeD() {
+
+
+            let yourTime = (newTimeTime - timeTime) / 1000;
+            document.getElementById('app1').innerHTML += /*HTML*/` 
+            
+            <h2>Din gjennomsnitt tid ${yourTime / clickclick}</h2>
+            <h2>tid ${yourTime}</h2>
+            
+            `;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
