@@ -4,10 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Oppgave 128G</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(8, 5vw);
+            grid-template-rows: repeat(8, 5vw);
+        }
+
+        .lightBrownRout {
+            background-color: burlywood;
+        }
+
+        .darkBrownRout {
+            background-color: rgb(112, 70, 70);
+        }
+    </style>
 </head>
 
 <body>
+
+    <div id="app"></div>
+
+
+    <script>
+
+        showChessBoard();
+        function showChessBoard() {
+            let bordRoutOne = '<div class="lightBrownRout"></div><div class="darkBrownRout"></div>';
+            let bordRoutTwo = '<div class="darkBrownRout"></div><div class="lightBrownRout"></div>';
+            let pattern = ''.padEnd(bordRoutOne.length * 4, bordRoutOne);
+            let patterntwo = ''.padEnd(bordRoutTwo.length * 4, bordRoutTwo);
+            let boardRouts = pattern + patterntwo;
+
+
+            document.getElementById('app').innerHTML = boardRouts + boardRouts + boardRouts + boardRouts;
+        }
+
+    </script>
 
 </body>
 
