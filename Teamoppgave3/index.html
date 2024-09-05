@@ -152,6 +152,23 @@
             updateView();
         }
 
+        function isLegalMove() {
+            if (diskSize === 'Small') {
+                if (smallDiskTowerIndex === toTowerIndex) {
+                    return false
+                }
+            } else if (diskSize === 'Medium') {
+                if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === smallDiskTowerIndex) {
+                    return false
+                }
+            } else if (diskSize === 'Large') {
+                if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === smallDiskTowerIndex || largeDiskTowerIndex === mediumDiskTowerIndex) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         function createButtons(toTowerIndex, placement, diskSize) {
             let isDisabled = false;
             if (diskSize === 'Small') {
