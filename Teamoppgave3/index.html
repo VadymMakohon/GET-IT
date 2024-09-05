@@ -169,7 +169,7 @@
         }
 
         function createButtons(toTowerIndex, placement, diskSize) {
-            let isDisabled = !isLegalMove();
+            let isDisabled = !isLegalMove;
 
             if (isDisabled) {
                 return `<button disabled>${placement}</button>`
