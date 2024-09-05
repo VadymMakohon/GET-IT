@@ -57,11 +57,9 @@
         // model
         //   hvor er diskene, 0 = venstre tårn, 1 = midten, 2 = høyre
         //   alle starter til venstre
-        let smallDiskTowerIndex = 0;
-        let mediumDiskTowerIndex = 0;
-        let largeDiskTowerIndex = 0;
-        let isGameFinished = false;
-
+        let smallDiskTowerIndex = 1;
+        let mediumDiskTowerIndex = 2;
+        let largeDiskTowerIndex = 2;   // fjertet let isGameFinished = false;
 
         // view
         updateView();
@@ -71,7 +69,7 @@
 
             gameContainerDiv();
             document.getElementById("app").innerHTML = /*HTML*/ `
-                    <h1>${isGameFinished ? `You Win <button onclick="reload()">New Game</button>` : 'Tower of Hanoi'}</h1>
+                    <h1>${winCondition() ? `You Win <button onclick="reload()">New Game</button>` : 'Tower of Hanoi'}</h1>
                     ${gameContainerDiv()}
                     Flytt liten disk til 
                      ${createButtons(0, 'venstre tårn', 'Small')}
@@ -135,8 +133,7 @@
 
         function moveSmallDisk(toTowerIndex) {
             smallDiskTowerIndex = toTowerIndex
-            winCondition()
-            updateView();
+            updateView(); // fjernet winCondition()
         }
 
         function moveMediumDisk(toTowerIndex) {
@@ -180,7 +177,7 @@
 
         function winCondition() {
             if (smallDiskTowerIndex === 2 && mediumDiskTowerIndex === 2 && largeDiskTowerIndex === 2) {
-                isGameFinished = true
+                return true;
             }
         }
 
