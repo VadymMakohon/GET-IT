@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=
-    , initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
         .game-container {
@@ -170,20 +169,8 @@
         }
 
         function createButtons(toTowerIndex, placement, diskSize) {
-            let isDisabled = false;
-            if (diskSize === 'Small') {
-                if (smallDiskTowerIndex === toTowerIndex) {
-                    isDisabled = true
-                }
-            } else if (diskSize === 'Medium') {
-                if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === smallDiskTowerIndex) {
-                    isDisabled = true
-                }
-            } else if (diskSize === 'Large') {
-                if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === smallDiskTowerIndex || largeDiskTowerIndex === mediumDiskTowerIndex) {
-                    isDisabled = true
-                }
-            }
+            let isDisabled = !isLegalMove();
+
             if (isDisabled) {
                 return `<button disabled>${placement}</button>`
             }
