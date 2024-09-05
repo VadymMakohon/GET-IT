@@ -158,13 +158,11 @@
                 if (smallDiskTowerIndex === toTowerIndex) {
                     isDisabled = true
                 }
-            }
-            if (diskSize === 'Medium') {
+            } else if (diskSize === 'Medium') {
                 if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === smallDiskTowerIndex) {
                     isDisabled = true
                 }
-            }
-            if (diskSize === 'Large') {
+            } else if (diskSize === 'Large') {
                 if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === toTowerIndex || largeDiskTowerIndex === smallDiskTowerIndex || largeDiskTowerIndex === mediumDiskTowerIndex) {
                     isDisabled = true
                 }
