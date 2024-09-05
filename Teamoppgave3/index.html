@@ -150,8 +150,7 @@
             largeDiskTowerIndex = toTowerIndex
             updateView();
         }
-
-        function isLegalMove() {
+        function isLegalMove(diskSize, toTowerIndex) {
             if (diskSize === 'Small') {
                 if (smallDiskTowerIndex === toTowerIndex) {
                     return false
@@ -169,9 +168,8 @@
         }
 
         function createButtons(toTowerIndex, placement, diskSize) {
-            let isDisabled = !isLegalMove;
 
-            if (isDisabled) {
+            if (!isLegalMove(diskSize, toTowerIndex)) {
                 return `<button disabled>${placement}</button>`
             }
             return `<button onclick="move${diskSize}Disk(${toTowerIndex})">${placement}</button>`
