@@ -129,27 +129,21 @@
             return html;
         }
 
-
         function moveSmallDisk(toTowerIndex) {
             smallDiskTowerIndex = toTowerIndex
             updateView(); // fjernet winCondition() spør direkte her om win condition
         }
 
         function moveMediumDisk(toTowerIndex) {
-            if (smallDiskTowerIndex === toTowerIndex) {
-                return
-            }
             mediumDiskTowerIndex = toTowerIndex
             updateView();
         }
 
         function moveLargeDisk(toTowerIndex) {
-            if (smallDiskTowerIndex === toTowerIndex || mediumDiskTowerIndex === toTowerIndex) {
-                return
-            }
             largeDiskTowerIndex = toTowerIndex
             updateView();
         }
+
         function isLegalMove(diskSize, toTowerIndex) {
             if (diskSize === 'Small') {
                 if (smallDiskTowerIndex === toTowerIndex) {
@@ -167,14 +161,13 @@
             return true;
         }
 
+
         function createButtons(toTowerIndex, placement, diskSize) {
-
-            if (!isLegalMove(diskSize, toTowerIndex)) {
-                return `<button disabled>${placement}</button>`
+            if (isLegalMove(diskSize, toTowerIndex)) {
+                return `<button onclick="move${diskSize}Disk(${toTowerIndex})">${placement}</button>`
             }
-            return `<button onclick="move${diskSize}Disk(${toTowerIndex})">${placement}</button>`
+            return `<button disabled>${placement}</button>`
         }
-
         function winCondition() {
             if (smallDiskTowerIndex === 2 && mediumDiskTowerIndex === 2 && largeDiskTowerIndex === 2) {
                 return true;
