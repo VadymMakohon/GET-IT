@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 123C</title>
+
+    <style>
+        div.trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            background-color: red;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+    </div>
+    <div id="appTwo">
+    </div>
+
+    <script>
+
+        document.getElementById('app').innerHTML = createTrafficLightPhase0(true, true, false);
+
+        function createLightDiv(color) {
+            return /*HTML*/`<div class="light" style="background-color: ${color};"></div>`;
+        }
+
+        function createTrafficLightPhase0(isRed, isYellow, isGreen) {
+            let color1 = 'grey';
+            let color2 = 'grey';
+            let color3 = 'grey';
+            if (isRed) color1 = 'red';
+            if (isYellow) color2 = 'yellow';
+            if (isGreen) color3 = 'green';
+
+            return /*HTML*/ `
+            <div class="trafficLight">
+                ${createLightDiv(color1)}
+                ${createLightDiv(color2)}
+                ${createLightDiv(color3)}
+            </div>
+            <button id="trafficButton" onclick="createTrafficLightPhase1()">Turn light</button>
+        `;
+
+        }
+
+        function createTrafficLightPhase1() {
+            document.getElementById('app').innerHTML = createTrafficLightPhase0(false, true, false);
+            document.getElementById('trafficButton').onclick = createTrafficLightPhase2;
+        }
+        function createTrafficLightPhase2() {
+            document.getElementById('app').innerHTML = createTrafficLightPhase0(false, false, true);
+            document.getElementById('trafficButton').onclick = createTrafficLightPhase3;
+        }
+        function createTrafficLightPhase3() {
+            document.getElementById('app').innerHTML = createTrafficLightPhase0(true, true, false);
+            document.getElementById('trafficButton').onclick = createTrafficLightPhase1;
+        }
+        let phase = 0;
+        createTrafficLightTwo();
+        function createTrafficLightTwo(colorOne = 0, colorTwo = 1, colorThree = 2, colorFour = 3) {
+
+            let color1 = 'grey';
+            let color2 = 'grey';
+            let color3 = 'grey';
+            if (phase == colorOne | phase == colorTwo) { color1 = 'red'; }
+            if (phase == colorTwo | phase == colorFour) { color2 = 'yellow'; }
+            if (phase == colorThree) { color3 = 'green'; }
+
+            document.getElementById('appTwo').innerHTML = /*HTML*/`
+            <div class="trafficLight">
+                ${createLightDiv(color1)}
+                ${createLightDiv(color2)}
+                ${createLightDiv(color3)}
+            </div>
+            <button id="trafficButton" onclick="OneMorePhase()">Start traffic light</button>
+            <button id="trafficButton" onclick="stopTraffic()">Stop traffic light</button>
+        `;
+        }
+
+        function OneMorePhase(OneMorePhase) {
+            phase = phase + 1;
+            if (phase == 4) { phase = 0; }
+
+            createTrafficLightTwo();
+
+        }
+
+    </script>
+
+</body>
+
+</html>
