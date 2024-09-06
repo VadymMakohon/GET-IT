@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
+
+    <!-- Animate CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Lia Villis</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav aria-label="Main Navigation">
+        <h1><a href="#about">Lia</a></h1>
+        <ul class="navigation">
+            <li><a href="#about" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+        </ul>
+        <button class="burger-menu" id="burger-menu" aria-label="Open navigation menu">
+            <ion-icon class="bars" name="menu-outline"></ion-icon>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="bio">
+            <h1 class="bio-title">Hi there!</h1>
+            <p class="bio-text">
+                I'm <span class="bio-span">Lia Villis</span>, an aspiring developer.
+            </p>
+            <a href="resume.pdf" class="primary-btn">Resume</a> <!-- Ensure to link the resume -->
+            <a href="projects.html" class="sec-btn">Projects</a>
+        </div>
+    </section>
+
+    <!-- More about -->
+    <section class="more-about">
+        <h2>More About Me</h2>
+        <p>
+            A passionate Full Stack Software Developer 🚀 having a special interest in Frontend technologies and
+            experience
+            building Web applications with JavaScript / Reactjs / Nodejs and other cool libraries and frameworks.
+        </p>
+    </section>
+
+    <!-- Skills section -->
+    <section class="skills" id="skills">
+        <h2 class="skill-header">My Skills</h2>
+        <div class="skills-wrapper">
+            <div class="first-set animate__animated animate__pulse">
+                <img src="assets/icons/icons8-html-5.svg" alt="HTML" loading="lazy" class="icon icon-card" />
+                <img src="assets/icons/icons8-css3.svg" alt="CSS" loading="lazy" class="icon icon-card" />
+                <img src="assets/icons/icons8-javascript.svg" alt="JavaScript" loading="lazy" class="icon icon-card" />
+            </div>
+
+            <div class="second-set animate__animated animate__pulse">
+                <img src="assets/icons/icons8-bootstrap.svg" alt="Bootstrap" loading="lazy" class="icon icon-card" />
+                <img src="assets/icons/icons8-git.svg" alt="Git" loading="lazy" class="icon icon-card" />
+                <img src="assets/icons/icons8-nodejs.svg" alt="Node.js" loading="lazy" class="icon icon-card" />
+            </div>
+
+            <div class="first-set animate__animated animate__pulse">
+                <img src="assets/icons/icons8-react-native.svg" alt="React" loading="lazy" class="icon icon-card" />
+                <img src="assets/icons/icons8-mongodb.svg" alt="MongoDB" loading="lazy" class="icon icon-card" />
+                <img src="assets/icons/icons8-chakra-ui.svg" alt="Chakra UI" loading="lazy" class="icon icon-card" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects section -->
+    <section class="projects" id="projects">
+        <h2 class="projects-title">My Work</h2>
+        <p class="projects-para">Here are my projects and blogs.</p>
+        <div class="projects-container">
+            <div class="project-container project-card">
+                <h3 class="project-title">Projects</h3>
+                <hr />
+                <p class="project-details">
+                    I would like to showcase my work, and you can see my projects hosted online.
+                </p>
+                <a href="projects.html" class="project-link">View projects</a>
+            </div>
+
+            <div class="project-container project-card">
+                <h3 class="project-title">Blogs</h3>
+                <hr />
+                <p class="project-details">
+                    I would like to document my journey of learning. Here are my blogs for you to read.
+                </p>
+                <a href="blogs.html" class="project-link">Read blogs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer>
+        <p class="copy">&copy; Copyright 2024</p>
+        <p class="copy">
+            Developed by
+            <a href="https://twitter.com/">Lia</a>
+        </p>
+        <!-- Social accounts  -->
+        <div class="socials">
+            <a href="#"><img src="assets/icons/icons8-twitter.svg" alt="Twitter" loading="lazy" class="socicon" /></a>
+            <a href="https://www.linkedin.com/in//"><img src="assets/icons/icons8-linkedin-circled.svg" alt="LinkedIn"
+                    loading="lazy" class="socicon" /></a>
+            <a href="https://github.com/LiaV"><img src="assets/icons/icons8-github.svg" alt="GitHub"
+                    class="socicon" /></a>
+        </div>
+    </footer>
+
+    <!-- Scroll-up icon -->
+    <i class="scroll-up" id="scroll-up">
+        <img src="assets/icons/icons8-upward-arrow-64.png" class="socicon up-arrow" alt="scroll-up" />
+    </i>
+
+    <!-- Website scripts -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Ion icons scripts -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

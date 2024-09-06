@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let secretText = 'TEE';
+        let currentText = '___';
+        let guessedLetter;
+
+        // view 
+        updateView();
+        function updateView() {
+            let wonHtml = '';
+            if (secretText == currentText) {
+                wonHtml = `Løst! <button>Nytt spill</button>`;
+            }
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>${currentText}</h1>
+                ${wonHtml}
+                <input 
+                    type="text" 
+                    oninput="guessedLetter=this.value"
+                    value="${guessedLetter ?? ''}"
+                    />
+                <button onclick="guess()">Gjett</button>
+            `;
+        }
+
+        // controller
+        function guess() {
+            currentText = evaluateHangman(secretText, currentText, guessedLetter);
+            updateView();
+        }
+
+        function evaluateHangman(secretText, currentText, guessedLetter) {
+            const index = secretText.indexOf(guessedLetter);
+            if (index == -1) return currentText;
+            const currentTextBeforeGuessedLetter = currentText.substring(0, index);
+            const currentTextAfterGuessedLetter = currentText.substring(index + 1);
+            const secretTextAfterGuessedLetter = secretText.substring(index + 1);
+            return currentTextBeforeGuessedLetter + guessedLetter
+                + evaluateHangman(secretTextAfterGuessedLetter, currentTextAfterGuessedLetter, guessedLetter);
+        }
+    </script>
+</body>
+
+</html>
