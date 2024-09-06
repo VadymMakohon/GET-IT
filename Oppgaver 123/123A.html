@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 123A</title>
+</head>
+
+<body>
+
+
+    <div id="pageContent">
+
+    </div>
+
+
+    <script>
+
+        draForm();
+        function draForm() {
+            drawField('fname', 'First Name', 'text');
+            drawField('lname', 'Last Name', 'text');
+            drawField('zero2hundred', 'En til 100', 'range');
+            drawField('lname', 'Skriv inn et tall', 'number');
+            drawField('html', 'HTML', 'radio', 'fav_language');
+            drawField('css', 'CSS', 'radio', 'fav_language');
+            drawField('js', 'JavaScript', 'radio', 'fav_language');
+
+        }
+
+
+        function drawField(id, label, typeType, radioGroup) {
+            let breakeTag = `<br/>`;
+            let minMaxStep = `min="1" max='100' step="1"`;
+            let labelTag = `<label for="${id}">${label}:</label>`;
+            let inputTag = `<input type="${typeType}" id="${id}">`;
+            if (typeType == 'range') {
+                inputTag = `<input type="${typeType}" ${minMaxStep} id="${id}">`;
+            }
+
+            let html = labelTag + breakeTag + inputTag + breakeTag;
+            if (typeType == 'radio') {
+                inputTag = `<input type="${typeType}" id="${id}" name="${radioGroup}">`;
+                html = inputTag + labelTag + breakeTag;
+            }
+
+            document.getElementById('pageContent').innerHTML += html;
+        }
+
+    </script>
+
+</body>
+
+</html>

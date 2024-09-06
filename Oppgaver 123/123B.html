@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 123B</title>
+
+    <style>
+        #colorConteiner {
+            width: 300px;
+            height: 100px;
+            border: 1px solid darkcyan;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="colorConteiner"></div>
+    <input type="range" id="coloredit" min="0" max="100" onchange="changeBackgroundColor()">
+
+    <script>
+        function changeBackgroundColor() {
+            const sliderValue = document.getElementById('coloredit').value;
+
+            if (sliderValue <= 30) {
+                document.getElementById('colorConteiner').style.backgroundColor = 'red';
+            } else if (sliderValue <= 70) {
+                document.getElementById('colorConteiner').style.backgroundColor = 'yellow';
+            } else {
+                document.getElementById('colorConteiner').style.backgroundColor = 'green';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
