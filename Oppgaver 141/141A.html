@@ -5,10 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave 141A</title>
+    <style>
+        div {
+            font-size: 300%;
+            user-select: none;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="app"></div>
 
+    <script>
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        var smileyIndex = 0;
+        var cheetNote = '';
+
+        // controller
+        function doClick() {
+            points += pointsPerClick;
+            smileyIndex = 1 - smileyIndex;
+            updateView();
+        }
+
+        function buyUpgrade() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            updateView();
+        }
+
+        function cheet() {
+            pointsPerClick *= 10;
+            points *= 10;
+            cheetNote = `Du har jukset`;
+
+            updateView();
+        }
+
+        // view
+        updateView();
+        function updateView() {
+            var smiley = smileyIndex == 0 ? '😀' : '😁';
+            document.getElementById('app').innerHTML = `
+                <div id="image" onclick="doClick()">${smiley}</div>
+                <div id="pointsInfo">${points}</div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="cheet()">Superbonus</button>
+                ${cheetNote}
+            `;
+        }
+    </script>
 </body>
 
 </html>
