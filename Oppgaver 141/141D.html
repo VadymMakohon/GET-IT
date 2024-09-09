@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 141D</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script>
+
+        let buttonLabel = 'Registrer';
+        let inputAcsess = ''
+        let regInf = '';
+        let = eMale = document.getElementById('eMaile');
+        let = fName = document.getElementById('fName');
+
+        updateView();
+        function updateView() {
+
+
+            document.getElementById('app').innerHTML =
+                createInputtAndLabel('fName', 'First Name:', 'text')
+                + createInputtAndLabel('eMaile', 'Emaile:', 'text')
+                + `  <button onclick="registButton()">${buttonLabel}</button>
+                    <div id="regInput">${regInf}</div>
+                `
+                ;
+        }
+
+        function createInputtAndLabel(idInfo, info, inType) {
+            return /*HTML*/`
+                <label for="${idInfo}">${info}</label>
+                <input type="${inType}" id="${idInfo}" ${inputAcsess}   ${idInfo === 'eMaile' ? 'oninput="eMale = this.value"' : 'oninput="fName = this.value"'} ${idInfo === 'eMale' ? 'value="eMale"' : 'value="fName"'}/><br/><br/>
+
+            `;
+            //${number >= max ? "disabled" : ""}
+        }
+
+        function registButton() {
+            if (buttonLabel === 'Rediger') {
+                buttonLabel = 'Registrer';
+                inputAcsess = '';
+                regInf = '';
+            } else {
+                buttonLabel = 'Rediger';
+                inputAcsess = 'disabled';
+                regInf = `Din emale: <input disabled value="${eMaile}"/><br/>
+                            Ditt navn: <input disabled value="${fName}"/><br/>`;
+            }
+
+            updateView();
+        }
+
+    </script>
+
+</body>
+
+</html>
