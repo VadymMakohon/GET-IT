@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 141C</title>
+</head>
+
+<body>
+
+    <div id="app">
+    </div>
+    <div id="app1">
+    </div>
+
+    <script>
+        let colorSelected = 'green';
+        let ColorSelectionGame = /*HTML*/`  <select id="myValue" onchange="colorSelected=this.value" value="${colorSelected}">
+                                                    <option  value="green">Grønn</option>
+                                                    <option  value="red">Rød</option>
+                                                    <option  value="blue">Blå</option>
+                                                    <option  value="yellow">Gul</option>
+                                            </select>
+                                            <button onclick="createDiv(colorSelected)">Legg til div</button>
+                                            
+                                            `;
+        loadPage();
+        function loadPage() {
+            colorSelected = colorSelected;
+            document.getElementById('app').innerHTML = ColorSelectionGame;
+        }
+
+        function createDiv(color) {
+            colorSelected = colorSelected;
+            document.getElementById('app1').innerHTML = /*HTML*/ ` 
+            <div style="width: 150px; height: 70px; background-color: ${color}; border:1px solid grey;"></div>
+            `;
+        }
+
+    </script>
+
+</body>
+
+</html>
