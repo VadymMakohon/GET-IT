@@ -18,7 +18,7 @@
         let buttonLabel = 'Registrer';
         let inputAcsess = ''
         let regInf = '';
-        let = eMale = document.getElementById('eMaile');
+        let = eMail = document.getElementById('eMail');
         let = fName = document.getElementById('fName');
 
         updateView();
@@ -27,7 +27,7 @@
 
             document.getElementById('app').innerHTML =
                 createInputtAndLabel('fName', 'First Name:', 'text')
-                + createInputtAndLabel('eMaile', 'Emaile:', 'text')
+                + createInputtAndLabel('eMail', 'Email:', 'text')
                 + `  <button onclick="registButton()">${buttonLabel}</button>
                     <div id="regInput">${regInf}</div>
                 `
@@ -37,7 +37,7 @@
         function createInputtAndLabel(idInfo, info, inType) {
             return /*HTML*/`
                 <label for="${idInfo}">${info}</label>
-                <input type="${inType}" id="${idInfo}" ${inputAcsess}   ${idInfo === 'eMaile' ? 'oninput="eMale = this.value"' : 'oninput="fName = this.value"'} ${idInfo === 'eMale' ? 'value="eMale"' : 'value="fName"'}/><br/><br/>
+                <input type="${inType}" id="${idInfo}" ${inputAcsess}   ${idInfo === 'eMail' ? 'oninput="eMail = this.value"' : 'oninput="fName = this.value"'} ${idInfo === 'eMail' ? 'value="eMail"' : 'value="fName"'}/><br/><br/>
 
             `;
             //${number >= max ? "disabled" : ""}
@@ -51,7 +51,7 @@
             } else {
                 buttonLabel = 'Rediger';
                 inputAcsess = 'disabled';
-                regInf = `Din emale: <input disabled value="${eMaile}"/><br/>
+                regInf = `Din emale: <input disabled value="${eMail}"/><br/>
                             Ditt navn: <input disabled value="${fName}"/><br/>`;
             }
 
