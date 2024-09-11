@@ -22,6 +22,7 @@ let coinsReturned = [
     0, // tikroninger
     0, // tjuekroninger
 ];
+
 let cokesInStore = 10;
 let isCokeInDelivery = false;
 let errorMessage = '';
