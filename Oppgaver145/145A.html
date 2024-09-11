@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 145A</title>
+
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(2, 10vw);
+            grid-template-rows: repeat(2, 10vw);
+        }
+
+        div.squere {
+            background-color: aquamarine;
+            border: 1px solid grey;
+            align-content: center;
+            text-align: center;
+        }
+
+        img {
+            width: 90%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+    <div id="app1">
+
+    </div>
+
+    <script>
+        // Model
+        let selectedIndex = 3;
+        const size = 4;
+
+        // View
+        drawPictureGame();
+        function drawPictureGame() {
+            const gridSize = size;
+            const pattern = `<div class="squere"></div>`;
+            const part1 = ''.padEnd(pattern.length * selectedIndex, pattern);
+            const part2 = `<div class="squere"><img src="bilder/get-academy.png" /></div>`;
+            const part3 = ''.padEnd(pattern.length * (gridSize - selectedIndex - 1), pattern);
+
+            document.getElementById('app').innerHTML = part1 + part2 + part3;
+            document.getElementById('app1').innerHTML = /*HTML*/`
+                <button onclick="moveUp()">&#11165;</button>
+                <button onclick="moveLeft()">&#11164;</button>
+                <button onclick="moveRight()">&#11166;</button>
+                <button onclick="moveDown()">&#11167;</button>
+            `;
+        }
+
+        // Controller
+        function moveUp() {
+            if (selectedIndex - 2 >= 0) {
+                selectedIndex -= 2;
+            }
+            drawPictureGame();
+        }
+
+        function moveDown() {
+            if (selectedIndex + 2 < size) {
+                selectedIndex += 2;
+            }
+            drawPictureGame();
+        }
+
+        function moveLeft() {
+            if (selectedIndex % 2 !== 0) {
+                selectedIndex--;
+            }
+            drawPictureGame();
+        }
+
+        function moveRight() {
+            if (selectedIndex % 2 === 0) {
+                selectedIndex++;
+            }
+            drawPictureGame();
+        }
+        // &#11165; up
+        // &#11164; left
+        // &#11166; right
+        // &#11167; down
+    </script>
+
+</body>
+
+</html>
