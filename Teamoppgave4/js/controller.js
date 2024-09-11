@@ -8,17 +8,23 @@ function buyCoke() {
     6. Myntene du har betalt for cola skal inn i maskinen (coinsInMachine)
     */
 
+    let valueOfCoinsInserted = valueFromCoinCounts(coinsInserted);
     if (cokesInStore < 1) return;
 
-    if (valueFromCoinCounts(coinsInserted) < cokePrice) {
+    if (valueOfCoinsInserted < cokePrice) {
         errorMessage = `Du har ikke nok penger`;
         updateView();
         return;
     }
 
-    if (valueFromCoinCounts(coinsInserted) > cokePrice) {
-        let leftoverMoney = valueFromCoinCounts(coinsInserted) - cokePrice;
-        for (let j = 0; j < coinsInserted.length; j++) {
+    for (let i = 0; i < coinsInserted.length; i++) {
+        coinsInMachine[i] += coinsInserted[i];
+    }
+    coinsInserted = [0, 0, 0, 0];
+
+    if (valueOfCoinsInserted > cokePrice) {
+        let leftoverMoney = valueOfCoinsInserted - cokePrice;
+        for (let j = 3; j >= 0; j--) {
             let coinValue = coinValueFromIndex(j);
             while (leftoverMoney - coinValue >= 0 && coinsInMachine[j] > 0) {
                 coinsReturned[j]++;
@@ -28,10 +34,7 @@ function buyCoke() {
         }
     }
 
-    for (let i = 0; i < coinsInserted.length; i++) {
-        coinsInMachine[i] += coinsInserted[i];
-    }
-    coinsInserted = [0, 0, 0, 0];
+
 
 
     cokesInStore--;
