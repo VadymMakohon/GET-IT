@@ -28,12 +28,11 @@ function buyCoke() {
         }
     }
 
-    for (let i = 0; i < coimsInserted.length; i++) {
-        coinsInMachine.add(coinsInserted)
+    for (let i = 0; i < coinsInserted.length; i++) {
+        coinsInMachine[i] += coinsInserted[i];
     }
+    coinsInserted = [0, 0, 0, 0];
 
-    let list = [10, 23, 10, 3]
-    list.push
 
     cokesInStore--;
     isCokeInDelivery = true;
