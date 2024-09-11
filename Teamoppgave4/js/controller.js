@@ -28,18 +28,12 @@ function buyCoke() {
         }
     }
 
-    let valueTaken = 0;
-
-    for (let i = 0; i < coinsInserted.length; i++) {
-
-        let coinValue = coinValueFromIndex(i); // runde 1: verdi=1, runde 2: verdi=5, ...
-        // coinsInserted = [0,2,0,1]
-        while (coinsInserted[i] > 0 && valueTaken < cokePrice) {
-            coinsInserted[i]--;
-            coinsInMachine[i]++;
-            valueTaken += coinValue;
-        }
+    for (let i = 0; i < coimsInserted.length; i++) {
+        coinsInMachine.add(coinsInserted)
     }
+
+    let list = [10, 23, 10, 3]
+    list.push
 
     cokesInStore--;
     isCokeInDelivery = true;
