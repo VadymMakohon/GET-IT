@@ -1,0 +1,1 @@
+Oppgavene er rett og slett å gjøre ferdig mest mulig av cola automaten. Ta en titt på unit testene og forsøk å implementere nok til at de passerer. 

@@ -1,0 +1,48 @@
+.coin > img {
+    height: 5rem;
+}
+
+.coke > img {
+    height: 15rem;
+}
+
+.coins {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5.5rem;
+}
+
+.coin {
+    height: 0.5rem;
+    overflow: visible;
+}
+
+.automat {
+    border: 5px solid gray;
+    padding-left: 1rem;
+    margin-right: 1rem;
+    background-color: lightblue;
+}
+
+.innmat{
+    display: flex;
+}
+
+.flexHorizontal {
+    display: flex;
+}
+
+.flexVertical{
+    display: flex;
+    flex-direction: column;
+}
+
+.cokes {
+    display: flex;
+    padding-right: 3rem;
+}
+
+.coke {
+    width: 2rem;
+    overflow: visible;
+}
