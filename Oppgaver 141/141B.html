@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Oppgave 141B</title>
+    <style>
+        div {
+            font-size: 300%;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        var smileyIndex = 0;
+        let isCheater = false;
+
+        // controller
+        function doClick() {
+            points += pointsPerClick;
+            smileyIndex = 1 - smileyIndex;
+            updateView();
+        }
+
+        function buyUpgrade() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            updateView();
+        }
+
+        function cheat() {
+            isCheater = true;
+            points *= 10;
+            pointsPerClick *= 10;
+            updateView();
+        }
+
+        // view
+        updateView();
+        function updateView() {
+            var smiley = smileyIndex == 0 ? '😀' : '😁';
+            let message = isCheater ? "Du har jukset!!" : "";
+            document.getElementById('app').innerHTML = /*HTML*/ `
+                <h1>${message}</h1>
+                <div id="image" onclick="doClick()">${smiley}</div>
+                <div id="pointsInfo">${points}</div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="cheat()">Juks</button>
+            `;
+        }
+    </script>
+</body>
+
+</html>
