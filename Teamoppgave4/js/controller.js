@@ -1,34 +1,11 @@
 function buyCoke() {
     let valueOfCoinsInserted = valueFromCoinCounts(coinsInserted);
-    if (cokesInStore < 1) {
-        errorMessage = "Det er ikke mer Cola igjen :(";
-        updateView();
-        return;
-    }
 
-    if (valueOfCoinsInserted < cokePrice) {
-        errorMessage = `Du har ikke nok penger`;
-        updateView();
-        return;
-    }
-    errorMessage = "";
+    if (!checksPassed(valueOfCoinsInserted)) return;
 
-    for (let i = 0; i < coinsInserted.length; i++) {
-        coinsInMachine[i] += coinsInserted[i];
-    }
-    coinsInserted = [0, 0, 0, 0];
+    takeInsertedCoins();
 
-    if (valueOfCoinsInserted > cokePrice) {
-        let leftoverMoney = valueOfCoinsInserted - cokePrice;
-        for (let j = 3; j >= 0; j--) {
-            let coinValue = coinValueFromIndex(j);
-            while (leftoverMoney - coinValue >= 0 && coinsInMachine[j] > 0) {
-                coinsReturned[j]++;
-                coinsInMachine[j]--;
-                leftoverMoney -= coinValue;
-            }
-        }
-    }
+    returnChange(valueOfCoinsInserted - cokePrice);
 
     cokesInStore--;
     isCokeInDelivery = true;
@@ -57,6 +34,47 @@ function takeCoke() {
     updateView();
 }
 
+function returnChange(change) {
+    for (let j = 3; j >= 0; j--) {
+        let coinValue = coinValueFromIndex(j);
+        while (change - coinValue >= 0 && coinsInMachine[j] > 0) {
+            coinsReturned[j]++;
+            coinsInMachine[j]--;
+            change -= coinValue;
+        }
+    }
+}
+
+function takeInsertedCoins() {
+    for (let i = 0; i < coinsInserted.length; i++) {
+        coinsInMachine[i] += coinsInserted[i];
+    }
+    coinsInserted = [0, 0, 0, 0];
+}
+
+function checksPassed(valueOfCoinsInserted) {
+    if (!inStock() || !hasInsertedEnough(valueOfCoinsInserted)) return false;
+    errorMessage = "";
+    return true;
+}
+
+function inStock() {
+    if (cokesInStore < 1) {
+        errorMessage = "Det er ikke mer Cola igjen :(";
+        updateView();
+        return false;
+    }
+    return true;
+}
+
+function hasInsertedEnough(valueOfCoinsInserted) {
+    if (valueOfCoinsInserted < cokePrice) {
+        errorMessage = "Du har ikke nok penger";
+        updateView();
+        return false;
+    }
+    return true;
+}
 /*
    1. Sjekke om du har nok penger (og få opp feilmelding hvis ikke)
    2. Hvis du betaler for mye skal du få riktig veksel tilbake
