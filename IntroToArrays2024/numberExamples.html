@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = [1, 2, 3, 4, 5];
+        let b = [1, 5, 3, 4, 2];
+
+        function isSorted(numbers) {
+            let previousNumber = numbers[0];
+            for (let number of numbers) {
+                if (number < previousNumber) return false;
+                previousNumber = number;
+            }
+            return true;
+        }
+
+        function isSortedB(numbers) {
+            for (let i = 1; i < numbers.length; i++) {
+                if (numbers[i] < numbers[i - 1]) return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
