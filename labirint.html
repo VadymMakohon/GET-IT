@@ -4,28 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Labirint</title>
     <style>
         .maze {
-            /* display: grid; */
-            border: 5px solid black;
+            display: grid;
+            grid-template-columns: repeat(4, 20vw);
+            grid-template-rows: repeat(3, 20vw);
             height: 97vh;
         }
-    </style>
 
+        .maze>div {
+            border: 12px solid black;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-
         <div class="maze">
+            <div></div>
+            <div></div>
+            <div style="border-right: 0; border-bottom: 0"></div>
+            <div style="border-left: 0"></div>
+
+            <div></div>
+            <div></div>
+            <div style="border-top: 0"></div>
+            <div style="border-bottom: 0"></div>
+
+            <div></div>
+            <div></div>
+            <div style="border-bottom: 0"></div>
+            <div style="border-bottom: 0; border-top: 0"></div>
         </div>
     </div>
-
     <script>
+        // model
+
+        // 0 - lukket
+        // 1 - høyre åpen
+        // 2 - ned åpen
+
+        let cells = [0, 0, 0, 1, 2];
+        // view
+        // updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+
+            `;
+
+        }
+
+        // controller
 
     </script>
-
 </body>
 
 </html>
