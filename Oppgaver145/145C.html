@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>128B as MVC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #number-guesser {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            height: 30vh;
+        }
+
+        input {
+            width: 4rem
+        }
+
+        #guess-button {
+            border-radius: 0.5em;
+            width: 4rem;
+            height: 2rem;
+            color: blueviolet;
+            background-color: bisque;
+        }
+    </style>
+    <script>
+        let randomNumber = getRandomNumber(1, 100);
+        let input = null;
+        let correctAnswer = false;
+        let message = "?";
+
+        function getRandomNumber(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1));
+        }
+
+        function updateView() {
+            document.getElementById("number-guesser").innerHTML = /*HTML*/ `
+                <h3>Finn tallet</h3>
+                <h5>Gjett et tall mellom 1 og 100</h5>
+                <h4>${message}</h4>
+                <input oninput="setInput(this.value)" type="number" value='${input}'/>
+                ${correctAnswer ? createButton("reset-button", "reset()", "Start på nytt") : createButton("guess-button", "checkAnswer()", "Gjett")}
+            `;
+        }
+
+        function setInput(value) {
+            input = value;
+        }
+
+        function checkAnswer() {
+            if (input == null) {
+                message = "Invalid input, must input a number"
+            } else if (input < randomNumber) {
+                message = "Du gjettet for lavt"
+            } else if (input > randomNumber) {
+                message = "Du gjettet for høyt"
+            } else {
+                message = "Du gjettet riktig!"
+                correctAnswer = true;
+            }
+            updateView();
+        }
+
+        function createButton(id, onclick, text) {
+            return /*HTML*/ `<button id="${id}" onclick="${onclick}">${text}</button>`;
+        }
+
+        function reset() {
+            randomNumber = getRandomNumber(1, 100);
+            input = null;
+            message = "?";
+            correctAnswer = false;
+            updateView();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="number-guesser">
+        <script>
+            updateView()
+        </script>
+    </div>
+</body>
+
+</html>
