@@ -31,14 +31,14 @@ function updateView() {
                     <path transform="rotate(-1.79 -12147.887 7779.517)" d="M344.352 455.71a31.228 33.718 0 0 1-39.995.25" style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:1"/>
                 </svg>
                 <div class="flexHorizontal">
-                    <button onclick="insertCoin(1)">Putte inn 1kr</button>
-                    <button onclick="insertCoin(5)">Putte inn 5kr</button>
-                    <button onclick="insertCoin(10)">Putte inn 10kr</button>
-                    <button onclick="insertCoin(20)">Putte inn 20kr</button>
+                    <button onclick="insertCoin(${oneKr})">Putte inn 1kr</button>
+                    <button onclick="insertCoin(${fiveKr})">Putte inn 5kr</button>
+                    <button onclick="insertCoin(${tenKr})">Putte inn 10kr</button>
+                    <button onclick="insertCoin(${twentyKr})">Putte inn 20kr</button>
                     <button onclick="returnCoins()">Angre</button>
                     <button onclick="takeCoins()">Ta myntene</button>
                     <button onclick="buyCoke()">Kjøpe cola</button>
-                    <button>Ta cola</button>
+                    <button onclick="takeCoke()">Ta cola</button>
                 </div>
             </div>
         </div>
@@ -48,10 +48,10 @@ function updateView() {
 function getCoinsHtml(coinCounts) {
     return /*HTML*/`
         <div class="coins">
-            <div>${repeatImgDivHtml('coin', '1kr', coinCounts[0])}</div>
-            <div>${repeatImgDivHtml('coin', '5kr', coinCounts[1])}</div>
-            <div>${repeatImgDivHtml('coin', '10kr', coinCounts[2])}</div>
-            <div>${repeatImgDivHtml('coin', '20kr', coinCounts[3])}</div>            
+            <div>${repeatImgDivHtml('coin', '1kr', coinCounts[oneKr])}</div>
+            <div>${repeatImgDivHtml('coin', '5kr', coinCounts[fiveKr])}</div>
+            <div>${repeatImgDivHtml('coin', '10kr', coinCounts[tenKr])}</div>
+            <div>${repeatImgDivHtml('coin', '20kr', coinCounts[twentyKr])}</div>            
         </div>
     `;
 }
