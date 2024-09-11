@@ -5,7 +5,7 @@ function valueFromCoinCounts(coinCounts) {
         + coinCounts[3] * 20;
 }
 
-function coinValueFromIndex(index){
+function coinValueFromIndex(index) {
     const values = [1, 5, 10, 20];
     return values[index];
 }
