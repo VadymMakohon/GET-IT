@@ -3,7 +3,7 @@ function updateView() {
         <div class="flexVertical">
             <div class="flexHorizontal">
                 <div class="automat">
-                    <h1>Cola-automat - pris: 25kr</h1>
+                    <h1>Cola-automat - pris: ${cokePrice}kr</h1>
                     <div class="innmat">
                         ${getCoinsHtml(coinsInMachine)}
                         <div class="cokes">
