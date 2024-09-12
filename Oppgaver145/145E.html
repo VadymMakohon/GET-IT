@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -9,45 +8,46 @@
 
 <body>
     <div id="content"></div>
+
     <script>
         // model
-        var sum = 0;
-        var count = 0;
-        var inputValue = '';
+        let sum = 0, count = 0, inputValue = '';
 
         // view
-        show();
         function show() {
             document.getElementById('content').innerHTML = `
                 <p>Skriv tall i feltet og få summen, gjennomsnitt og antall.</p>
-
                 Tall: <input type="number" value="${inputValue}" oninput="inputValue = this.value">
                 <button onclick="add()">Legg til</button>
                 <button onclick="reset()">Nullstill</button>
-
                 <table>
                     <tr><td>Sum:</td><td>${sum}</td></tr>
-                    <tr><td>Gjennomsnitt:</td><td>${count == 0 ? '<i>NA</i>' : sum / count}</td></tr>
+                    <tr><td>Gjennomsnitt:</td><td>${count ? (sum / count).toFixed(2) : '<i>NA</i>'}</td></tr>
                     <tr><td>Antall tall:</td><td>${count}</td></tr>
                 </table>
-                `;
+            `;
         }
 
         // controller
         function add() {
-            count++;
-            sum += parseInt(inputValue);
-            inputValue = '';
-            show();
+            if (inputValue) {
+                sum += parseInt(inputValue);
+                count++;
+            }
+            resetInput();
         }
 
         function reset() {
-            sum = 0;
-            count = 0;
+            sum = count = 0;
+            resetInput();
+        }
+
+        function resetInput() {
             inputValue = '';
             show();
         }
 
+        show();
     </script>
 </body>
 
