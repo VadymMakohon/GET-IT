@@ -1,5 +1,5 @@
 function buyCoke() {
-    let valueOfCoinsInserted = valueFromCoinCounts(coinsInserted);
+    const valueOfCoinsInserted = valueFromCoinCounts(coinsInserted);
 
     if (!checksPassed(valueOfCoinsInserted)) return;
 
