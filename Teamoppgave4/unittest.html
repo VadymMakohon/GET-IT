@@ -19,7 +19,6 @@
             coinsReturned = [0, 0, 0, 0];
             cokesInStore = 5;
             isCokeInDelivery = false;
-            console.log(coinsInMachine, coinsInserted, coinsReturned, cokesInStore, isCokeInDelivery);
         }
 
         // dummy view
@@ -28,18 +27,17 @@
         QUnit.test('kjøpe cola - vekslepengene - alle mynter i automat', function (assert) {
             // arrange
             initModel();
-            insertCoin(3);  // Insert 20 kr
-            insertCoin(3);  // Insert 20 kr
-            coinsInMachine = [5, 5, 5, 5];  // Maskin full av mynter
+            insertCoin(20);
+            insertCoin(20);
+            coinsInMachine = [5, 5, 5, 5];
 
             // act
             buyCoke();
 
             // assert
-            assert.deepEqual(coinsReturned, [0, 1, 1, 0], '1x 5kr and 1x 10kr should be returned');
-            assert.deepEqual(coinsInMachine, [5, 4, 4, 5], 'Machine should have reduced 1x 5kr and 1x 10kr');
+            assert.deepEqual(coinsReturned, [0, 1, 1, 0]);
+            assert.deepEqual(coinsInMachine, [5, 4, 4, 5]);
         });
-
 
         QUnit.test('kjøpe cola - vekslepengene - kun 5kr og 1kr i automat', function (assert) {
             // arrange
