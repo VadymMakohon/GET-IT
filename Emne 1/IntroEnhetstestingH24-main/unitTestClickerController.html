@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.22.0.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.22.0.js"></script>
+    <script src="clickerController.js"></script>
+
+    <script>
+        // model
+        var points;
+        var pointsPerClick;
+        var smileyIndex;
+
+        function init(p, ppc, i) {
+            points = p;
+            pointsPerClick = ppc;
+            smileyIndex = i;
+        }
+        
+        // dummy view
+        function updateView() { }
+
+        QUnit.test('Normal click', function (assert) {
+            // arrange
+            // init(0,1,0);
+            points = 0;
+            pointsPerClick = 1;
+            smileyIndex = 0;
+
+            // act
+            doClick();
+
+            // assert
+            assert.equal(points, 1);
+        });
+
+        QUnit.test('Oppgradering ok', function (assert) {
+            // arrange
+            points = 17;
+            pointsPerClick = 1;
+            smileyIndex = 0;
+
+            // act
+            buyUpgrade();
+
+            // assert
+            assert.equal(points, 7);
+            assert.equal(pointsPerClick, 2);
+        });
+
+        QUnit.test('Oppgradering ikke ok', function (assert) {
+            // arrange
+            points = 9;
+            pointsPerClick = 1;
+            smileyIndex = 0;
+
+            // act
+            buyUpgrade();
+
+            // assert
+            assert.equal(points, 9);
+            assert.equal(pointsPerClick, 1);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+Enhetstesting
+1: Hva er enhetstesting og eksempel 
+ - Formatere overskrift med stjerner
+ - QUnit
+2: Mange perspektiver på enhetstesting 
+   - korrekthet
+   - regresjon
+   - testdrevet utvikling
+   - test coverage
+   - rolle i smidig/agile metodikk
+   - testbar kode er bra kode - av og til er det vanskelig å teste fordi 
+     koden har for mange avhengigheter hit og dit - det kan man kan ofte
+     finne ut av når man prøver å teste, det har en stor verdi å identifisere
+     for mange avhengigheter
+3: Funksjon for å oversette til røverspråk
+ - En liten smak av testdrevet utvikling
+4: Testing av controller-funksjoner i et MVC-oppsett
+
+- spare tid ved feilretting og implementasjon

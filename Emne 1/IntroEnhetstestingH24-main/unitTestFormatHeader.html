@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.22.0.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.22.0.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        QUnit.test('Terje - 2', function (assert) {
+            // arrange
+            let text = 'Terje';
+            let count = 2;
+
+            // act
+            let actualHeaderText = formatHeader(text, count);
+
+            // assert
+            let expectedHeaderText = '** Terje **';
+            assert.equal(actualHeaderText, expectedHeaderText);
+        });
+
+        QUnit.test('Empty text', function (assert) {
+            // arrange
+            let text = '';
+            let count = 2;
+
+            // act
+            let actualHeaderText = formatHeader(text, count);
+
+            // assert
+            let expectedHeaderText = '**  **';
+            assert.equal(actualHeaderText, expectedHeaderText);
+        });
+
+        QUnit.test('undefined text', function (assert) {
+            // arrange
+            let text = undefined;
+            let count = 2;
+
+            // act
+            let actualHeaderText = formatHeader(text, count);
+
+            // assert
+            let expectedHeaderText = '**  **';
+            assert.equal(actualHeaderText, expectedHeaderText);
+        });
+
+        QUnit.test('undefined number', function (assert) {
+            // arrange
+            let text = 'Terje';
+
+            // act
+            let actualHeaderText = formatHeader(text);
+
+            // assert
+            let expectedHeaderText = 'Terje';
+            assert.equal(actualHeaderText, expectedHeaderText);
+        });
+
+        QUnit.test('No spaces without stars', function (assert) {
+            // arrange
+            let text = 'Terje';
+            let count = 0;
+
+            // act
+            let actualHeaderText = formatHeader(text, count);
+
+            // assert
+            let expectedHeaderText = 'Terje';
+            assert.equal(actualHeaderText, expectedHeaderText);
+        });
+    </script>
+</body>
+
+</html>
