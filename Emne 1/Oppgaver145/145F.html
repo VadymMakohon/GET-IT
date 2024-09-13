@@ -6,6 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>145F</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+
+        #hangman {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 1020px;
+            height: 80vh;
+        }
+
+        #gallow {
+            height: 100%;
+            width: 100%;
+        }
+
+        #letters {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 10px;
+        }
+
+        .letter {
+            border-bottom: 2px solid black;
+            font-size: 3rem;
+            text-align: center;
+            height: 50px;
+        }
+
+        svg .rotateRight {
+            transform-box: fill-box;
+            transform-origin: center;
+            transform: rotate(45deg);
+        }
+
+        svg .rotateLeft {
+            transform-box: fill-box;
+            transform-origin: center;
+            transform: rotate(135deg);
+        }
+
+        svg .topBeam {
+            transform-box: fill-box;
+            transform-origin: center;
+            transform: rotate(90deg);
+        }
+
+        svg .topSupport {
+            transform-box: fill-box;
+            transform-origin: center;
+            transform: rotate(45deg);
+        }
+
+        #letterButtons {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .letterButton {
+            width: calc(100%/26);
+            height: 2rem;
+            font-size: 1.5rem;
+        }
+    </style>
+
 </head>
 
 <body>
