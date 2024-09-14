@@ -2,11 +2,11 @@
 
 Welcome to my GitHub repository! Here, I am embarking on an exciting journey of re-learning HTML, CSS, and JavaScript from scratch. This project is dedicated to revisiting the core technologies of web development with the aim of solidifying my foundational knowledge, exploring new features and best practices, and ultimately becoming a more proficient and versatile web developer.
 
-## Overview
+## Overview <img src="https://cdn-icons-png.flaticon.com/512/7756/7756168.png" alt="Analysis Icon" width="50" height="50">
 
 This repository serves as a personal sandbox where I experiment with and practice various web development concepts. Whether you're a fellow developer, a student, or simply curious about web technologies, you're welcome to explore, contribute, or even learn alongside me as I work through this journey.
 
-## Goals
+## Goals <img src="https://cdn-icons-png.flaticon.com/512/9677/9677777.png" alt="Focus Icon" width="50" height="50" />
 
 - Solidify Core Concepts: Revisit the basics of HTML, CSS, and JavaScript.
 - Explore New Features: Learn modern features such as Flexbox, Grid Layout, CSS variables, and ES6+ JavaScript.
@@ -14,7 +14,7 @@ This repository serves as a personal sandbox where I experiment with and practic
 - Build Projects: Create small projects and exercises to apply learning.
 - Master Version Control: Improve proficiency with Git and GitHub for effective project management and collaboration.
 
-## Project Structure
+## Project Structure <img src="https://cdn-icons-png.flaticon.com/512/2232/2232113.png" alt="Database Icon" width="50" height="50">
 
 - HTML Exercises: Explore the structure of web content, semantic HTML, and accessibility.
 - CSS Experiments: Stylesheets and examples that demonstrate various styling techniques, including responsive design, animations, and layout strategies.
@@ -48,7 +48,7 @@ git clone <https://github.com/your-username/GET-IT.git>
 
 This repository is more than just a collection of code—it's a reflection of my commitment to continuous learning and growth in the ever-evolving field of web development. I hope that by sharing my journey, others can benefit from my experiences, and together, we can contribute to a more knowledgeable and vibrant developer community.
 
-Thank you for visiting, and happy coding!
+Thank you for visiting, and happy coding! <img src="https://cdn-icons-png.flaticon.com/512/2888/2888407.png" alt="Web Development Icon" width="50" height="50" />
 
 # Contributors
 
