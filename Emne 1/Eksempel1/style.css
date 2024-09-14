@@ -1,15 +1,13 @@
-body {
-    margin-left: 20px;
-}
-
 .card {
     width: 500px;
     background-color: lightgray;
     border: 1px solid darkgray;
     margin: 10px;
+    display: flex; /* Ensure it behaves like a flex container */
+    flex-direction: column; /* Stack elements vertically */
 }
 
-.innerCard{
+.innerCard {
     padding: 10px;
 }
 
@@ -63,14 +61,14 @@ p {
     width: auto;
 }
 
-.bodyPart{
+.bodyPart {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.bodies{
-    display: flex; 
+.bodies {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
