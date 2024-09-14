@@ -6,7 +6,7 @@ function translateText(text) {
         translatedText += character;
         if (consonants.includes(character)) {
             translatedText += 'o' + character.toLowerCase();
-        } 
+        }
     }
     return translatedText;
 }
