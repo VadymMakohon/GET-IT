@@ -8,11 +8,11 @@ This repository serves as a personal sandbox where I experiment with and practic
 
 ## Goals
 
-- Solidify Core Concepts: Revisiting the basics of HTML, CSS, and JavaScript to ensure a strong understanding of essential web technologies.
-- Explore New Features: Delving into modern features and techniques that have emerged in recent years, such as Flexbox, Grid Layout, CSS variables, and ES6+ JavaScript features.
-- Best Practices: Implementing industry-standard best practices to write clean, efficient, and maintainable code.
-- Build Real Projects: Creating small projects and exercises that reinforce what I’ve learned, ranging from simple static websites to dynamic, interactive web applications.
-- Version Control Mastery: Improving my proficiency with Git and GitHub for effective project management and collaboration.
+- Solidify Core Concepts: Revisit the basics of HTML, CSS, and JavaScript.
+- Explore New Features: Learn modern features such as Flexbox, Grid Layout, CSS variables, and ES6+ JavaScript.
+- Best Practices: Focus on writing clean, efficient, and maintainable code.
+- Build Projects: Create small projects and exercises to apply learning.
+- Master Version Control: Improve proficiency with Git and GitHub for effective project management and collaboration.
 
 ## Project Structure
 
