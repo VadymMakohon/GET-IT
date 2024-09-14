@@ -16,9 +16,15 @@ This repository serves as a personal sandbox where I experiment with and practic
 
 ## Project Structure
 
-- HTML Exercises: Simple webpages and exercises focusing on the structure of web content, semantic HTML, and accessibility.
+- HTML Exercises: Explore the structure of web content, semantic HTML, and accessibility.
 - CSS Experiments: Stylesheets and examples that demonstrate various styling techniques, including responsive design, animations, and layout strategies.
 - JavaScript Projects: Scripts and applications that range from basic DOM manipulation to more advanced topics like asynchronous programming, APIs, and web components.
+
+## Course Modules
+
+- Grunnleggende Programmering: Basics of programming using JavaScript, covering variables, functions, loops, and more.
+- IT-utvikling: Team-based prototype development with a focus on Agile methodologies.
+- C# og Objektorientert Programmering: Learn object-oriented programming in C#, focusing on classes, inheritance, and SOLID principles.
 
 ## Technologies Covered
 
@@ -26,6 +32,9 @@ This repository serves as a personal sandbox where I experiment with and practic
 - CSS3: Cascading Style Sheets for designing and laying out web pages, with an emphasis on modern techniques like Flexbox and Grid.
 - JavaScript (ES6+): The scripting language of the web, focusing on modern syntax, features like promises and async/await, and understanding the Document Object Model (DOM).
 - Git & GitHub: Version control and collaboration tools that will be used to track progress, manage changes, and share my work with the community.
+- MVC and Unit Testing: Learn the Model-View-Controller pattern and implement unit testing.
+- Object-Oriented Programming (OOP): Understand encapsulation, inheritance, interfaces, and SOLID principles in C#.
+- Agile Methodologies: Explore Agile project management and development techniques.
 
 ## How to Use This Repository
 
