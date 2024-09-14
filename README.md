@@ -28,10 +28,10 @@ This repository serves as a personal sandbox where I experiment with and practic
 
 ## Technologies Covered
 
-- HTML5: The latest version of Hypertext Markup Language, providing the foundation for structuring content on the web.
-- CSS3: Cascading Style Sheets for designing and laying out web pages, with an emphasis on modern techniques like Flexbox and Grid.
-- JavaScript (ES6+): The scripting language of the web, focusing on modern syntax, features like promises and async/await, and understanding the Document Object Model (DOM).
-- Git & GitHub: Version control and collaboration tools that will be used to track progress, manage changes, and share my work with the community.
+- <img src="https://cdn-icons-png.flaticon.com/512/136/136528.png" alt="HTML Icon" width="50" height="50"> The latest version of Hypertext Markup Language, providing the foundation for structuring content on the web.
+- <img src="https://cdn-icons-png.flaticon.com/512/9496/9496599.png" alt="CSS Icon" width="50" height="50"> Cascading Style Sheets for designing and laying out web pages, with an emphasis on modern techniques like Flexbox and Grid.
+- <img src="https://cdn-icons-png.flaticon.com/512/7531/7531782.png" alt="JavaScript Icon" width="50" height="50"> JavaScript (ES6+): The scripting language of the web, focusing on modern syntax, features like promises and async/await, and understanding the Document Object Model (DOM).
+- <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub Icon" width="50" height="50"> Version control and collaboration tools that will be used to track progress, manage changes, and share my work with the community.
 - MVC and Unit Testing: Learn the Model-View-Controller pattern and implement unit testing.
 - Object-Oriented Programming (OOP): Understand encapsulation, inheritance, interfaces, and SOLID principles in C#.
 - Agile Methodologies: Explore Agile project management and development techniques.
