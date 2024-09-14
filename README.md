@@ -20,7 +20,7 @@ This repository serves as a personal sandbox where I experiment with and practic
 - CSS Experiments: Stylesheets and examples that demonstrate various styling techniques, including responsive design, animations, and layout strategies.
 - JavaScript Projects: Scripts and applications that range from basic DOM manipulation to more advanced topics like asynchronous programming, APIs, and web components.
 
-## Course Modules
+## Course Modules <img src="https://cdn-icons-png.flaticon.com/512/2812/2812423.png" alt="Cubes Icon" width="50" height="50">
 
 - Grunnleggende Programmering: Basics of programming using JavaScript, covering variables, functions, loops, and more.
 - IT-utvikling: Team-based prototype development with a focus on Agile methodologies.
@@ -50,6 +50,6 @@ This repository is more than just a collection of code—it's a reflection of my
 
 Thank you for visiting, and happy coding! <img src="https://cdn-icons-png.flaticon.com/512/2888/2888407.png" alt="Web Development Icon" width="50" height="50" />
 
-# Contributors
+# Contributors  <img src="https://cdn-icons-png.flaticon.com/512/5431/5431310.png" alt="Contribution Icon" width="50" height="50">
 
 - [Vadym Makohon](https://github.com/VadymMakohon)
