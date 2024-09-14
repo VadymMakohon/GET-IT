@@ -33,10 +33,10 @@ This repository serves as a personal sandbox where I experiment with and practic
 - <img src="https://cdn-icons-png.flaticon.com/512/7531/7531782.png" alt="JavaScript Icon" width="50" height="50"> JavaScript (ES6+): The scripting language of the web, focusing on modern syntax, features like promises and async/await, and understanding the Document Object Model (DOM).
 - <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub Icon" width="50" height="50"> Version control and collaboration tools that will be used to track progress, manage changes, and share my work with the community.
 - <img src="https://cdn-icons-png.flaticon.com/512/5958/5958839.png" alt="Testing Icon" width="50" height="50"> Learn the Model-View-Controller pattern and implement unit testing.
-- Object-Oriented Programming (OOP): Understand encapsulation, inheritance, interfaces, and SOLID principles in C#.
-- Agile Methodologies: Explore Agile project management and development techniques.
+- <img src="https://cdn-icons-png.flaticon.com/512/4248/4248159.png" alt="Computer Icon" width="50" height="50"> Understand encapsulation, inheritance, interfaces, and SOLID principles in <img src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png" alt="C# Icon" width="50" height="50">
+- <img src="https://cdn-icons-png.flaticon.com/512/9042/9042237.png" alt="Agile Icon" width="50" height="50"> Explore Agile project management and development techniques.
 
-## How to Use This Repository
+## How to Use This Repository <img src="https://cdn-icons-png.flaticon.com/512/5562/5562097.png" alt="User Guide Icon" width="50" height="50">
 
 1. Clone the Repository: If you'd like to follow along or experiment with the code, clone this repository to your local machine using:
 git clone <https://github.com/your-username/GET-IT.git>
