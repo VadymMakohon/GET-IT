@@ -8,7 +8,35 @@
 </head>
 
 <body>
-
+    <div id="app"></div>
 </body>
+<script>
+    let startValue = null;
+    let endValue = null;
+    let change = null;
+    let result = "";
+
+    updateView();
+    function updateView() {
+        document.getElementById("app").innerHTML = /*html*/ `
+        <input value="${startValue}" oninput="startValue=this.valueAsNumber" type="number">
+        <input value="${endValue}" oninput="endValue=this.valueAsNumber" type="number">
+        <input value='${change}' oninput="change=this.valueAsNumber" type="number">
+        <button onclick="calculate()">Calculate</button>
+        <div id="result">${result}</div>
+        `;
+    }
+
+    function calculate() {
+        result = "";
+        for (let value = startValue; value <= endValue; value += change) {
+            if (change < 1) break;
+            result += ` ${value},`;
+        }
+        result = result.slice(1, result.length - 1);
+
+        updateView();
+    }
+</script>
 
 </html>
