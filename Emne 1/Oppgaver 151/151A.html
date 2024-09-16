@@ -4,11 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oppgave 151A</title>
+    <title>151A</title>
 </head>
 
 <body>
-
+    <div id="app"></div>
 </body>
+<script>
+    let textInput = "";
+    let numberInput = null;
+    let repeatResult = "";
+
+    updateView();
+    function updateView() {
+        document.getElementById("app").innerHTML = /*html*/ `
+            <input type="text" oninput="textInput=this.value" value="${textInput}">
+            <input type="number" oninput="numberInput=this.value" value="${numberInput}">
+            <button onclick="repeat()">Gjenta</button>
+            <p>${repeatResult}</p>
+        `;
+    }
+
+    function repeat() {
+        while ((repeatResult.length + textInput.length) <= numberInput) {
+            repeatResult += textInput;
+        }
+        updateView();
+    }
+
+</script>
 
 </html>
