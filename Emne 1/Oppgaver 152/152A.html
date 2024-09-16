@@ -8,16 +8,35 @@
 </head>
 
 <body>
+    <div id="list-container"></div>
 
+    <script>
+        function createList() {
+            let list = [];
+            for (let nr = 100; nr < 1000; nr += 7) {
+                list.push(nr);
+            }
+            return list;
+        }
+
+        // Function to display the list
+        function displayList() {
+            const listContainer = document.getElementById('list-container');
+            const numbersList = createList();
+            const ul = document.createElement('ul'); // Create an unordered list
+
+            numbersList.forEach(number => {
+                const li = document.createElement('li'); // Create a list item
+                li.textContent = number; // Add the number as text
+                ul.appendChild(li); // Append the list item to the unordered list
+            });
+
+            listContainer.appendChild(ul); // Add the unordered list to the page
+        }
+
+        // Call the display function after the page loads
+        displayList();
+    </script>
 </body>
 
 </html>
-<script>
-    function createList() {
-        let list = [];
-        for (let nr = 100; nr < 1000; nr += 7) {
-            list.push(nr);
-        }
-        return list;
-    }
-</script>
