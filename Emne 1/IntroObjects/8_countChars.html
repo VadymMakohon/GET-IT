@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let text = `Aker Horizons bytter toppsjef
+Kristian Røkke går av som Aker Horizons-sjef og blir styreleder. Inn kommer tidligere Norske Skog-topp Lars Sperre.
+Det opplyser Aker Horizons i en børsmelding.
+Styret har utnevnt Sperre som ny konsernsjef fra 1. oktober i år.
+Samtidig vil hovedeier Aker foreslå for valgkomiteen at Kristian Røkke skal bli styreleder, noe som skal besluttes på en ekstraordinær generalforsamling.
+Aker Capital er kontrollerende eier i fornybarselskapet Aker Horizons med en eierandel på over 67 prosent gjennom selskapet Aker Capital.
+Tar over som toppsjef
+Energitransisjonen fortsetter å være både en enorm investeringsutfordring og en enestående mulighet. Jeg ser frem til å bidra til neste fase av denne reisen i min nye rolle som styreleder, sier Kristian Røkke.
+Sperre har tidligere hatt flere toppstillinger i Norske Skog. Han var blant annet toppsjef da papirprodusenten gikk over ende og ledet ryddejobben i etterkant.`;
+
+        let characterCounts = {
+            // a: 0, // sier hvor mange a-er vi har
+            // b: 0, // sier hvor mange a-er vi har
+        };
+
+        // teller opp antall av hvert tegn
+        for (let character of text) {
+            if (!characterCounts[character]) characterCounts[character] = 0;
+            characterCounts[character]++;
+        }
+
+        // gå gjennom alle tegn som er talt opp
+        for (let character in characterCounts) {
+            const count = characterCounts[character]
+            console.log(`Det er ${count} forekomster av tegnet ${character}.`);
+        }
+    </script>
+</body>
+
+</html>
