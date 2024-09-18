@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let date1 = new Date('2024-03-01');
+        let date2 = new Date();
+
+        getTimeSpan(date1, date2);
+
+        function getTimeSpan(dateA, dateB) {
+            const millisA = dateA.getTime();
+            const millisB = dateB.getTime();
+            const timeSpanMillis = Math.abs(millisA - millisB);
+            let seconds = Math.floor(timeSpanMillis / 1000);
+            let minutes = Math.floor(seconds / 60);
+            seconds = seconds % 60;
+            let hours = Math.floor(minutes / 60);
+            minutes = minutes % 60;
+            let days = Math.floor(hours / 24);
+            hours = hours % 24;
+            return { seconds, minutes, hours, days };
+        }
+    </script>
+</body>
+
+</html>
