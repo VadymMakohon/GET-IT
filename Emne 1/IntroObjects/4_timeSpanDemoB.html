@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let date1 = new Date('2024-03-01 13:30:25:100');
+        let date2 = new Date('2024-03-05 17:40:40:200');
+
+        function getTimeSpan(dateA, dateB) {
+            const millisA = dateA.getTime();
+            const millisB = dateB.getTime();
+            const millis = Math.abs(millisA - millisB);
+            const resultObj = { millis };
+            calc(resultObj, 1000, 'millis', 'seconds');
+            calc(resultObj, 60, 'seconds', 'minutes');
+            calc(resultObj, 60, 'minutes', 'hours');
+            calc(resultObj, 24, 'hours', 'days');
+            return resultObj;
+        }
+
+        function calc(obj, divisor, fieldName1, fieldName2) {
+            const number = obj[fieldName1];
+            obj[fieldName1] = number % divisor;
+            obj[fieldName2] = Math.floor(number / divisor);
+        }
+
+
+    </script>
+</body>
+
+</html>
