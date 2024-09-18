@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>152C</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #app {
+            height: 50vh;
+            width: 50vh;
+        }
+
+        #grid {
+            display: grid;
+            height: 100%;
+            width: 100%;
+        }
+
+        .cell {
+            display: flex;
+            border: 1px solid black;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-size: 5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+</html>
+<script>
+    let board = ["1", " ", "3", "4", "2", "5", "7", "8", "6"];
+    const boardHeight = 3;
+    const boardWidth = 3;
+
+    updateView();
+    function updateView() {
+        document.getElementById("app").innerHTML = /*HTML*/ `
+            ${isComplete() ? `<h2>Du klarte det!!</h2>` : ""}
+            <div id="grid" style="
+                grid-template-rows: repeat(${boardHeight}, 1fr);
+                grid-template-columns: repeat(${boardWidth}, 1fr);
+                ">
+                ${createNumberCells()}
+
+            </div>
+        `;
+    }
+
+    function createNumberCells() {
+        let html = "";
+        for (let i = 0; i < board.length; i++) {
+            html += /*HTML*/ `<div class="cell" onclick="moveMabe(${i})">${board[i]}</div>`;
+        }
+        return html;
+    }
+
+    function moveMabe(index) {
+        let emptyCellIndex = board.indexOf(' ');
+        if (!isAdjecentCell(index, emptyCellIndex)) return;
+
+        board[emptyCellIndex] = board[index];
+        board[index] = ' ';
+        updateView();
+    }
+
+    function isAdjecentCell(numberIndex, emptyCellIndex) {
+        let numberX = numberIndex % 3;
+        let numberY = Math.floor(numberIndex / 3);
+        let emptyX = emptyCellIndex % 3;
+        let emptyY = Math.floor(emptyCellIndex / 3);
+
+        return (emptyX == numberX && Math.abs(emptyY - numberY) == 1)
+            || (emptyY == numberY && Math.abs(emptyX - numberX) == 1)
+    }
+
+    function isComplete() {
+        let iterLength = board.length - 1;
+        for (let i = 1; i < iterLength; i++) {
+            if (board[i] != i + 1) return false;
+        }
+        return true;
+    }
+
+</script>
