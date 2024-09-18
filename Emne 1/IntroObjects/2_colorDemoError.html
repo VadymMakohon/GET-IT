@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDiv {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            border: 30px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myDiv">
+        Test
+    </div>
+    <script>
+        let exampleColor = { red: 50, green: 50, blue: 250 };
+        demoColor(exampleColor);
+
+        function demoColor(color) {
+            let white = { red: 255, green: 255, blue: 255 };
+            let myDiv = document.getElementById('myDiv');
+            myDiv.style.backgroundColor = getColorCss(color);
+            let invertedColor = invertColor(color);
+            myDiv.style.color = getColorCss(invertedColor);
+            let meanColor = getMeanColor(color, white);
+            myDiv.style.borderColor = getColorCss(meanColor);
+        }
+
+        function invertColor(color) {
+            color.red = 255 - color.red;
+            color.green = 255 - color.green;
+            color.blue = 255 - color.blue;
+            return color;
+        }
+
+        function getMeanColor(color1, color2) {
+            return {
+                red: (color1.red + color2.red) / 2,
+                green: (color1.green + color2.green) / 2,
+                blue: (color1.blue + color2.blue) / 2,
+            };
+        }
+
+        function getColorCss(color) {
+            return `rgb(${color.red}, ${color.green}, ${color.blue})`;
+        }
+    </script>
+</body>
+
+</html>
