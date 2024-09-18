@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hva er god kode?</title>
+</head>
+
+<body>
+    <!--
+        Hva er god kode?
+            * Lesbar
+            * Enkel
+            * Ikke gjentagende
+            * Best practices
+            * Bruker riktig rammeverk/teknologi
+            * Effektiv
+            * Godt dokumentert
+
+
+        Hva er lesbar kode? 
+        * Gi gode navn (i kontekst)
+            * Beskrivende
+            * Forklare HVA, ikke HVORDAN
+        * God struktur / arkitektur
+        * Dele opp i funksjoner med konkret ansvar (single responsibility)
+        * Ikke ha store filer/funksjoner
+        * Single sources of truths
+        * Formatering
+        * Være konsekvent
+        * Kommentarer
+            * Forklare ting som ikke er åpenbare
+            * Workarounds
+            * Domenelogikk
+            * Magic values
+    
+-->
+
+    <script>
+        let numberArray = [1, 2, 3, 4]; // <- ikke bra. Har med typen
+        let numbers = [1, 2, 3, 4]; // <- bra
+
+        let fullName = { firstName: 'Nick', middleName: 'The Cage', lastName: 'Cage' }; // <- inidikerer at det er mer enn bare en tekst
+        let name = { firstName: 'Nick', middleName: 'The Cage', lastName: 'Cage' }; // <- kan kanskje forvente at det bare er en tekst?
+        let nameObject = { firstName: 'Nick', middleName: 'The Cage', lastName: 'Cage' }; // <- har med typen igjen; alt er objekter uansett. Unaturlig navn
+
+        function mergeWords(word1, word2) { // <- tall i variabler? :( nei takk
+
+        }
+
+
+        function mergeWords(firstWord, secondWord) { // mer vanlig språk på variabelnavn (y)
+
+        }
+
+
+        function highestNumber(numbers) { // Ok. Kanskje avhengig av en kontekst
+
+        }
+
+        function getHighestNumber(numbers) { // Godt navn, har verb
+            let highestNumber = 0;
+            for (let number of numbers) {
+
+            }
+
+            return highestNumber;
+        }
+
+
+        function loopThroughListAndReturnHighestNumber(array) { // <- forklarer hvordan :(
+
+        }
+
+        // Declare variable a and assign it to one <-- dårlig kommentar, fordi det er åpenbart at det er det som skjer
+        let a = 1;
+
+
+        function calculateLoanRepayment(principal, annualInterestRate, totalPayments) {
+            let monthlyInterestRate = annualInterestRate / 12 / 100;
+
+
+            // Kanskje en fornuftig kommentar, fordi det forklarer "domenelogikk"?
+            // The formula for monthly loan repayment
+            // M = P[r(1+r)^n]/[(1+r)^n – 1]
+            // where:
+            // M = monthly payment
+            // P = principal loan amount
+            // r = monthly interest rate
+            // n = number of payments
+            return principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalPayments)) /
+                (Math.pow(1 + monthlyInterestRate, totalPayments) - 1);
+        }
+    </script>
+
+</body>
+
+</html>
