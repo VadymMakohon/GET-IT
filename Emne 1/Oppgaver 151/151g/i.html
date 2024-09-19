@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>151G</title>
+</head>
+
+<body>
+    <pre id="output"></pre>
+    <script>
+        printHashesOne();
+        writeLineBreak();
+        printHashesTwo();
+        writeLineBreak();
+        printHashesTwov2();
+        writeLineBreak();
+        printHashesThree();
+
+        function writeHash() {
+            document.getElementById('output').innerText += '#';
+        }
+
+        function writeSpace() {
+            document.getElementById('output').innerText += ' ';
+        }
+
+        function writeLineBreak() {
+            document.getElementById('output').innerText += '\n';
+        }
+
+        //prints
+        // ########
+        //  ######
+        //   ####
+        //    ##
+        function printHashesOne() {
+            const charsPrLine = 8;
+            for (let nrOfHashes = 8; nrOfHashes > 0; nrOfHashes -= 2) {
+                let nrOfSpacesEachEnd = (charsPrLine - nrOfHashes) / 2;
+                for (let charNr = 1; charNr <= charsPrLine; charNr++) {
+                    let isWhitespace = (charNr <= nrOfSpacesEachEnd)
+                        || (charNr > nrOfSpacesEachEnd + nrOfHashes);
+
+                    if (isWhitespace) {
+                        writeSpace();
+                    } else {
+                        writeHash();
+                    }
+                }
+                writeLineBreak();
+            }
+        }
+
+        // prints
+        //     ##
+        //    ####
+        //   ######
+        //  ########
+        //  ########
+        //   ######
+        //    ####
+        //     ##
+        function printHashesTwo() {
+            const charsPrLine = 8;
+            for (let nrOfHashes = 2; nrOfHashes <= 8; nrOfHashes += 2) {
+                for (let charNr = 1; charNr <= charsPrLine; charNr++) {
+                    let nrOfSpacesBeforeHashes = (charsPrLine - nrOfHashes) / 2;
+                    let isWhitespace = (charNr <= nrOfSpacesBeforeHashes) || (charNr > nrOfSpacesBeforeHashes + nrOfHashes);
+                    if (isWhitespace) {
+                        writeSpace();
+                    } else {
+                        writeHash();
+                    }
+                }
+                writeLineBreak();
+            }
+            for (let nrOfHashes = 8; nrOfHashes > 0; nrOfHashes -= 2) {
+                for (let charNr = 1; charNr <= charsPrLine; charNr++) {
+                    let nrOfSpacesBeforeHashes = (charsPrLine - nrOfHashes) / 2;
+                    let isWhitespace = (charNr <= nrOfSpacesBeforeHashes) || (charNr > nrOfSpacesBeforeHashes + nrOfHashes);
+                    if (isWhitespace) {
+                        writeSpace();
+                    } else {
+                        writeHash();
+                    }
+                }
+                writeLineBreak();
+            }
+        }
+        function printHashesTwov2() {
+            const charsPrLine = 8;
+            for (let nrOfHashes of [2, 4, 6, 8, 8, 6, 4, 2]) {
+                let nrOfSpacesBeforeHashes = (charsPrLine - nrOfHashes) / 2;
+                for (let charNr = 1; charNr <= charsPrLine; charNr++) {
+                    let isWhitespace = (charNr <= nrOfSpacesBeforeHashes) || (charNr > nrOfSpacesBeforeHashes + nrOfHashes);
+                    if (isWhitespace) {
+                        writeSpace();
+                    } else {
+                        writeHash();
+                    }
+                }
+                writeLineBreak();
+            }
+        }
+
+        // prints
+        //#            #
+        // ##        ##
+        //  ###    ###
+        //   ########
+        //   ########
+        //  ###    ###
+        // ##        ##
+        //#            # 
+        function printHashesThree() {
+            const charsPrLine = 14;
+            for (let listValue of [0, 1, 2, 3, 3, 2, 1, 0]) {
+                let nrOfHashesPrSide = listValue + 1;
+                let endingWhitespaceStartIndex = charsPrLine - listValue;
+                let endingHashesStartIndex = endingWhitespaceStartIndex - nrOfHashesPrSide;
+                let middleWhitespacesStartIndex = listValue + nrOfHashesPrSide;
+
+                for (let charIndex = 0; charIndex < charsPrLine; charIndex++) {
+                    let isWhitespace = charIndex < listValue
+                        || charIndex >= endingWhitespaceStartIndex
+                        || (charIndex >= middleWhitespacesStartIndex && charIndex < endingHashesStartIndex);
+
+                    if (isWhitespace) {
+                        writeSpace();
+                    } else {
+                        writeHash();
+                    }
+                }
+                writeLineBreak();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
