@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>152D</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(60, 63, 63);
+        }
+
+        #app {
+            padding: 5vh 0;
+        }
+
+        textarea {
+            width: 80vw;
+            height: 40vh;
+            background-color: rgb(138, 138, 138);
+        }
+
+        #list {
+            width: 80vw;
+        }
+
+        .row {
+            display: flex;
+            font-size: 1.2em;
+            width: 100%;
+            height: 3em;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .row.header {
+            background-color: rgb(34, 36, 36);
+            color: beige;
+            padding: 5px;
+        }
+
+        .color0 {
+            background-color: rgb(92, 91, 91);
+        }
+
+        .color1 {
+            background-color: rgb(121, 120, 120);
+        }
+
+
+        .index {
+            width: 50%;
+            align-content: start;
+        }
+
+        .word {
+            width: 45%;
+            justify-content: start;
+        }
+
+        .count {
+            display: flex;
+            width: 20%;
+            justify-content: end;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+</html>
+<script>
+    const searchPattern = /[a-zæøå]+/gmi;
+    let inputText = "";
+    let words = [];
+    let wordCount = [];
+
+
+    // Hvordan kan jeg få til at hver gang "View" oppdateres så vil jeg fortsatt ha markøren i text feltet på samme sted som før oppdateringen, 
+    // nå hopper den til slutten av teksten hved hver nye input
+    updateView();
+    function updateView() {
+        document.getElementById('app').innerHTML = /* HTML */ `
+            <textarea id="textArea" oninput="inputText=this.value;processText()"
+            onfocus="this.setSelectionRange(inputText.length, inputText.length);">${inputText}</textarea>
+            ${createList()}
+        `;
+
+        document.getElementById('textArea').focus();
+    }
+
+    function createList() {
+        let list = /*html*/ `<div class='row header'>
+            <div class="index">Word Index</div>
+            <div class="word">Word</div>
+            <div class="count">Word Count</div>
+        </div>`;
+
+        for (let i = 0; i < words.length; i++) {
+            list += /*html*/ `<div class='row color${i % 2}'>
+                <div class="listItem index">${i}</div>
+                <div class="listItem word">${words[i]}</div>
+                <div class="listItem count">${wordCount[i]}</div>
+            </div>`;
+        }
+        return `<div id="list">${list}</div>`;
+    }
+
+    function processText() {
+        words = [];
+        wordCount = [];
+
+        let matches = inputText.match(searchPattern);
+        if (matches == null) {
+            updateView();
+            return
+        };
+
+        matches.forEach((word) => {
+            let wordAsLowercase = word.toLowerCase();
+            let wordIndex = words.indexOf(wordAsLowercase);
+            if (wordIndex == -1) {
+                words.push(wordAsLowercase);
+                wordCount.push(1);
+            } else {
+                wordCount[wordIndex]++;
+            }
+        });
+
+        updateView();
+    }
+</script>
