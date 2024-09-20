@@ -1,12 +1,12 @@
 function addColor() {
-    colors.push(addColorName);
+    model.colorThemes.push(addColorName);
     isAdding = false;
     addColorName = '';
     updateView();
 }
 
 function deleteColor(index) {
-    colors.splice(index, 1);
+    model.colors.splice(index, 1);
     updateView();
 }
 
