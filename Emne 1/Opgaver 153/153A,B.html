@@ -4,11 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>153A</title>
+
 </head>
 
 <body>
-
+    <div id="app"></div>
 </body>
+<script>
+    const listItemsPrPage = 10;
+    let numbers = getNumbers();
+    let activePage = 1;
+    let filter = (list) => { return list };
+
+    function getNumbers() {
+        let numbers = [];
+        for (let i = 1; i <= 130; i++) {
+            numbers.push(i);
+        }
+        return numbers;
+    }
+
+    updateView();
+    function updateView() {
+        document.getElementById("app").innerHTML = /*HTML*/ `
+            <div id="filters">
+                <button onclick="filterEven()">Show even</button>
+                <button onclick="filterOdd()">Show Odd</button>
+                <button onclick="removeFilter()">Show all</button>
+            </div>
+            ${createNumbersListHtml()}
+            <div id="buttons">
+                ${createNavButtons()}
+            </div>
+        `;
+    }
+
+    function createNavButtons(text) {
+        let html = [];
+        let chunkStart = 0;
+        let chunkEnd = chunkStart + listItemsPrPage;
+        for (let pageNr = 1; pageNr <= numbers.length / listItemsPrPage; pageNr++) {
+            if (pageNr == activePage) {
+                html.push(`<p class="button disabled" disabled>${(chunkStart + 1) + '-' + chunkEnd}</p>`);
+            } else {
+                html.push(`<p class="button" onclick="setPage(${pageNr})">${(chunkStart + 1) + '-' + chunkEnd}</p>`);
+            }
+            chunkStart = chunkEnd;
+            chunkEnd = chunkStart + listItemsPrPage;
+            if (chunkEnd > numbers.length - 1) {
+                chunkEnd = numbers.length - 1;
+            }
+        }
+        html.join(',')
+        return html;
+    }
+
+    function createNumbersListHtml() {
+        let html = "";
+        let startIndex = (activePage - 1) * listItemsPrPage;
+        let endIndex = startIndex + listItemsPrPage;
+        let slice = numbers.slice(startIndex, endIndex);
+        let filteredList = filter(slice);
+
+        for (number of filteredList) {
+            html += `<li class="number">${number}</li>`;
+        }
+        return html;
+    }
+
+    function setPage(pageNr) {
+        activePage = pageNr;
+        updateView();
+    }
+
+    function filterEven() {
+        filter = (list) => {
+            let filteredList = [];
+            for (num of list) {
+                if (num % 2 == 0) {
+                    filteredList.push(num);
+                }
+            }
+            return filteredList;
+        }
+        updateView();
+    }
+
+    function filterOdd() {
+        filter = (list) => {
+            let filteredList = [];
+            for (num of list) {
+                if (num % 2 == 1) {
+                    filteredList.push(num);
+                }
+            }
+            return filteredList;
+        }
+        updateView();
+    }
+
+    function removeFilter() {
+        filter = (list) => { return list };
+        updateView();
+    }
+</script>
 
 </html>
