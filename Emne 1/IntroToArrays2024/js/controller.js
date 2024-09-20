@@ -1,21 +1,39 @@
+
 function addColor() {
-    model.colorThemes.push(addColorName);
-    isAdding = false;
-    addColorName = '';
+    const colorTheme = {
+        foregroundColor: model.foregroundColor,
+        backgroundColor: model.backgroundColor,
+        highlightColor: model.highlightColor,
+        creator: model.creator,
+        rating: model.rating,
+    };
+    model.colorThemes.unshift(colorTheme);
+    model.isAdding = false;
+    model.addColorName = '';
     updateView();
 }
 
 function deleteColor(index) {
-    model.colors.splice(index, 1);
+    model.colorThemes.splice(index, 1);
     updateView();
 }
 
 function startAdd() {
-    isAdding = true;
+    model.isAdding = true;
     updateView();
 }
 
 function cancelAddColor() {
-    isAdding = false;
+    model.isAdding = false;
+    updateView();
+}
+
+function filterByCreator(creator) {
+    model.creatorFilter = creator;
+    updateView();
+}
+
+function sortBy(sortField) {
+    model.sort = sortField;
     updateView();
 }
