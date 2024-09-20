@@ -1,0 +1,19 @@
+1: Oppgradere farge-app til liste av objekter - color themes
+   - CRUD-operasjonene
+   - Create Read Update Delete
+   - legge til rating, creator
+   - sortering, filtrering, paginering
+2: Intro Single Page Applications (SPA)
+   - forskjellige sider
+
+
+
+Info om Emne 2: 
+
+starter onsdag 25.9
+ - undervisningsøkt 1 onsdag 25.9 kl. 10.00
+   - intro emne 2
+   - første leksjon
+ - undervisningsøkt 2 torsdag 26.9 kl. 12:30
+splitter Start IT / Fagskolen 
+ - 
