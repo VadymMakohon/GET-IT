@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>153E</title>
+</head>
+
+<body>
+    <p id="output"></p>
+
+    <script>
+        function transformText(text, alphabet, code) {
+            text = text.toUpperCase();
+            let result = '';
+
+            for (let char of text) {
+                let index = alphabet.indexOf(char);
+
+                if (index !== -1) {
+                    result += code[index];
+                } else {
+                    result += char; // If the character is not found (e.g. space or punctuation), add it as is.
+                }
+            }
+
+            return result;
+        }
+
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ';
+        const secretCode = 'ÅØÆYUOIEABCDFGHJKLMPQRSTVWXZ';
+
+        let originalText = 'TERJE';
+
+        // Kryptering
+        let encryptedText = transformText(originalText, alphabet, secretCode);
+
+        // Dekryptering
+        let decryptedText = transformText(encryptedText, secretCode, alphabet);
+
+        document.getElementById('output').innerHTML = `
+            Original tekst: ${originalText} <br>
+            Kryptert tekst: ${encryptedText} <br>
+            Dekryptert tekst: ${decryptedText}
+        `;
+    </script>
+</body>
+
+</html>
