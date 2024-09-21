@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>153D</title>
+</head>
+
+<body>
+    <p id="output"></p>
+
+    <script>
+        function encrypt(text) {
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ';
+            const secretCode = 'ÅØÆYUOIEABCDFGHJKLMPQRSTVWXZ';
+
+            text = text.toUpperCase();
+
+            let encryptedText = '';
+
+            for (let char of text) {
+                let index = alphabet.indexOf(char);
+
+                if (index !== -1) {
+                    encryptedText += secretCode[index];
+                } else {
+                    encryptedText += char;
+                }
+            }
+
+            return encryptedText;
+        }
+
+        function decrypt(text) {
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ';
+            const secretCode = 'ÅØÆYUOIEABCDFGHJKLMPQRSTVWXZ';
+
+            text = text.toUpperCase();
+
+            let decryptedText = '';
+
+            for (let char of text) {
+                let index = secretCode.indexOf(char);
+
+                if (index !== -1) {
+                    decryptedText += alphabet[index];
+                } else {
+                    decryptedText += char;
+                }
+            }
+
+            return decryptedText;
+        }
+
+        let originalText = 'TERJE';
+        let encrypted = encrypt(originalText);
+        let decrypted = decrypt(encrypted);
+
+        document.getElementById('output').innerHTML = `
+            Original tekst: ${originalText} <br>
+            Kryptert tekst: ${encrypted} <br>
+            Dekryptert tekst: ${decrypted}
+        `;
+    </script>
+</body>
+
+</html>
