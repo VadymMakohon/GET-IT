@@ -4,11 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>153C</title>
 </head>
 
 <body>
+    <p id="output"></p>
 
+    <script>
+        function encrypt(text) {
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ';
+            const secretCode = 'ÅØÆYUOIEABCDFGHJKLMPQRSTVWXZ';
+
+            text = text.toUpperCase();
+
+            let encryptedText = '';
+
+
+            for (let char of text) {
+
+                let index = alphabet.indexOf(char);
+
+
+                if (index !== -1) {
+                    encryptedText += secretCode[index];
+                } else {
+                    encryptedText += char;
+                }
+            }
+
+            return encryptedText;
+        }
+
+
+        let originalText = 'TERJE';
+        let encrypted = encrypt(originalText);
+
+        // Vis det krypterte resultatet på nettsiden
+        document.getElementById('output').textContent = 'Kryptert tekst: ' + encrypted;
+    </script>
 </body>
 
 </html>
