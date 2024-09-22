@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>153G</title>
+</head>
+
+<body>
+    <p id="output"></p>
+
+    <script>
+        function generateFrequencyTable(numbers) {
+            // Finn det største tallet i listen for å vite hvor lang frekvenstabellen skal være
+            let maxNumber = Math.max(...numbers);
+
+            // Lag en frekvenstabell med lengde maxNumber + 1, fylt med nuller
+            let frequencyTable = new Array(maxNumber + 1).fill(0);
+
+            // Tell forekomster av hvert tall
+            for (let number of numbers) {
+                frequencyTable[number]++;
+            }
+
+            return frequencyTable;
+        }
+
+        // Eksempel: 
+        let numberList = [1, 2, 3, 4, 4, 1, 4];
+
+        // Generer frekvenstabellen
+        let frequencyTable = generateFrequencyTable(numberList);
+
+        // Skriv ut frekvenstabellen på skjermen
+        document.getElementById('output').innerHTML = `Frekvenstabell: ${JSON.stringify(frequencyTable)}`;
+    </script>
+
+</body>
+
+</html>
