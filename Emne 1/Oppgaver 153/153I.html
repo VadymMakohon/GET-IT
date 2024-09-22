@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>153I</title>
+</head>
+
+<body>
+    <p id="output"></p>
+
+    <script>
+        function findHighestPair(dice) {
+            let frequencyTable = {};
+
+            for (let die of dice) {
+                if (!frequencyTable[die]) {
+                    frequencyTable[die] = 0;
+                }
+                frequencyTable[die]++;
+            }
+
+            let highestPair = 0;
+            for (let value in frequencyTable) {
+                if (frequencyTable[value] >= 2) { // Hvis det er et par (minst 2 av samme)
+                    highestPair = Math.max(highestPair, value * 2); // Sammenlign høyeste verdi
+                }
+            }
+
+            return highestPair > 0 ? highestPair : "Ingen par";
+        }
+
+        let diceRoll = [2, 5, 3, 5, 2];
+
+        let highestPairScore = findHighestPair(diceRoll);
+
+        document.getElementById('output').innerHTML = `Høyeste par: ${highestPairScore}`;
+    </script>
+
+</body>
+
+</html>
