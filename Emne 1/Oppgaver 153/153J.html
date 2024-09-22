@@ -4,10 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>153J</title>
 </head>
 
 <body>
+    <p id="output-liten"></p>
+    <p id="output-stor"></p>
+
+    <script>
+        function isLitenStraight(dice) {
+            const litenStraight = [1, 2, 3, 4, 5];
+
+            // Sorter terningene og sjekk om de matcher en liten straight
+            dice.sort((a, b) => a - b);
+
+            return JSON.stringify(dice) === JSON.stringify(litenStraight);
+        }
+
+        function isStorStraight(dice) {
+            const storStraight = [2, 3, 4, 5, 6];
+
+            // Sorter terningene og sjekk om de matcher en stor straight
+            dice.sort((a, b) => a - b);
+
+            return JSON.stringify(dice) === JSON.stringify(storStraight);
+        }
+
+        // Eksempelterninger
+        let diceRoll1 = [1, 2, 3, 4, 5];  // Liten straight
+        let diceRoll2 = [2, 3, 4, 5, 6];  // Stor straight
+
+        // Sjekk for liten og stor straight
+        let litenStraightResult = isLitenStraight(diceRoll1) ? "Liten straight!" : "Ingen liten straight.";
+        let storStraightResult = isStorStraight(diceRoll2) ? "Stor straight!" : "Ingen stor straight.";
+
+        // Skriv resultatene på skjermen
+        document.getElementById('output-liten').innerHTML = litenStraightResult;
+        document.getElementById('output-stor').innerHTML = storStraightResult;
+    </script>
 
 </body>
 
