@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>153H</title>
+</head>
+
+<body>
+    <p id="output"></p>
+
+    <script>
+        // Funksjon for å finne typetallet (tallet som forekommer flest ganger)
+        function findMode(numbers) {
+            let frequencyTable = {};
+
+            for (let number of numbers) {
+                if (!frequencyTable[number]) {
+                    frequencyTable[number] = 0;
+                }
+                frequencyTable[number]++;
+            }
+
+            let mode = null;
+            let maxCount = 0;
+            for (let number in frequencyTable) {
+                if (frequencyTable[number] > maxCount) {
+                    maxCount = frequencyTable[number];
+                    mode = Number(number); // Konverter string til number
+                }
+            }
+
+            return mode;
+        }
+
+        let numberList = [1, 2, 3, 4, 4, 1, 4, 2, 3, 4, 2, 2];
+
+        let mode = findMode(numberList);
+
+        document.getElementById('output').innerHTML = `Typetallet er: ${mode}`;
+    </script>
+
+</body>
+
+</html>
