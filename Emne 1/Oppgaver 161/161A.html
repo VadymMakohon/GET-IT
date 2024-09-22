@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
 </head>
 
 <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="lib.js"></script>
+    <script>
+        QUnit.test("fix - 'terje'", function (assert) {
+            const actual = fixText('terje');
+            const expected = 'Terje';
+            assert.equal(actual, expected);
+        });
 
+        QUnit.test("fix - 'terje '", function (assert) {
+            const actual = fixText('terje ');
+            const expected = 'Terje';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - ' terje'", function (assert) {
+            const actual = fixText(' terje');
+            const expected = 'Terje';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - ' terje '", function (assert) {
+            const actual = fixText(' terje ');
+            const expected = 'Terje';
+            assert.equal(actual, expected);
+        });
+    </script>
 </body>
 
 </html>
