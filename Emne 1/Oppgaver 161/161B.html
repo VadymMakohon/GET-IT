@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Email Test</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
 </head>
 
 <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="lib.js"></script>
+    <script>
+        QUnit.test("isEmail - valid email", function (assert) {
+            const actual = isEmail('example@example.com');
+            const expected = true;
+            assert.equal(actual, expected);
+        });
 
+        QUnit.test("isEmail - missing @", function (assert) {
+            const actual = isEmail('example.com');
+            const expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("isEmail - empty string", function (assert) {
+            const actual = isEmail('');
+            const expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("isEmail - only @ symbol", function (assert) {
+            const actual = isEmail('@');
+            const expected = true;
+            assert.equal(actual, expected);
+        });
+    </script>
 </body>
 
 </html>
