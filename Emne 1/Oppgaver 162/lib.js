@@ -1,0 +1,112 @@
+
+// model
+let numbers = [7, 3, 1, 5, 8];
+let chosenBar; // Variabel for hvilken stolpe som er valgt
+let inputValue; // Variabel for hva som er skrevet i input-feltet
+let errorMessage = "";
+
+// view
+// updateView();
+// function updateView() {
+//     let svgInnerHtml = '';
+//     for (let i = 0; i < numbers.length; i++) {
+//         svgInnerHtml += createBar(numbers[i], i + 1, i);
+//     }
+//     document.getElementById('content').innerHTML = /*HTML*/`
+//         <svg id="chart" width="500" viewBox="0 0 60 60">
+//             ${svgInnerHtml}
+//         </svg><br/>
+//         Valgt stolpe: <i>${chosenBar == null ? "Ingen" : chosenBar + 1}</i>
+//         <br />
+//         Verdi:
+//         <input type="number" min="1" max="10" oninput="inputValuechange(this.valueAsNumber)" value="${inputValue}"/>
+//         <button onclick="addPillar()">Legg til stolpe</button>
+//         ${addChangeOrDeleteButton("changeSelectedPillar()", "Endre valgt stolpe")}
+//         ${addChangeOrDeleteButton("removeSelectedPillar()", "Fjerne valgt stolpe")}
+//         <h3>${errorMessage}</h3>
+//     `;
+// }
+
+function addChangeOrDeleteButton(onclick, text) {
+    if (chosenBar == null) {
+        return `<button disabled>${text}</button><br />`
+    }
+    return `<button onclick=${onclick}>${text}</button><br />`
+}
+
+function createBar(number, barNo, index) {
+    const spacing = 10 / numbers.length;
+    const width = 500 / (numbers.length * 15);
+    let x = (barNo - 1) * (width + spacing);
+    let height = number * 5;
+    let y = 60 - height;
+    let color = calcColor(1, 10, barNo);
+    if (chosenBar == index) {
+        return `<rect onclick="selectPillar(${index})" stroke="black" width="${width}" height="${height}"
+                    x="${x}" y="${y}" fill="${color}"></rect>`
+    } else {
+        return `<rect onclick="selectPillar(${index})" width="${width}" height="${height}"
+                        x="${x}" y="${y}" fill="${color}"></rect>`;
+    }
+}
+
+function calcColor(min, max, val) {
+    var minHue = 240, maxHue = 0;
+    var curPercent = (val - min) / (max - min);
+    var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
+    return colString;
+}
+
+// controller (ingenting her ennå)
+
+function inputValueChange(value) {
+    if (value < 1 || value > 10) {
+        errorMessage = "Verdien må være mellom 1 og 10";
+        inputValue = null;
+        updateView();
+        return;
+    };
+    errorMessage = "";
+
+    inputValue = value;
+}
+
+function selectPillar(index) {
+    if (chosenBar == index) {
+        chosenBar = null;
+    } else {
+        chosenBar = index;
+    }
+
+    errorMessage = "";
+    updateView();
+}
+
+function removeSelectedPillar() {
+    if (chosenBar == null) return;
+
+    errorMessage = "";
+    numbers.splice(chosenBar, 1);
+    chosenBar = null;
+    updateView();
+}
+
+function changeSelectedPillar() {
+    if (chosenBar == null || inputValue == null) return;
+
+    errorMessage = "";
+    numbers[chosenBar] = inputValue;
+    inputValue = null;
+    updateView();
+}
+
+function addPillar() {
+    if (inputValue == null) {
+        errorMessage = "Mangler verdi til stolpe";
+        updateView();
+        return;
+    };
+
+    numbers.push(inputValue)
+    updateView();
+}

@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
+<script src="lib.js"></script>
 
 <body>
+    <div id="content"></div>
 
+    <script>
+
+        updateView();
+        function updateView() {
+            let svgInnerHtml = '';
+            for (let i = 0; i < numbers.length; i++) {
+                svgInnerHtml += createBar(numbers[i], i + 1, i);
+            }
+            document.getElementById('content').innerHTML = /*HTML*/`
+                <svg id="chart" width="500" viewBox="0 0 60 60">
+                    ${svgInnerHtml}
+                </svg><br/>
+                Valgt stolpe: <i>${chosenBar == null ? "Ingen" : chosenBar + 1}</i>
+                <br />
+                Verdi:
+                <input type="number" min="1" max="10" oninput="inputValuechange(this.valueAsNumber)" value="${inputValue}"/>
+                <button onclick="addPillar()">Legg til stolpe</button>
+                ${addChangeOrDeleteButton("changeSelectedPillar()", "Endre valgt stolpe")}
+                ${addChangeOrDeleteButton("removeSelectedPillar()", "Fjerne valgt stolpe")}
+                <h3>${errorMessage}</h3>
+            `;
+        }
+
+    </script>
 </body>
 
 </html>

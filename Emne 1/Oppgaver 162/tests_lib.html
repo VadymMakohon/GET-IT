@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests for 153K</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="lib.js"></script>
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script>
+
+        function initializeModel() {
+            numbers = [1, 2, 3, 4, 5];
+            chosenBar = null;
+            inputValue = null;
+            errorMessage = "";
+        }
+
+        function updateView() { }
+
+        QUnit.test("Input valid numbers", function (assert) {
+            initializeModel();
+
+            for (let i = 1; i <= 10; i++) {
+                inputValueChange(i);
+                assert.equal(inputValue, i);
+            }
+        });
+
+        QUnit.test("Input invalid numbers", function (assert) {
+            initializeModel();
+
+            inputValue = 3;
+            inputValueChange(0);
+            assert.equal(inputValue, null);
+
+            inputValue = 3;
+            inputValueChange(11);
+            assert.equal(inputValue, null);
+        });
+
+        QUnit.test("Select new pillar", function (assert) {
+            initializeModel();
+            selectPillar(2);
+            assert.equal(chosenBar, 2);
+            selectPillar(3)
+            assert.equal(chosenBar, 3)
+        });
+
+        QUnit.test("Unselect pillar", function (assert) {
+            initializeModel();
+            let numOfPillars = numbers.length;
+            chosenBar = 2;
+            selectPillar(2);
+            assert.equal(chosenBar, null);
+        });
+
+        QUnit.test("Remove pillar", function (assert) {
+            initializeModel();
+            let nrOfPillars = numbers.length;
+            chosenBar = 0;
+            removeSelectedPillar();
+            assert.equal(numbers[0], 2);
+            assert.equal(numbers.length, nrOfPillars - 1);
+        });
+
+        QUnit.test("Change selected pillar", function (assert) {
+            initializeModel();
+            chosenBar = 0;
+            inputValueChange(5);
+            changeSelectedPillar();
+            assert.equal(numbers[0], 5);
+        })
+
+        QUnit.test("Add Pillar", function (assert) {
+            initializeModel();
+            let nrOfPillars = numbers.length;
+            inputValueChange(6);
+            addPillar();
+            assert.equal(numbers[numbers.length - 1], 6);
+            assert.equal(numbers.length, nrOfPillars + 1);
+        })
+    </script>
+</body>
+
+</html>
+
+
+function inputValuechange(value) {
+if (value < 1 || value> 10) {
+    errorMessage = "Verdien må være mellom 1 og 10";
+    inputValue = null;
+    updateView();
+    return;
+    };
+    errorMessage = "";
+
+    inputValue = value;
+    }
+
+    function selectPillar(index) {
+    if (chosenBar == index) {
+    chosenBar = null;
+    } else {
+    chosenBar = index;
+    }
+
+    errorMessage = "";
+    updateView();
+    }
+
+    function removeSelectedPillar() {
+    if (chosenBar == null) return;
+
+    errorMessage = "";
+    numbers.splice(chosenBar, 1);
+    chosenBar = null;
+    updateView();
+    }
+
+    function changeSelectedPillar() {
+    if (chosenBar == null || inputValue == null) return;
+
+    errorMessage = "";
+    numbers[chosenBar] = inputValue;
+    inputValue = null;
+    updateView();
+    }
+
+    function addPillar() {
+    if (inputValue == null) {
+    errorMessage = "Mangler verdi til stolpe";
+    updateView();
+    return;
+    };
+
+    numbers.push(inputValue)
+    updateView();
+    }
