@@ -5,8 +5,6 @@ body{
 }
 
 .container{
-    border: 1px solid black;
-
     width: 95%;
     height: 100vh;
     display: flex;
@@ -15,8 +13,6 @@ body{
 }
 
 .hex-colors{
-    border: 1px solid black;
-
     text-align: center;
 }
 
@@ -27,7 +23,6 @@ body{
 }
 
 .hex-colors h2{
-    border: 1px solid black;
     font-size: 2 rem;
     margin-top: 15%;
 }
@@ -50,5 +45,13 @@ body{
     }
     100%{
         color: red;
+    }
+}
+@media(max-width:480px){
+    .hex-colors h1{
+        font-size: 1.5rem;
+    }
+    .hex-colors h2{
+        font-size: 1.5rem;
     }
 }
