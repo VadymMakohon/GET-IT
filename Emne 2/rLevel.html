@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Developer Levels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #0073e6;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        div.level {
+            margin-bottom: 30px;
+        }
+
+        div.level h2 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        div.level strong {
+            margin: 10px 0 5px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // ∞
+        const developerLevels = [
+            {
+                title: 'Junior Developer',
+                altTitles: ['Associate developer', 'Trainee'],
+                yearsExperience: '0-2',
+                notes: [
+                    'Grunnleggende programmering'
+                    , 'Fundementale programmeringskonsepter'
+                    , 'Konkrete problemer / veldefinerte problemer'
+                    , 'Code monkeys'
+                    , 'Lære å være mer selvstendig'
+                    , 'Lære å skrive profesjonell kode'
+                    , 'Spør etter hjelp og veiledning'
+                    , 'Begynne å sette seg inn i større prosjekter'
+                    , 'Har lite eller ingen ansvar (for systemene)'
+                ]
+            },
+            {
+                title: 'Developer',
+                altTitles: ['Intermediate', 'Mid-level Developer'],
+                yearsExperience: '1-∞',
+                notes: [
+                    'Kan jobbe selvstendig'
+                    , 'God forståelse for programmering'
+                    , 'Mer kompliserte problemer'
+                    , 'Skriver profesjonell kode'
+                    , 'Trenger mindre hjelp'
+                    , 'Mer ansvar'
+                    , 'Kan designe systemer og arkitektur'
+                    , 'Kan kommunisere med andre utviklere og stakeholders'
+                    , 'Skal hjelpe andre'
+                ]
+            },
+            {
+                title: 'Senior Developer',
+                altTitles: ['Senõr Developer'],
+                yearsExperience: '3+',
+                notes: [
+                    'Helhetsoversikt over systemene'
+                    , 'Dypere foreståelse for programmering'
+                    , 'Er en mentor'
+                    , 'Leder prosjekter/sørge for at leveranser blir levert'
+                    , 'Ansvarlig for større og mer komplekse systemer'
+                    , 'Tar beslutninger om teknologi og implementasjon'
+                    , 'Oftere kommunikasjon med andre utviklere og stakeholders'
+                    , 'Designe arkitektur'
+                    , 'Starte prosjektene'
+                ]
+            },
+            {
+                title: 'Lead Developer',
+                altTitles: ['Tech Lead'],
+                yearsExperience: '5+',
+                notes: [
+                    'Bredere oversikt over teknologi og systemer'
+                    , 'Mye kommunikasjon med andre utviklere og stakeholders'
+                    , 'Ekspert på de brukte teknologiene'
+                    , 'Mandat til å bestemme over teknologi'
+                    , 'Ser det større bildet'
+                    , 'Mye arkitektur og design'
+                ]
+            },
+            {
+                title: 'Arkitekt',
+                altTitles: ['Systemarkitekt'],
+                yearsExperience: '7+',
+                notes: [
+                    'Mandat'
+                    , 'Bruker mindre tid på kode, mer på møter/design'
+                    , 'Jobber på mange prosjekter samtidig'
+                ]
+            }
+        ];
+
+        updateView();
+
+        function updateView() {
+            let developerLevelsHtml = '';
+
+            developerLevels.reverse().forEach(developerLevel => {
+                developerLevelsHtml += `
+            <div class="level">
+                <h2>${developerLevel.title}</h2>
+                <i>${developerLevel.altTitles.join(', ')}</i><br /><br />
+                <div><strong>Erfaring:</strong> ${developerLevel.yearsExperience}</div>
+                <div><strong>Notater:</strong>
+                <ul>
+                ${developerLevel.notes.map(note => {
+                    return `<li>${note}</li>`;
+                }).join('')}
+                </ul>
+                </div>
+            </div>
+            <hr />
+            `;
+            });
+
+            document.getElementById('app').innerHTML = developerLevelsHtml;
+        }
+    </script>
+</body>
+
+</html>
