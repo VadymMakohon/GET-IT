@@ -68,7 +68,7 @@ const model = {
     filmer: [
         {
             id: 1,
-            bilde: 'src/image/TheMask.png',
+            bilde: <link src="img/Logo.png"></link>,
             navn: 'The Mask',
             rating: 900,
             utgivelse: 1994,
