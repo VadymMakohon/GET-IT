@@ -2,6 +2,7 @@ const model = {
     // del 1:
     app: {
         currentPage: 'startPage', // filmInformasjon, opprettBruker, endreBruker, avansertSok, resultater, admin
+        loggetInn: false,
     },
 
     // del 2:
@@ -11,13 +12,11 @@ const model = {
     inputs: {
         startPage: {
             sokeTekst: 'The Mask',
-            loggetInn: false,
         },
 
         filmInformasjon: {
+            filmId: 1,
             sokeTekst: 'The Mask',
-            loggetInn: false,
-            ratingInput: 0,
             kommentarTekst: '',
         },
 
@@ -37,7 +36,7 @@ const model = {
             brukernavn: '',
             passord: '',
             favorittSjanger: [],
-            favorittFilmer: [],
+            sokeTekstBruker: 'The Mask',
         },
 
         avansertSok: {
@@ -50,7 +49,6 @@ const model = {
 
         resultatPage: {
             sokeTekst: 'The Mask',
-            loggetInn: false,
         },
 
         adminPage: {
@@ -63,12 +61,10 @@ const model = {
     },
 
     // del 3 - felles data
-    logo: <link src="img/Logo.png"></link>,
-
     filmer: [
         {
             id: 1,
-            bilde: <link src="img/Logo.png"></link>,
+            bilde: 'Logo.png',
             navn: 'The Mask',
             rating: 900,
             utgivelse: 1994,
@@ -84,6 +80,13 @@ const model = {
             skuespillere: [''],
         }
     ],
+    ratingsAndFavorites: [
+        { userId: 1, filmId: 1, rating: 4, isFavorite: true },
+        { userId: 2, filmId: 1, rating: 4 },
+        { userId: 1, filmId: 2, rating: 4 },
+        { userId: 3, filmId: 3, rating: 4 },
+        { userId: 1, filmId: 5, isFavorite: true },
+    ],
 
     bruker: [
         {
@@ -93,9 +96,8 @@ const model = {
             passord: 'abc1234',
             epost: 'TheMaskFan@gmail.com',
             favorittSjanger: ['komedie', 'romanse'],
-            favorittFilmer: ['Jim Carrey', 'Peter Greene', 'Cameron Diaz'],
-            ratetFilmer: ['The Mask', 'From Dusk til Dawn'],
             endreValget: [''],
+            isAdmin: true,
         }
     ]
 };
