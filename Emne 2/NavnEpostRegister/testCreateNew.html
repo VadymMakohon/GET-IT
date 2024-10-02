@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.1.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.1.js"></script>
+    <script src="js/createNewController.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+        let model;
+
+        function updateView() { }
+
+        QUnit.test('test add person', function (assert) {
+            // arrange
+            model = {
+                app: {
+                    page: '',
+                },
+                people: [],
+                inputs: {
+                    createNew: {
+                        name: 'Terje',
+                        email: 'terje@getacademy.no',
+                    }
+                }
+            };
+
+            // act
+            createNewPerson();
+
+            // assert
+            assert.equal(model.people.length, 1, 'length correct');
+            const terje = model.people[0];
+            assert.equal(terje.name, 'Terje', 'name correct');
+            assert.equal(terje.email, 'terje@getacademy.no', 'email correct');
+        });
+    </script>
+</body>
