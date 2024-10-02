@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .movie {
+            display: flex;
+            gap: 10px;
+            background-color: lightblue;
+            margin: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .rating {
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+    <script src="js/model.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/commonController.js"></script>
+    <script src="js/commonView.js"></script>
+    <script src="js/loginController.js"></script>
+    <script src="js/loginView.js"></script>
+    <script src="js/mainController.js"></script>
+    <script src="js/mainView.js"></script>
+    <script src="js/profileController.js"></script>
+    <script src="js/profileView.js"></script>
+    <script src="js/moviesController.js"></script>
+    <script src="js/moviesView.js"></script>
+    <script src="js/singleMovieController.js"></script>
+    <script src="js/singleMovieView.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        updateView();
+        function updateView() {
+            if (model.app.loggedInAsUserId == null) updateViewLogin();
+            else if (model.app.currentPage == 'editProfile') updateViewEditProfile();
+            else if (model.app.currentPage == 'movies') updateViewMovies();
+            else if (model.app.currentPage == 'singleMovie') updateViewSingleMovie();
+            else updateViewMain();
+        }
+    </script>
+</body>
+
+</html>
