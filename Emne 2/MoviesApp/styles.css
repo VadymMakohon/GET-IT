@@ -1,0 +1,29 @@
+img.movie {
+    height: 30px;
+    width: 20px;
+}
+
+tr:nth-child(1){
+    background-color: lightblue;
+    font-size: 120%;
+}
+
+th:nth-child(2),th:nth-child(3){
+    width: 240px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tr:nth-child(even){
+    background-color: #eeeeee;
+}
+
+td,th{
+    padding: 2px;
+}
+
+th.narrow{
+    width: fit-content;
+}

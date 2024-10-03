@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/model.js"></script>
+    <script src="js/movies.js"></script>
+    <script src="js/searchView.js"></script>
+    <script src="js/searchController.js"></script>
+    <script src="js/addView.js"></script>
+    <script src="js/addController.js"></script>
+    <script src="js/editView.js"></script>
+    <script src="js/editController.js"></script>
+    <script src="js/previewView.js"></script>
+    <script src="js/previewController.js"></script>
+    <script src="js/commonController.js"></script>
+</head>
+
+<body onload="initData()">
+    <div id="app"></div>
+    <script>
+        function initData() {
+            const genres = new Set();
+            const years = new Set();
+            for (let movie of model.movies) {
+                years.add(movie.year);
+                for (let genre of movie.genres) {
+                    genres.add(genre);
+                }
+            }
+            model.genres = Array.from(genres);
+            model.years = Array.from(years);
+            model.genres.sort();
+            model.years.sort();            
+            updateView();
+        }
+
+        function updateView() {
+            const page = model.app.currentPage;
+            if (page == 'search') updateViewSearch();
+            else if (page == 'add') updateViewAdd();
+            else if (page == 'edit') updateViewEdit();
+            else if (page == 'preview') updateViewPreview();
+        }
+    </script>
+</body>
+
+</html>
