@@ -10,7 +10,7 @@ Thank you for considering contributing to this project! Whether you're intereste
 
 1. Check for Existing Issues: Before starting work on a new contribution, please check the issue tracker to ensure that a similar issue doesn't already exist. If you find an existing issue that matches your contribution, feel free to comment on it to express your interest in working on it.
 
-2. Fork the Repository: If you're ready to contribute, fork the Pokédex repository to your own GitHub account.
+2. Fork the Repository: If you're ready to contribute, fork this repository to your own GitHub account.
 
 3. Clone the Repository: Clone the forked repository to your local machine using Git.
 
