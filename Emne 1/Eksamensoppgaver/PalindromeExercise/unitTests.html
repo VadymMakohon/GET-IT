@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.22.0.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.22.0.js"></script>
+    <script src="logic.js"></script>
+    <script>
+        QUnit.test('A: anna', function (assert) {
+            // arrange
+            let text = 'anna';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.true(actualResult);
+        });
+
+        QUnit.test('B: eva', function (assert) {
+            // arrange
+            let text = 'eva';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.false(actualResult);
+        });
+
+        QUnit.test('C: mormor ellemeller om rom', function (assert) {
+            // arrange
+            let text = 'mormor ellemeller om rom';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.true(actualResult);
+        });
+
+        QUnit.test('D: morfar ellemeller om rom', function (assert) {
+            // arrange
+            let text = 'morfar ellemeller om rom';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.false(actualResult);
+        });
+
+        QUnit.test('E: Agnes i senga', function (assert) {
+            // arrange
+            let text = 'Agnes i senga';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.true(actualResult);
+        });
+
+        QUnit.test('F: Agnes i sengen', function (assert) {
+            // arrange
+            let text = 'Agnes i sengen';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.false(actualResult);
+        });
+
+        QUnit.test('G: Anna, Durek er udanna!', function (assert) {
+            // arrange
+            let text = 'Anna, Durek er udanna!';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.true(actualResult);
+        });
+
+        QUnit.test('H: Anne, Durek er udanna!', function (assert) {
+            // arrange
+            let text = 'Anne, Durek er udanna!';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.false(actualResult);
+        });
+
+        QUnit.test('I: En ranet Unni sier: Stas at rom-nissen ga dem et ømt møte med Agnes sin mor. Ta sats, reis inn uten Arne!', function (assert) {
+            // arrange
+            let text = 'En ranet Unni sier: Stas at rom-nissen ga dem et ømt møte med Agnes sin mor. Ta sats, reis inn uten Arne!';
+
+            // act
+            let actualResult = isPalindrome(text);
+
+            // assert
+            assert.true(actualResult);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Puzzles</title>
+    <script src="words.js"></script>
+</head>
+
+<body onload="generateWordPuzzles()">
+    <script>
+        // Hovedfunksjonen som genererer 10 ordgåter
+        function generateWordPuzzles() {
+            const numberOfPuzzles = 10;
+            let puzzlesGenerated = 0;
+
+            while (puzzlesGenerated < numberOfPuzzles) {
+                const randomWord = getRandomWord();
+
+                if (isWordValid(randomWord)) {
+                    const matchingWord = findMatchingWord(randomWord);
+
+                    if (matchingWord) {
+                        displayPuzzle(randomWord, matchingWord);
+                        puzzlesGenerated++;
+                    }
+                }
+            }
+        }
+
+        // Funksjon som henter et tilfeldig ord fra words-listen
+        function getRandomWord() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            return words[randomIndex].trim();
+        }
+
+        // Funksjnon som sjekker om ordet er lengre enn 6 bokstaver
+        function isWordValid(word) {
+            return word.length > 6;
+        }
+
+        // Funksjon søker etter et annet ord som matcher (slutter og starter med de samme tre bokstavene)
+        function findMatchingWord(word1) {
+            const lastPartOfWord1 = getLastThreeLetters(word1);
+
+            for (const word2 of words) {
+                if (isWordValid(word2) && word1 !== word2 && word2.startsWith(lastPartOfWord1)) {
+                    return word2;
+                }
+            }
+            return null; // Returnerer null hvis ingen match ble funnet
+        }
+
+        // Funksjon som henter de siste tre bokstavene av et ord
+        function getLastThreeLetters(word) {
+            return word.substr(word.length - 3);
+        }
+
+        // Funksjon som viser ordgåten på siden
+        function displayPuzzle(word1, word2) {
+            const firstPartOfWord1 = word1.substr(0, word1.length - 3); // Første del av første ord
+            const lastPartOfWord2 = word2.substr(3); // Siste del av andre ord
+
+            document.body.innerHTML += /*HTML*/`
+                <div>
+                    ${firstPartOfWord1}___ ___${lastPartOfWord2}
+                    <button onclick="this.innerHTML = '${word1} ${word2.trim()}'">?</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
