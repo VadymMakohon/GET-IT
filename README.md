@@ -50,6 +50,9 @@ This repository is more than just a collection of code—it's a reflection of my
 
 Thank you for visiting, and happy coding! <img src="https://cdn-icons-png.flaticon.com/512/2888/2888407.png" alt="Web Development Icon" width="50" height="50" />
 
+### Show your support
+
+Give a ⭐ if you like these projects!
 # Contributors  <img src="https://cdn-icons-png.flaticon.com/512/5431/5431310.png" alt="Contribution Icon" width="50" height="50">
 
 - [Vadym Makohon](https://github.com/VadymMakohon)
