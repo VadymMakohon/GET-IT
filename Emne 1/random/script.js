@@ -11,4 +11,6 @@ function randomColor() {
     const blue = Math.random(Math.random) * 255
 
     const color = `rgb(${red}, ${green}, ${blue})`
+
+    body.style.backgroundColor = color;
 }
