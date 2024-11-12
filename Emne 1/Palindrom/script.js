@@ -7,5 +7,10 @@ function reverseString(str) {
 function check() {
     const value = input.value
     const reverse = reverseString(value)
-    alert(reverse)
+
+    if (value === reverse) {
+        alert("P A L I N D R O M E")
+    } else {
+        alert("No-no-no Goddammet!")
+    }
 }
