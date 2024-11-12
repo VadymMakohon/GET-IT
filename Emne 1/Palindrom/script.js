@@ -13,4 +13,6 @@ function check() {
     } else {
         alert("No-no-no Goddammet!")
     }
+
+    input.value = ""
 }
