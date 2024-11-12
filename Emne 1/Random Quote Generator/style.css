@@ -30,3 +30,45 @@ body {
 .container:hover {
     transform: scale(1.01);
 }
+
+#quote {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    line-height: 1.5;
+}
+
+button {
+    border-radius: 5px;
+    background-color: rgb(86, 81, 235);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: rgb(65, 60, 200);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #quote {
+        font-size: 1.1em;
+    }
+
+    button {
+        font-size: 0.9em;
+    }
+}
