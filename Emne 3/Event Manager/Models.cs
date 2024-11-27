@@ -3,7 +3,6 @@ public class User : IdentityUser
     public string FullName { get; set; }
     public ICollection<Registration> Registrations { get; set; }
 }
-
 public class Event
 {
     public int Id { get; set; }
