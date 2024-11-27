@@ -1,0 +1,15 @@
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/bin/Debug/net8.0/ConsoleApp3
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/bin/Debug/net8.0/ConsoleApp3.deps.json
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/bin/Debug/net8.0/ConsoleApp3.runtimeconfig.json
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/bin/Debug/net8.0/ConsoleApp3.dll
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/bin/Debug/net8.0/ConsoleApp3.pdb
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.AssemblyInfoInputs.cache
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.AssemblyInfo.cs
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.csproj.CoreCompileInputs.cache
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.sourcelink.json
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.dll
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/refint/ConsoleApp3.dll
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.pdb
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ConsoleApp3.genruntimeconfig.cache
+/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/Debug/net8.0/ref/ConsoleApp3.dll

@@ -13,6 +13,7 @@
         "packagesPath": "/Users/vadymmakohon/.nuget/packages/",
         "outputPath": "/Users/vadymmakohon/Desktop/GET-IT/Emne 3/IntroConsoleApps-main/ConsoleApp3/ConsoleApp3/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/vadymmakohon/.nuget/NuGet/NuGet.Config"
         ],
