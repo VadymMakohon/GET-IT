@@ -14,6 +14,6 @@ class Program
         string originalTekst = "Terje";
         string snudd = SnuddTekst(originalTekst);
 
-        Console.WriteLine(snudd); // Output: ejreT
+        Console.WriteLine(snudd);
     }
 }
