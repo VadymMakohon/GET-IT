@@ -1,0 +1,19 @@
+using System;
+
+class Program
+{
+    static string SnuddTekst(string tekst)
+    {
+        char[] tegnArray = tekst.ToCharArray();
+        Array.Reverse(tegnArray);
+        return new string(tegnArray);
+    }
+
+    static void Main()
+    {
+        string originalTekst = "Terje";
+        string snudd = SnuddTekst(originalTekst);
+
+        Console.WriteLine(snudd); // Output: ejreT
+    }
+}
