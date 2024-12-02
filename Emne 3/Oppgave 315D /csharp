@@ -1,0 +1,32 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Skriv inn en linje tekst:");
+        string input = Console.ReadLine();
+
+        string[] words = input.Split(new[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+        int wordCount = words.Length;
+
+        string longestWord = words.OrderByDescending(word => word.Length).FirstOrDefault();
+
+        string wordWithMostVowels = words.OrderByDescending(CountVowels).FirstOrDefault();
+
+        Console.WriteLine($"Antall ord: {wordCount}");
+        Console.WriteLine($"Lengste ord: {longestWord} ({longestWord?.Length ?? 0} bokstaver)");
+        Console.WriteLine($"Ordet med flest vokaler: {wordWithMostVowels} ({CountVowels(wordWithMostVowels)} vokaler)");
+
+        double averageWordLength = words.Any() ? words.Average(word => word.Length) : 0;
+        Console.WriteLine($"Gjennomsnittlig ordlengde: {averageWordLength:F2}");
+    }
+
+    static int CountVowels(string word)
+    {
+        char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'y', 'æ', 'ø', 'å', 'A', 'E', 'I', 'O', 'U', 'Y', 'Æ', 'Ø', 'Å' };
+        return word.Count(c => vowels.Contains(c));
+    }
+}
