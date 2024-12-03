@@ -1,0 +1,49 @@
+using System;
+
+class Program
+{
+    static void Main(string[] arguments)
+    {
+        const int range = 250;
+        var counts = new int[range];
+        int totalCharacters = 0;
+
+        Console.WriteLine("Skriv inn tekst (trykk Enter for å avslutte):");
+
+        string text;
+        while (!string.IsNullOrWhiteSpace(text = Console.ReadLine()))
+        {
+            totalCharacters += CountCharacters(text.ToLower(), counts);
+        }
+
+        DisplayStatistics(counts, totalCharacters);
+    }
+
+    static int CountCharacters(string text, int[] counts)
+    {
+        int charCount = 0;
+
+        foreach (var character in text)
+        {
+            counts[(int)character]++;
+            charCount++;
+        }
+
+        return charCount;
+    }
+
+    static void DisplayStatistics(int[] counts, int totalCharacters)
+    {
+        Console.WriteLine("\nTegnstatistikk:");
+
+        for (var i = 0; i < counts.Length; i++)
+        {
+            if (counts[i] > 0)
+            {
+                var character = (char)i;
+                var percentage = (counts[i] / (double)totalCharacters) * 100;
+                Console.WriteLine($"{character} - {counts[i]} ({percentage:F2}%)");
+            }
+        }
+    }
+}
