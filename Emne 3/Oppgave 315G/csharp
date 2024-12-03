@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main(string[] arguments)
+    {
+        const int range = 250; // Størrelsen på "counts"-arrayet
+        var counts = new int[range]; // Array for å telle tegn
+        int totalCharacters = 0; // Holder styr på totalt antall tegn
+        string text = "something"; // Dummy startverdi
+
+        Console.WriteLine("Skriv inn tekst (trykk Enter for å avslutte):");
+
+        while (!string.IsNullOrWhiteSpace(text))
+        {
+            text = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(text)) break; // Avslutt hvis tom linje
+
+            foreach (var character in text.ToLower()) // Konverter til små bokstaver
+            {
+                counts[(int)character]++;
+                totalCharacters++;
+            }
+        }
+
+        // Vis statistikk
+        Console.WriteLine("\nTegnstatistikk:");
+        for (var i = 0; i < range; i++)
+        {
+            if (counts[i] > 0)
+            {
+                var character = (char)i;
+                var percentage = (counts[i] / (double)totalCharacters) * 100;
+                Console.WriteLine($"{character} - {counts[i]} ({percentage:F2}%)");
+            }
+        }
+    }
+}
