@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Opprett liste med mynter
+        var coinCounts = new List<Coin>
+        {
+            new Coin(1, 7),   // 7 stk. 1-kroninger
+            new Coin(5, 3),   // 3 stk. 5-kroninger
+            new Coin(10, 2),  // 2 stk. 10-kroninger
+            new Coin(10, 11)  // 11 stk. 10-kroninger
+        };
+
+        // Beregn og skriv ut totalverdi
+        Console.WriteLine($"Total pengeverdi: {CoinCalculator.CalculateTotalValue(coinCounts)} kr");
+    }
+}
+
+// Representasjon av en mynt
+class Coin
+{
+    // Automatisk implementerte egenskaper med private set for innkapsling
+    public int Value { get; private set; }
+    public int Count { get; private set; }
+
+    // Konstruktør
+    public Coin(int value, int count)
+    {
+        Value = value;
+        Count = count;
+    }
+
+    // Beregn verdien av denne mynttypen
+    public int CalculateValue()
+    {
+        return Value * Count;
+    }
+}
+
+class CoinCalculator
+{
+    // Beregn totalverdien av alle mynter
+    public static int CalculateTotalValue(List<Coin> coins)
+    {
+        int totalValue = 0;
+
+        foreach (var coin in coins)
+        {
+            totalValue += coin.CalculateValue();
+        }
+
+        return totalValue;
+    }
+}
