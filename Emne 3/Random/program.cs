@@ -14,7 +14,7 @@ class Program
     static void SingleCarRace()
     {
         int distanceCovered = 0;
-        int speed = 10; // Start-hastighet i m/s
+        int speed = 10;
         const int totalDistance = 1000;
 
         while (distanceCovered < totalDistance)
@@ -23,9 +23,9 @@ class Program
             Console.WriteLine($"Bilen kjører {speed} m/s og har nå kjørt {distanceCovered} meter.");
 
             if (distanceCovered < 500)
-                speed += 10; // Øk hastighet
+                speed += 10;
             else if (speed > 10)
-                speed -= 10; // Reduser hastighet
+                speed -= 10;
         }
 
         Console.WriteLine("Bilen er fremme og har parkert.");
