@@ -18,7 +18,6 @@ class Program
 
         DisplayStatistics(counts, totalCharacters);
     }
-
     static int CountCharacters(string text, int[] counts)
     {
         int charCount = 0;
