@@ -33,25 +33,48 @@
             font-size: 16px;
             cursor: pointer;
         }
-
-        </style>
+    </style>
 </head>
 
 <body>
     <div id="myDiv">
         Test
     </div>
+    <div id="controls">
+        <label>Enter RGB values for the background color:</label>
+        <input id="redInput" type="number" min="0" max="255" placeholder="Red (0-255)" />
+        <input id="greenInput" type="number" min="0" max="255" placeholder="Green (0-255)" />
+        <input id="blueInput" type="number" min="0" max="255" placeholder="Blue (0-255)" />
+        <button onclick="updateColor()">Apply Color</button>
+    </div>
     <script>
-        let exampleColor = { red: 50, green: 50, blue: 250 };
-        demoColor(exampleColor);
+        function updateColor() {
+            const red = parseInt(document.getElementById('redInput').value);
+            const green = parseInt(document.getElementById('greenInput').value);
+            const blue = parseInt(document.getElementById('blueInput').value);
+
+            if (isValidColorValue(red) && isValidColorValue(green) && isValidColorValue(blue)) {
+                const color = { red, green, blue };
+                demoColor(color);
+            } else {
+                alert('Please enter valid RGB values (0-255) for all fields.');
+            }
+        }
+
+        function isValidColorValue(value) {
+            return Number.isInteger(value) && value >= 0 && value <= 255;
+        }
 
         function demoColor(color) {
-            let white = { red: 255, green: 255, blue: 255 };
-            let myDiv = document.getElementById('myDiv');
+            const white = { red: 255, green: 255, blue: 255 };
+            const myDiv = document.getElementById('myDiv');
+
             myDiv.style.backgroundColor = getColorCss(color);
-            let invertedColor = invertColor(color);
+
+            const invertedColor = invertColor(color);
             myDiv.style.color = getColorCss(invertedColor);
-            let meanColor = getMeanColor(color, white);
+
+            const meanColor = getMeanColor(color, white);
             myDiv.style.borderColor = getColorCss(meanColor);
         }
 
@@ -65,9 +88,9 @@
 
         function getMeanColor(color1, color2) {
             return {
-                red: (color1.red + color2.red) / 2,
-                green: (color1.green + color2.green) / 2,
-                blue: (color1.blue + color2.blue) / 2,
+                red: Math.round((color1.red + color2.red) / 2),
+                green: Math.round((color1.green + color2.green) / 2),
+                blue: Math.round((color1.blue + color2.blue) / 2),
             };
         }
 
