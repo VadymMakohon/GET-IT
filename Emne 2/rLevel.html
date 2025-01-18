@@ -68,109 +68,121 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <h1>Developer Levels</h1>
+        <button onclick="toggleOrder()">Toggle Order</button>
+        <div id="developerLevelsContainer"></div>
+    </div>
 
     <script>
-        // ∞
         const developerLevels = [
             {
                 title: 'Junior Developer',
                 altTitles: ['Associate developer', 'Trainee'],
                 yearsExperience: '0-2',
                 notes: [
-                    'Grunnleggende programmering'
-                    , 'Fundementale programmeringskonsepter'
-                    , 'Konkrete problemer / veldefinerte problemer'
-                    , 'Code monkeys'
-                    , 'Lære å være mer selvstendig'
-                    , 'Lære å skrive profesjonell kode'
-                    , 'Spør etter hjelp og veiledning'
-                    , 'Begynne å sette seg inn i større prosjekter'
-                    , 'Har lite eller ingen ansvar (for systemene)'
-                ]
+                    'Grunnleggende programmering',
+                    'Fundamentale programmeringskonsepter',
+                    'Konkrete problemer / veldefinerte problemer',
+                    'Code monkeys',
+                    'Lære å være mer selvstendig',
+                    'Lære å skrive profesjonell kode',
+                    'Spør etter hjelp og veiledning',
+                    'Begynne å sette seg inn i større prosjekter',
+                    'Har lite eller ingen ansvar (for systemene)',
+                ],
             },
             {
                 title: 'Developer',
                 altTitles: ['Intermediate', 'Mid-level Developer'],
                 yearsExperience: '1-∞',
                 notes: [
-                    'Kan jobbe selvstendig'
-                    , 'God forståelse for programmering'
-                    , 'Mer kompliserte problemer'
-                    , 'Skriver profesjonell kode'
-                    , 'Trenger mindre hjelp'
-                    , 'Mer ansvar'
-                    , 'Kan designe systemer og arkitektur'
-                    , 'Kan kommunisere med andre utviklere og stakeholders'
-                    , 'Skal hjelpe andre'
-                ]
+                    'Kan jobbe selvstendig',
+                    'God forståelse for programmering',
+                    'Mer kompliserte problemer',
+                    'Skriver profesjonell kode',
+                    'Trenger mindre hjelp',
+                    'Mer ansvar',
+                    'Kan designe systemer og arkitektur',
+                    'Kan kommunisere med andre utviklere og stakeholders',
+                    'Skal hjelpe andre',
+                ],
             },
             {
                 title: 'Senior Developer',
                 altTitles: ['Senõr Developer'],
                 yearsExperience: '3+',
                 notes: [
-                    'Helhetsoversikt over systemene'
-                    , 'Dypere foreståelse for programmering'
-                    , 'Er en mentor'
-                    , 'Leder prosjekter/sørge for at leveranser blir levert'
-                    , 'Ansvarlig for større og mer komplekse systemer'
-                    , 'Tar beslutninger om teknologi og implementasjon'
-                    , 'Oftere kommunikasjon med andre utviklere og stakeholders'
-                    , 'Designe arkitektur'
-                    , 'Starte prosjektene'
-                ]
+                    'Helhetsoversikt over systemene',
+                    'Dypere forståelse for programmering',
+                    'Er en mentor',
+                    'Leder prosjekter/sørger for at leveranser blir levert',
+                    'Ansvarlig for større og mer komplekse systemer',
+                    'Tar beslutninger om teknologi og implementasjon',
+                    'Oftere kommunikasjon med andre utviklere og stakeholders',
+                    'Designe arkitektur',
+                    'Starte prosjektene',
+                ],
             },
             {
                 title: 'Lead Developer',
                 altTitles: ['Tech Lead'],
                 yearsExperience: '5+',
                 notes: [
-                    'Bredere oversikt over teknologi og systemer'
-                    , 'Mye kommunikasjon med andre utviklere og stakeholders'
-                    , 'Ekspert på de brukte teknologiene'
-                    , 'Mandat til å bestemme over teknologi'
-                    , 'Ser det større bildet'
-                    , 'Mye arkitektur og design'
-                ]
+                    'Bredere oversikt over teknologi og systemer',
+                    'Mye kommunikasjon med andre utviklere og stakeholders',
+                    'Ekspert på de brukte teknologiene',
+                    'Mandat til å bestemme over teknologi',
+                    'Ser det større bildet',
+                    'Mye arkitektur og design',
+                ],
             },
             {
                 title: 'Arkitekt',
                 altTitles: ['Systemarkitekt'],
                 yearsExperience: '7+',
                 notes: [
-                    'Mandat'
-                    , 'Bruker mindre tid på kode, mer på møter/design'
-                    , 'Jobber på mange prosjekter samtidig'
-                ]
-            }
+                    'Mandat',
+                    'Bruker mindre tid på kode, mer på møter/design',
+                    'Jobber på mange prosjekter samtidig',
+                ],
+            },
         ];
 
-        updateView();
+        let isReversed = false;
 
         function updateView() {
+            const container = document.getElementById('developerLevelsContainer');
             let developerLevelsHtml = '';
 
-            developerLevels.reverse().forEach(developerLevel => {
+            const levelsToRender = isReversed ? [...developerLevels].reverse() : developerLevels;
+
+            levelsToRender.forEach((developerLevel) => {
                 developerLevelsHtml += `
-            <div class="level">
-                <h2>${developerLevel.title}</h2>
-                <i>${developerLevel.altTitles.join(', ')}</i><br /><br />
-                <div><strong>Erfaring:</strong> ${developerLevel.yearsExperience}</div>
-                <div><strong>Notater:</strong>
-                <ul>
-                ${developerLevel.notes.map(note => {
-                    return `<li>${note}</li>`;
-                }).join('')}
-                </ul>
+                <div class="level">
+                    <h2>${developerLevel.title}</h2>
+                    <i>${developerLevel.altTitles.join(', ')}</i><br /><br />
+                    <div><strong>Erfaring:</strong> ${developerLevel.yearsExperience}</div>
+                    <div><strong>Notater:</strong>
+                        <ul>
+                            ${developerLevel.notes.map((note) => `<li>${note}</li>`).join('')}
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <hr />
-            `;
+                <hr />
+                `;
             });
 
-            document.getElementById('app').innerHTML = developerLevelsHtml;
+            container.innerHTML = developerLevelsHtml;
         }
+
+        function toggleOrder() {
+            isReversed = !isReversed;
+            updateView();
+        }
+
+        // Initial Render
+        updateView();
     </script>
 </body>
 
